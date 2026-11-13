@@ -1,0 +1,62 @@
+# Français. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ AJOUTER UNE CHANSON, CRÉER LE MOD…) — as in the program window / README-FR.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — musique personnalisée dans NFS Heat (mod PC)
+seo_desc = Ajoute ta propre musique à Need for Speed Heat : tes chansons en nouveaux titres, au garage, en ville et en course, jour et nuit. Depuis YouTube aussi. Gratuit.
+og_locale = fr_FR
+lang_name = Français
+suggest = Cette page existe aussi en français
+ai_note = Traductions faites par IA (Claude)
+lang_nav = Langue
+
+# --- first screen ---
+lead = Tes propres chansons dans **Need for Speed Heat** — en nouveaux titres, juste à côté de ceux du jeu.
+soon = Bientôt
+download = Télécharger
+source = Code source
+facts = Gratuit · Windows 10/11 · Solo uniquement · Fait par des fans
+shot_alt = Fenêtre de Heat Soundtrack : les titres du jeu et tes propres chansons
+
+# --- what it does ---
+what_h = Ce qu'il fait
+f1t = Tes chansons
+f1 = mp3, flac, wav, ogg, m4a — ajoutées comme **nouveaux** titres. Les titres du jeu restent tels quels.
+f2t = Jour · Nuit
+f2 = Coche où passe chaque chanson : garage, ville de jour, ville de nuit, courses de jour, courses de nuit.
+f3t = Titres du jeu
+f3 = Active ou désactive n'importe quel titre du jeu — séparément pour chaque endroit.
+f4t = YouTube · YT Music
+f4 = Colle le lien d'une chanson, d'une playlist ou d'un album — ou plein de liens d'un coup. Avec le lien d'un clip, le programme prend la même chanson sur YT Music.
+f5t = Un seul mod
+f5 = Crée un seul mod pour Frosty Mod Manager. Les fichiers du jeu ne sont pas modifiés. Profils : différentes sélections de titres, on change en un clic.
+f6t = 13 langues
+f6 = La fenêtre parle 13 langues. Ni musique ni fichiers du jeu dans le zip — les chansons, c'est toi qui les apportes.
+
+# --- what you need ---
+need_h = Ce qu'il te faut
+n1 = **Windows 10 ou 11** — Microsoft Edge est intégré, la fenêtre l'utilise.
+n2 = **Need for Speed Heat** — Steam ou EA app.
+n3 = **Frosty Mod Manager**, la version de HarGabt — [versions](fmm). Lance-le une fois et choisis le jeu.
+n4 = La clé de chiffrement du jeu — **NFS Heat Frosty Key** sur [Nexus Mods](key) : mets **NFSHEAT.key** dans le dossier de Frosty Mod Manager.
+
+# --- how to use ---
+how_h = Comment l'utiliser
+s1 = Décompresse **tout** le zip dans un dossier normal — Bureau, Documents, D:\Mods… — pas dans Program Files.
+s2 = Lance **Heat Soundtrack.exe**, choisis la langue et accepte les conditions. Le premier lancement lit le jeu — quelques minutes, une seule fois.
+s3 = **+ AJOUTER UNE CHANSON** → choisis un fichier → coche où elle passe → **Enregistrer**. Ou **▶ DEPUIS YT MUSIC** → colle un lien → **Télécharger**.
+s4 = Les chansons sont dans le dossier **Music** à côté du programme — un dossier numéroté par chanson : le fichier de la chanson et une image pour la pochette.
+s5 = **CRÉER LE MOD**. Le mod apparaît dans la liste de Frosty Mod Manager.
+s6 = Dans Frosty Mod Manager : coche **Heat Soundtrack**, désactive les autres mods de musique, appuie sur **Launch**.
+off_h = Hors ligne uniquement.
+off = Les mods sont faits pour le jeu solo. Avant de jouer en ligne, lance le jeu sans mods — jouer en ligne avec des mods peut faire bannir ton compte EA.
+ss = Windows SmartScreen peut avertir d'un éditeur inconnu : le programme n'a pas de certificat payant. Clique sur **Informations complémentaires** → **Exécuter quand même**. Le code source est sur [GitHub](github).
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = Nouveautés
+log 1.0 = Première version.
+
+# --- bottom ---
+license = Open source — GNU GPL v3 (il utilise les bibliothèques de Frosty Toolsuite). Fait par Kitivski + Claude (IA d'Anthropic).
+hub = Tous les jeux Need for Speed — NFS Own Music
+foot = Fait par des fans, sans lien avec Electronic Arts ou Ghost Games. Need for Speed et NFS Heat sont des marques commerciales d'Electronic Arts Inc.

@@ -1,0 +1,62 @@
+# 日本語. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ 曲を追加, MOD を作成…) — as in the program window / README-JA.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — NFS Heat に自分の曲を BGM として追加（PC MOD）
+seo_desc = Need for Speed Heat に自分の曲を新しい BGM として追加。ゲームの曲はそのまま、ガレージ・街・レースで昼も夜も流せます。YouTube / YT Music からも。無料・オープンソース。
+og_locale = ja_JP
+lang_name = 日本語
+suggest = このページは日本語でもご覧いただけます
+ai_note = 翻訳は AI（Claude）によるものです
+lang_nav = 言語
+
+# --- first screen ---
+lead = **Need for Speed Heat** に自分の曲を — 新しい曲として、ゲームの曲のすぐ隣に。
+soon = 近日公開
+download = ダウンロード
+source = ソースコード
+facts = 無料 · Windows 10/11 · シングルプレイ専用 · ファンメイド
+shot_alt = Heat Soundtrack のウィンドウ：ゲームの曲と自分の曲
+
+# --- what it does ---
+what_h = できること
+f1t = 自分の曲
+f1 = mp3、flac、wav、ogg、m4a — **新しい**曲として追加します。ゲームの曲はそのまま残ります。
+f2t = 昼 · 夜
+f2 = 曲ごとに流れる場所をチェックで選べます：ガレージ、昼の街、夜の街、昼のレース、夜のレース。
+f3t = ゲームの曲
+f3 = ゲームのどの曲もオン／オフできます — 場所ごとに別々に。
+f4t = YouTube · YT Music
+f4 = 曲・プレイリスト・アルバムのリンクを貼り付けるだけ — 複数のリンクをまとめて貼っても OK。MV のリンクなら、同じ曲を YT Music から取得します。
+f5t = MOD は 1 つ
+f5 = Frosty Mod Manager 用の MOD を 1 つだけ作成します。ゲームのファイルは変更しません。プロファイル：曲のセットを使い分けて、ワンクリックで切り替え。
+f6t = 13 言語
+f6 = ウィンドウは 13 言語に対応。zip に音楽やゲームのファイルは入っていません — 曲はあなたが用意します。
+
+# --- what you need ---
+need_h = 必要なもの
+n1 = **Windows 10 または 11** — Microsoft Edge が標準で入っていて、ウィンドウの表示に使います。
+n2 = **Need for Speed Heat** — Steam または EA app。
+n3 = **Frosty Mod Manager**（HarGabt 版） — [リリース](fmm)。一度起動して、ゲームを選んでおいてください。
+n4 = ゲームの暗号化キー — [Nexus Mods](key) の **NFS Heat Frosty Key**：**NFSHEAT.key** を Frosty Mod Manager のフォルダーに入れます。
+
+# --- how to use ---
+how_h = 使い方
+s1 = zip を**丸ごと**普通のフォルダーに展開してください — デスクトップ、ドキュメント、D:\Mods… など。Program Files の中には展開しないでください。
+s2 = **Heat Soundtrack.exe** を起動し、言語を選んで利用条件に同意します。初回起動時はゲームを読み込みます — 数分かかりますが、最初の一回だけです。
+s3 = **+ 曲を追加** → ファイルを選ぶ → 流れる場所をチェック → **保存**。または **▶ YT Music から** → リンクを貼り付け → **ダウンロード**。
+s4 = 曲はプログラムの隣にある **Music** フォルダーに入ります — 1 曲につき番号付きのフォルダーが 1 つ：曲のファイルとジャケット用の画像。
+s5 = **MOD を作成**。MOD が Frosty Mod Manager のリストに表示されます。
+s6 = Frosty Mod Manager で **Heat Soundtrack** にチェックを入れ、ほかの音楽 MOD をオフにして、**Launch** を押します。
+off_h = オフライン専用。
+off = MOD はシングルプレイ専用です。オンラインで遊ぶ前に、MOD なしでゲームを起動してください — MOD を入れたままオンラインで遊ぶと、EA アカウントが BAN される可能性があります。
+ss = Windows SmartScreen が「不明な発行元」と警告することがあります：このプログラムには有料の証明書がないためです。**詳細情報** → **実行** をクリックしてください。ソースコードは [GitHub](github) にあります。
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = 更新履歴
+log 1.0 = 最初のリリース。
+
+# --- bottom ---
+license = オープンソース — GNU GPL v3（Frosty Toolsuite のライブラリを使用）。制作：Kitivski + Claude（Anthropic の AI）。
+hub = Need for Speed シリーズ全作 — NFS Own Music
+foot = ファンメイドであり、Electronic Arts および Ghost Games とは一切関係ありません。Need for Speed と NFS Heat は Electronic Arts Inc. の商標です。

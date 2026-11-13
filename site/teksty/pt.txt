@@ -1,0 +1,62 @@
+# Português (Brasil). Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ ADICIONAR MÚSICA, GERAR MOD…) — as in the program window / README-PT.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — músicas personalizadas no NFS Heat (mod PC)
+seo_desc = Coloque suas próprias músicas no Need for Speed Heat como faixas novas: garagem, cidade e corridas, de dia e à noite. Também do YouTube. Grátis e open source.
+og_locale = pt_BR
+lang_name = Português
+suggest = Esta página também está em português
+ai_note = Traduções feitas com IA (Claude)
+lang_nav = Idioma
+
+# --- first screen ---
+lead = Suas próprias músicas no **Need for Speed Heat** — como faixas novas, bem ao lado das do jogo.
+soon = Em breve
+download = Baixar
+source = Código-fonte
+facts = Grátis · Windows 10/11 · Só single-player · Feito por fãs
+shot_alt = Janela do Heat Soundtrack: as faixas do jogo e suas próprias músicas
+
+# --- what it does ---
+what_h = O que faz
+f1t = Suas músicas
+f1 = mp3, flac, wav, ogg, m4a — entram como faixas **novas**. As faixas do jogo continuam como estão.
+f2t = Dia · Noite
+f2 = Marque onde cada música toca: garagem, cidade de dia, cidade à noite, corridas de dia, corridas à noite.
+f3t = Faixas do jogo
+f3 = Ligue ou desligue qualquer faixa do jogo — separadamente para cada lugar.
+f4t = YouTube · YT Music
+f4 = Cole o link de uma música, playlist ou álbum — ou vários links de uma vez. Se o link for de um clipe, o programa pega a mesma música no YT Music.
+f5t = Um só mod
+f5 = Gera um só mod para o Frosty Mod Manager. Os arquivos do jogo não mudam. Perfis: conjuntos diferentes de faixas, troque com um clique.
+f6t = 13 idiomas
+f6 = A janela fala 13 idiomas. O zip não traz música nem arquivos do jogo — as músicas são suas.
+
+# --- what you need ---
+need_h = Do que você precisa
+n1 = **Windows 10 ou 11** — o Microsoft Edge já vem no sistema, a janela funciona com ele.
+n2 = **Need for Speed Heat** — Steam ou EA app.
+n3 = **Frosty Mod Manager**, versão do HarGabt — [versões](fmm). Abra uma vez e escolha o jogo.
+n4 = A chave de criptografia do jogo — **NFS Heat Frosty Key** no [Nexus Mods](key): coloque **NFSHEAT.key** na pasta do Frosty Mod Manager.
+
+# --- how to use ---
+how_h = Como usar
+s1 = Descompacte o zip **inteiro** numa pasta comum — Área de Trabalho, Documentos, D:\Mods… — não em Program Files.
+s2 = Abra **Heat Soundtrack.exe**, escolha o idioma e aceite os termos. Na primeira vez ele lê o jogo — alguns minutos, só uma vez.
+s3 = **+ ADICIONAR MÚSICA** → escolha um arquivo → marque onde toca → **Salvar**. Ou **▶ DO YT MUSIC** → cole um link → **Baixar**.
+s4 = As músicas ficam na pasta **Music** ao lado do programa — uma pasta numerada por música: o arquivo da música e uma imagem de capa.
+s5 = **GERAR MOD**. O mod aparece na lista do Frosty Mod Manager.
+s6 = No Frosty Mod Manager: marque **Heat Soundtrack**, desative outros mods de música, clique em **Launch**.
+off_h = Só offline.
+off = Mods são para o modo single-player. Antes de entrar online, abra o jogo sem mods — jogar online com mods pode fazer sua conta EA ser banida.
+ss = O Windows SmartScreen pode avisar sobre um editor desconhecido: o programa não tem certificado pago. Clique em **Mais informações** → **Executar assim mesmo**. O código-fonte está no [GitHub](github).
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = Novidades
+log 1.0 = Primeira versão.
+
+# --- bottom ---
+license = Código aberto — GNU GPL v3 (usa as bibliotecas do Frosty Toolsuite). Feito por Kitivski + Claude (IA da Anthropic).
+hub = Todos os jogos Need for Speed — NFS Own Music
+foot = Feito por fãs, sem vínculo com a Electronic Arts ou a Ghost Games. Need for Speed e NFS Heat são marcas comerciais da Electronic Arts Inc.

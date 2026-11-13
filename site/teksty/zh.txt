@@ -1,0 +1,62 @@
+# 简体中文. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ 添加歌曲, 生成模组…) — as in the program window / README-ZH.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — NFS Heat 自定义音乐（PC 模组）
+seo_desc = 给 Need for Speed Heat 添加自定义音乐：把你自己的歌曲作为新曲目，和游戏原声放在一起 —— 车库、城市、比赛，白天黑夜都能播。支持 YouTube / YT Music，免费开源。
+og_locale = zh_CN
+lang_name = 简体中文
+suggest = 本页面也有简体中文版
+ai_note = 翻译由 AI（Claude）完成
+lang_nav = 语言
+
+# --- first screen ---
+lead = 把你自己的歌曲放进 **Need for Speed Heat** —— 作为新曲目，就在游戏曲目旁边。
+soon = 即将推出
+download = 下载
+source = 源代码
+facts = 免费 · Windows 10/11 · 仅限单人游戏 · 粉丝制作
+shot_alt = Heat Soundtrack 窗口：游戏曲目和你自己的歌曲
+
+# --- what it does ---
+what_h = 功能
+f1t = 你的歌曲
+f1 = mp3、flac、wav、ogg、m4a —— 作为**全新**曲目加入。游戏原有的曲目保持不变。
+f2t = 白天 · 夜晚
+f2 = 勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。
+f3t = 游戏曲目
+f3 = 任意游戏曲目都可以开启或关闭 —— 每个场景单独设置。
+f4t = YouTube · YT Music
+f4 = 粘贴单曲、播放列表或专辑的链接 —— 也可以一次粘贴多个链接。如果是 MV 链接，程序会从 YT Music 获取同一首歌。
+f5t = 一个模组
+f5 = 只为 Frosty Mod Manager 生成一个模组。不修改游戏文件。配置：不同的曲目组合，一键切换。
+f6t = 13 种语言
+f6 = 程序窗口支持 13 种语言。zip 里没有音乐，也没有游戏文件 —— 歌曲由你自己提供。
+
+# --- what you need ---
+need_h = 需要准备
+n1 = **Windows 10 或 11** —— 系统自带 Microsoft Edge，程序窗口要用到它。
+n2 = **Need for Speed Heat** —— Steam 或 EA app。
+n3 = **Frosty Mod Manager**，HarGabt 的版本 —— [发布页](fmm)。先运行一次并选择游戏。
+n4 = 游戏的加密密钥 —— [Nexus Mods](key) 上的 **NFS Heat Frosty Key**：把 **NFSHEAT.key** 放进 Frosty Mod Manager 文件夹。
+
+# --- how to use ---
+how_h = 使用方法
+s1 = 把 zip 的**全部**内容解压到一个普通文件夹 —— 桌面、文档、D:\Mods… —— 不要解压到 Program Files。
+s2 = 运行 **Heat Soundtrack.exe**，选择语言并接受条款。首次启动会读取游戏 —— 需要几分钟，只有这一次。
+s3 = **+ 添加歌曲** → 选择文件 → 勾选播放场景 → **保存**。或者 **▶ 从 YT Music 导入** → 粘贴链接 → **下载**。
+s4 = 歌曲都放在程序旁边的 **Music** 文件夹里 —— 每首歌一个带编号的文件夹：歌曲文件和一张封面图片。
+s5 = **生成模组**。模组会出现在 Frosty Mod Manager 的列表里。
+s6 = 在 Frosty Mod Manager 中：勾选 **Heat Soundtrack**，关闭其他音乐模组，点击 **Launch**。
+off_h = 仅限离线。
+off = 模组仅用于单人游戏。联机之前，请先不带模组启动游戏 —— 带模组联机可能导致你的 EA 账号被封。
+ss = Windows SmartScreen 可能会提示“未知发布者”：本程序没有付费证书。点击 **更多信息** → **仍要运行**。源代码在 [GitHub](github) 上。
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = 更新内容
+log 1.0 = 首次发布。
+
+# --- bottom ---
+license = 开源 —— GNU GPL v3（使用了 Frosty Toolsuite 的库）。由 Kitivski + Claude（Anthropic 的 AI）制作。
+hub = 所有 Need for Speed 游戏 —— NFS Own Music
+foot = 粉丝制作，与 Electronic Arts 或 Ghost Games 无关。Need for Speed 和 NFS Heat 是 Electronic Arts Inc. 的商标。

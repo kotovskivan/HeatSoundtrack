@@ -1,0 +1,131 @@
+{
+  "_source": "Heat Soundtrack: имена треков игры — из tracks.json (Worker.Pretty, разбор имен сегментов игры). Здесь — ручные поправки (Claude, 13.11.2026, по именам ассетов игры; с официальным треклистом не сверено). Формат: \"слот\": [\"Исполнитель\", \"Название\"].",
+  "garage:P_PartyFavorAndGraves_ReachForMe": [
+    "Party Favor & Graves",
+    "Reach For Me"
+  ],
+  "garage:P_KingsOfTheRollers_GuitarTrack": [
+    "Kings of the Rollers",
+    "Guitar Track"
+  ],
+  "garage:P_TroyBoi_SayYeah": [
+    "TroyBoi",
+    "Say Yeah"
+  ],
+  "garage:P_Danay_Suarez_VIAJE_EN_DUB": [
+    "Danay Suárez",
+    "Viaje En Dub"
+  ],
+  "garage:P_AlvaroDiaz_Pro": [
+    "Álvaro Díaz",
+    "Pro"
+  ],
+  "cityDay:DC_FelixJaehnBreakingBeattz_LIITA": [
+    "Felix Jaehn & Breaking Beattz",
+    "LIITA"
+  ],
+  "cityDay:DC_ToroYMoi_Fading": [
+    "Toro y Moi",
+    "Fading"
+  ],
+  "cityDay:DC_ToroYMoi_OrdinaryPleasure": [
+    "Toro y Moi",
+    "Ordinary Pleasure"
+  ],
+  "cityNight:NC_BlumBros_MAKJ_LS6": [
+    "Blum Bros & MAKJ",
+    "LS6"
+  ],
+  "cityNight:NC_Maejor_Nirvana_with_Yashua_Jeon": [
+    "Maejor",
+    "Nirvana (with Yashua Jeon)"
+  ],
+  "cityNight:NC_Logic_MamaShowLove_ftYBNCordae": [
+    "Logic ft. YBN Cordae",
+    "Mama / Show Love"
+  ],
+  "cityNight:NC_NghtmreAndA$apFerg_Redlight": [
+    "NGHTMRE & A$AP Ferg",
+    "Redlight"
+  ],
+  "cityNight:NC_2chanz_MommaIHitALick": [
+    "2 Chainz",
+    "Momma I Hit A Lick"
+  ],
+  "cityNight:NC_Melii_CopyftOdalys": [
+    "Melii ft. Odalys",
+    "Copy"
+  ],
+  "cityNight:NC_BearGrillz_DontStopGetIt": [
+    "Bear Grillz",
+    "Don't Stop Get It"
+  ],
+  "cityNight:NC_Whiney_DoingItForTime": [
+    "Whiney",
+    "Doin' It For Time"
+  ],
+  "raceDay:DI_DeWunn_BackItUpDropIt": [
+    "DeWunn",
+    "Back It Up Drop It"
+  ],
+  "raceDay:DI_BombaEstereo_Carnavalera": [
+    "Bomba Estéreo",
+    "Carnavalera"
+  ],
+  "raceDay:DI_PlayNSkillz_Pegadito": [
+    "Play-N-Skillz",
+    "Pegadito"
+  ],
+  "raceDay:DI_GentedeZona_HazleElCuento": [
+    "Gente de Zona",
+    "Hazle Completo El Cuento"
+  ],
+  "raceDay:DI_Gente De Zona_Poquito_A_Poco": [
+    "Gente de Zona",
+    "Poquito A Poco"
+  ],
+  "raceDay:DI_SofiTukker_Swing": [
+    "Sofi Tukker",
+    "Swing"
+  ],
+  "raceDay:DI_SofiTukker_PlayaGrande": [
+    "Sofi Tukker",
+    "Playa Grande"
+  ],
+  "raceDay:DI_Deorro_PICAfeatElvisCrespo": [
+    "Deorro feat. Elvis Crespo",
+    "PICA"
+  ],
+  "raceDay:DI_TOG_TurningUpForTheSunshine": [
+    "The Tribe of Good",
+    "Turning Up For The Sunshine (Remix)"
+  ],
+  "raceNight:NI_Party_Favor_GTA_Work_It_Out": [
+    "Party Favor & GTA",
+    "Work It Out"
+  ],
+  "raceNight:NI_Valentino_Khan_Kayzo_Novocaine": [
+    "Valentino Khan & Kayzo",
+    "Novocaine"
+  ],
+  "raceNight:NI_KANDYNonsens_LikeThis": [
+    "KANDY & Nonsens",
+    "Like This"
+  ],
+  "raceNight:NI_AnnaLunoe_303_Instrumental": [
+    "Anna Lunoe",
+    "303 (Instrumental)"
+  ],
+  "raceNight:NI_SaRoc_GoddessGang": [
+    "Sa-Roc",
+    "Goddess Gang"
+  ],
+  "raceNight:NI_ChaseAndStatus_MurderMusic": [
+    "Chase & Status",
+    "Murder Music"
+  ],
+  "raceNight:NI_NVDES_RockAndRoll": [
+    "NVDES",
+    "Rock and Roll"
+  ]
+}

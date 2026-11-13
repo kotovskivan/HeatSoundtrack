@@ -1,0 +1,35 @@
+САЙТ HEAT SOUNDTRACK — https://kotovskivan.github.io/HeatSoundtrack/
+Репо: https://github.com/kotovskivan/HeatSoundtrack  — main: код программы + эта папка site\ (исходник сайта),
+gh-pages: готовый сайт (папка site\gotovo). Хостинг: GitHub Pages. Собран 13.11.2026, дизайн черновой — по окну программы.
+Страницы: / — украинский (главный), /en/ /de/ /es/ /fr/ /it/ /pl/ /pt/ /tr/ /ru/ /zh/ /ja/ /ko/. Переводы — ИИ (Claude).
+
+ВЫПУСК (сейчас на сайте «Скоро», zip — черновик релиза v1.0 на GitHub, публично не виден)
+  1. GitHub -> Releases -> черновик «Heat Soundtrack 1.0» -> Edit -> Publish release  (или попросить Claude)
+  2. sajt.txt: released = yes, в versions — дата выпуска; проверить version и size
+  3. opublikovat.cmd — на сайте появятся «Завантажити» (ведет на последний релиз GitHub) и «Що нового»
+  4. Сайт NFS Own Music: igry.txt — Heat soon -> ready, sajt.txt heat_version / heat_download -> opublikovat.cmd там
+
+КАК ОБНОВИТЬ
+  Версия, размер zip, ссылки -> sajt.txt.  Тексты -> teksty\<язык>.txt (ключи одинаковые во всех 13).
+  Новая версия: sajt.txt version / size / versions + в каждом teksty\*.txt строка «log <версия> = ...»
+  (нет в каком-то языке — возьмется из en.txt, сборка напишет).
+  prosmotr.cmd    — собрать и посмотреть (http://localhost:8767/)
+  opublikovat.cmd — собрать и отправить: исходник сайта -> main (только папка site), сайт -> gh-pages; обновится через 1-2 минуты.
+  Разметка в текстах: **жирный**, [текст](ключ-ссылки из sajt.txt или адрес), {version} {size}, \n — перенос.
+
+ЧТО ГДЕ
+  shablon.html  разметка и стиль (менять — Claude)
+  sobrat.py     сборщик -> gotovo\
+  static\       img\bg.jpg — фон первого экрана (скрин Kitivski из фоторежима, тот же, что в окне программы);
+                img\okno.jpg — скрин окна (proverka-okna\14-heat-dizajn-en.png), img\og.jpg — превью ссылки 1200x630 (верх того же скрина);
+                fonts\MrDafoe-Regular.ttf + OFL.txt — подпись «Soundtrack» (SIL OFL, лицензию не удалять); favicon.png — иконка программы 32 px
+  gotovo\       готовый сайт = ветка gh-pages (git worktree), руками не править
+
+SEO — СДЕЛАНО
+  title / description на каждом языке под поиск («своя музыка / custom music / eigene Musik…» + NFS Heat), canonical + hreflang,
+  Open Graph / Twitter с картинкой og.jpg, JSON-LD SoftwareApplication (после выпуска — версия, размер, ссылка на скачивание),
+  sitemap.xml, подсказка «есть на твоем языке», ссылка на NFS Own Music (страница того же языка).
+
+SEO — СДЕЛАТЬ ТЕБЕ (один раз)
+  Google Search Console: ресурс «Префикс URL» https://kotovskivan.github.io/HeatSoundtrack/ -> «HTML-тег» -> content="..." ->
+  sajt.txt google_verify -> opublikovat.cmd -> «Подтвердить» -> Файлы Sitemap -> sitemap.xml. Bing — импорт из Google.

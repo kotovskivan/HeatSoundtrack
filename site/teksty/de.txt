@@ -1,0 +1,62 @@
+# Deutsch. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ SONG HINZUFÜGEN, MOD BAUEN…) — as in the program window / README-DE.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — eigene Musik in NFS Heat (PC-Mod)
+seo_desc = Eigene Musik in Need for Speed Heat: deine Songs als neue Tracks neben dem Soundtrack, in Garage, Stadt und Rennen. Auch von YouTube. Kostenlos, Open Source.
+og_locale = de_DE
+lang_name = Deutsch
+suggest = Diese Seite gibt es auch auf Deutsch
+ai_note = Übersetzungen mit KI erstellt (Claude)
+lang_nav = Sprache
+
+# --- first screen ---
+lead = Deine eigenen Songs in **Need for Speed Heat** — als neue Tracks, direkt neben denen des Spiels.
+soon = Demnächst
+download = Herunterladen
+source = Quellcode
+facts = Kostenlos · Windows 10/11 · Nur Einzelspieler · Fan-Projekt
+shot_alt = Fenster von Heat Soundtrack: die Tracks des Spiels und deine eigenen Songs
+
+# --- what it does ---
+what_h = Was es macht
+f1t = Deine Songs
+f1 = mp3, flac, wav, ogg, m4a — als **neue** Tracks hinzugefügt. Die Tracks des Spiels bleiben, wie sie sind.
+f2t = Tag · Nacht
+f2 = Per Häkchen wählst du, wo jeder Song läuft: Garage, Stadt am Tag, Stadt in der Nacht, Rennen am Tag, Rennen in der Nacht.
+f3t = Spiel-Tracks
+f3 = Schalte jeden Track des Spiels an oder aus — für jeden Ort einzeln.
+f4t = YouTube · YT Music
+f4 = Füge einen Link zu einem Song, einer Playlist oder einem Album ein — oder viele Links auf einmal. Bei einem Musikvideo-Link nimmt das Programm denselben Song von YT Music.
+f5t = Ein Mod
+f5 = Baut einen Mod für den Frosty Mod Manager. Spieldateien bleiben unverändert. Profile: verschiedene Track-Sets, Umschalten mit einem Klick.
+f6t = 13 Sprachen
+f6 = Das Fenster spricht 13 Sprachen. Keine Musik und keine Spieldateien im Zip — die Songs bringst du selbst mit.
+
+# --- what you need ---
+need_h = Was du brauchst
+n1 = **Windows 10 oder 11** — Microsoft Edge ist schon eingebaut, das Fenster läuft darauf.
+n2 = **Need for Speed Heat** — Steam oder EA app.
+n3 = **Frosty Mod Manager**, die Version von HarGabt — [Releases](fmm). Starte ihn einmal und wähle das Spiel.
+n4 = Der Verschlüsselungsschlüssel des Spiels — **NFS Heat Frosty Key** auf [Nexus Mods](key): leg **NFSHEAT.key** in den Ordner des Frosty Mod Manager.
+
+# --- how to use ---
+how_h = So geht's
+s1 = Entpacke das **ganze** Zip in einen normalen Ordner — Desktop, Dokumente, D:\Mods… — nicht nach Program Files.
+s2 = Starte **Heat Soundtrack.exe**, wähle die Sprache und nimm die Bedingungen an. Der erste Start liest das Spiel — ein paar Minuten, nur einmal.
+s3 = **+ SONG HINZUFÜGEN** → Datei wählen → Häkchen setzen, wo er läuft → **Speichern**. Oder **▶ AUS YT MUSIC** → Link einfügen → **Herunterladen**.
+s4 = Die Songs liegen im Ordner **Music** neben dem Programm — ein nummerierter Ordner pro Song: die Musikdatei und ein Bild fürs Cover.
+s5 = **MOD BAUEN**. Der Mod erscheint in der Liste des Frosty Mod Manager.
+s6 = Im Frosty Mod Manager: hak **Heat Soundtrack** an, schalte andere Musik-Mods aus, drück **Launch**.
+off_h = Nur offline.
+off = Mods sind fürs Einzelspieler-Spiel. Bevor du online gehst, starte das Spiel ohne Mods — online mit Mods zu spielen kann zur Sperre deines EA-Kontos führen.
+ss = Windows SmartScreen warnt vielleicht vor einem unbekannten Herausgeber: Das Programm hat kein kostenpflichtiges Zertifikat. Klick auf **Weitere Informationen** → **Trotzdem ausführen**. Der Quellcode liegt auf [GitHub](github).
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = Was ist neu
+log 1.0 = Erste Version.
+
+# --- bottom ---
+license = Open Source — GNU GPL v3 (nutzt die Bibliotheken von Frosty Toolsuite). Gemacht von Kitivski + Claude (KI von Anthropic).
+hub = Alle Spiele von Need for Speed — NFS Own Music
+foot = Fan-Projekt, nicht mit Electronic Arts oder Ghost Games verbunden. Need for Speed und NFS Heat sind Marken von Electronic Arts Inc.

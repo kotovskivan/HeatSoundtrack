@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unbound Soundtrack — dialogs</title>
+<link rel="stylesheet" href="dialog.css">
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; background: #0e0f12; font-family: "Bahnschrift", "Segoe UI", sans-serif; color: #eee; }
+  .demo { padding: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .demo button { padding: 12px 18px; background: #24252b; color: #eee; border: 0; font: inherit; font-size: 18px; cursor: pointer; }
+  .demo button:hover { background: #f4f4f6; color: #111; }
+  /* окно «спасибо»: список слева, картинка справа */
+  .thanks { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  .thanks img { width: 100%; display: block; box-shadow: 0 0 0 1px #000, 0 10px 40px rgba(0,0,0,.5); }
+  .thanks h3 { margin: 14px 0 4px; font: 900 15px "Arial Black", sans-serif; letter-spacing: .04em; color: #58ff3c; text-transform: uppercase; }
+  .thanks h3:first-child { margin-top: 0; }
+  .thanks a { color: #9fd8ff; text-decoration: none; border-bottom: 1px solid rgba(159,216,255,.35); }
+  .thanks a:hover { color: #fff; border-color: #fff; }
+  .thanks .cap { margin-top: 8px; color: #9d9aa6; font-size: .85em; }
+  @media (max-width: 900px) { .thanks { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="demo">
+  <button data-d="agree">1. Agreement (first launch)</button>
+  <button data-d="online">2. Stay offline</button>
+  <button data-d="remove">3. Simple yes/no</button>
+  <button data-d="thanks">4. Credits &amp; special thanks</button>
+</div>
+<script src="dialog.js"></script>
+<script>
+const D = {
+  agree: {
+    title: "Before you start",
+    yes: "I agree", no: "Exit",
+    html: `
+<p><b>Unbound Soundtrack</b> is a free fan-made tool by <b>Kitivski + Claude</b>.
+It is <b>not made, approved or supported by Electronic Arts or Criterion Games</b>, and has nothing to do with them.
+Need for Speed and NFS Unbound are trademarks of Electronic Arts Inc.</p>
+<ul>
+<li><b>Use at your own risk.</b> The tool comes as is, without any warranty. We are not responsible for game problems, lost saves or accounts.</li>
+<li><span class="warn"><b>Offline only.</b></span> Don't play Online with mods enabled — EA can ban your account.</li>
+<li><b>Your music, your responsibility.</b> Add only songs you have the right to use. The tool does not upload anything anywhere: everything stays on your PC.</li>
+<li><b>Game files stay untouched.</b> The tool builds a mod for Frosty Mod Manager. To go back — turn the mod off there.</li>
+<li>Back up your saves before trying new mods.</li>
+</ul>
+<p>Do you agree to use the tool on these terms?</p>`
+  },
+  online: {
+    title: "Stay offline",
+    yes: "Got it", no: "Cancel",
+    html: `
+<p><span class="warn"><b>Mods are for the single-player game only.</b></span></p>
+<p>Before you go Online — launch the game <b>without mods</b> (in Frosty Mod Manager turn the mod off, or start the game from Steam).
+Playing Online with mods can get your EA account banned.</p>`
+  },
+  remove: {
+    title: "Remove song?",
+    yes: "Yes", no: "No",
+    html: `<p>“Edge of the Earth” will be removed from your soundtrack. The mod will be rebuilt without it. Your music file is not deleted.</p>`
+  },
+  thanks: {
+    title: "Thank you",
+    yes: "Close", no: null, tall: true,
+    html: `
+<div class="thanks">
+ <div>
+  <h3>Made by</h3>
+  <p>Kitivski + Claude <small>(Claude — AI by Anthropic)</small></p>
+
+  <h3>Inside this tool</h3>
+  <ul>
+   <li><b>Frosty Toolsuite</b> — libraries to read the game and write mods (GPL v3).
+     <a href="https://github.com/CadeEvs/FrostyToolsuite" target="_blank">CadeEvs/FrostyToolsuite</a>,
+     NFS Unbound fork by HarGabt: <a href="https://github.com/HarGabt/FrostyToolsuite" target="_blank">HarGabt/FrostyToolsuite</a></li>
+   <li><b>EA audio encoder</b> — from the Sound Editor plugin of Frosty Editor (HarGabt fork), with its libraries:
+     <a href="https://lame.sourceforge.io" target="_blank">LAME</a>,
+     <a href="https://github.com/Thealexbarney/LibAtrac9" target="_blank">LibAtrac9</a></li>
+  </ul>
+
+  <h3>You will need</h3>
+  <ul>
+   <li><b>Frosty Mod Manager</b> (HarGabt fork) —
+     <a href="https://github.com/HarGabt/FrostyToolsuite/releases" target="_blank">releases</a></li>
+  </ul>
+
+  <h3>We learned from</h3>
+  <ul>
+   <li><b>Alternate Waves</b> —
+     <a href="https://www.nexusmods.com/needforspeedunbound/mods/340" target="_blank">Nexus</a> ·
+     <a href="https://nfsmods.xyz/mod?id=6532" target="_blank">nfsmods.xyz</a></li>
+   <li><b>The Lakeshore Sound</b> — <a href="https://nfsmods.xyz/mod/7400" target="_blank">nfsmods.xyz</a></li>
+   <li><b>vgmstream</b> — <a href="https://github.com/vgmstream/vgmstream" target="_blank">vgmstream/vgmstream</a></li>
+  </ul>
+
+  <h3>Used while building</h3>
+  <ul>
+   <li><a href="https://www.python.org" target="_blank">Python</a>,
+     <a href="https://github.com/PyAV-Org/PyAV" target="_blank">PyAV</a>,
+     <a href="https://numpy.org" target="_blank">NumPy</a>,
+     <a href="https://python-pillow.org" target="_blank">Pillow</a> — research scripts</li>
+  </ul>
+  <p><small>Not affiliated with Electronic Arts or Criterion Games. Need for Speed is a trademark of Electronic Arts Inc.</small></p>
+ </div>
+ <div>
+  <h3>Special thanks</h3>
+  <img src="img/thanks.jpg" alt="Special thanks">
+  <div class="cap">Kitivski</div>
+ </div>
+</div>`
+  }
+};
+document.querySelectorAll("[data-d]").forEach(b => b.onclick = () => askYesNo(D[b.dataset.d]).then(v => console.log(b.dataset.d, v)));
+const auto = new URLSearchParams(location.search).get("d");
+if (auto) askYesNo(D[auto]);
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+# Türkçe. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ ŞARKI EKLE, MOD OLUŞTUR…) — as in the program window / README-TR.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — NFS Heat'e kendi müziğini ekle (PC modu)
+seo_desc = Kendi şarkılarını Need for Speed Heat'e yeni parçalar olarak ekle: garaj, şehir ve yarışlar, gündüz ve gece. YouTube / YT Music'ten de. Ücretsiz ve açık kaynak.
+og_locale = tr_TR
+lang_name = Türkçe
+suggest = Bu sayfa Türkçe olarak da var
+ai_note = Çeviriler yapay zekâ ile yapıldı (Claude)
+lang_nav = Dil
+
+# --- first screen ---
+lead = **Need for Speed Heat** oyununda kendi şarkıların — oyunun parçalarının hemen yanında, yeni parçalar olarak.
+soon = Yakında
+download = İndir
+source = Kaynak kodu
+facts = Ücretsiz · Windows 10/11 · Sadece tek oyunculu · Hayran yapımı
+shot_alt = Heat Soundtrack penceresi: oyunun parçaları ve kendi şarkıların
+
+# --- what it does ---
+what_h = Ne yapar
+f1t = Senin şarkıların
+f1 = mp3, flac, wav, ogg, m4a — **yeni** parçalar olarak eklenir. Oyunun parçaları olduğu gibi kalır.
+f2t = Gündüz · Gece
+f2 = Her şarkının nerede çalacağını işaretle: garaj, gündüz şehir, gece şehir, gündüz yarışları, gece yarışları.
+f3t = Oyunun parçaları
+f3 = Oyunun herhangi bir parçasını aç ya da kapat — her yer için ayrı ayrı.
+f4t = YouTube · YT Music
+f4 = Bir şarkının, çalma listesinin ya da albümün linkini yapıştır — ya da aynı anda birçok link. Müzik videosu linki verirsen program aynı şarkıyı YT Music'ten alır.
+f5t = Tek mod
+f5 = Frosty Mod Manager için tek bir mod oluşturur. Oyun dosyaları değişmez. Profiller: farklı parça setleri, tek tıkla geçiş.
+f6t = 13 dil
+f6 = Pencere 13 dil biliyor. Zip'te ne müzik ne de oyun dosyası var — şarkılar senin.
+
+# --- what you need ---
+need_h = Gerekenler
+n1 = **Windows 10 ya da 11** — Microsoft Edge yerleşik gelir, pencere onu kullanır.
+n2 = **Need for Speed Heat** — Steam ya da EA app.
+n3 = **Frosty Mod Manager**, HarGabt'ın versiyonu — [sürümler](fmm). Bir kez başlat ve oyunu seç.
+n4 = Oyunun şifreleme anahtarı — [Nexus Mods](key) sitesindeki **NFS Heat Frosty Key**: **NFSHEAT.key** dosyasını Frosty Mod Manager klasörüne koy.
+
+# --- how to use ---
+how_h = Nasıl kullanılır
+s1 = Zip arşivinin **tamamını** normal bir klasöre çıkar — Masaüstü, Belgeler, D:\Mods… — Program Files klasörüne değil.
+s2 = **Heat Soundtrack.exe** dosyasını başlat, dili seç ve koşulları kabul et. İlk açılışta program oyunu okur — birkaç dakika, sadece bir kez.
+s3 = **+ ŞARKI EKLE** → bir dosya seç → nerede çalacağını işaretle → **Kaydet**. Ya da **▶ YT MUSIC'TEN** → bir link yapıştır → **İndir**.
+s4 = Şarkılar programın yanındaki **Music** klasöründe durur — her şarkı için numaralı bir klasör: şarkı dosyası ve bir kapak resmi.
+s5 = **MOD OLUŞTUR**. Mod, Frosty Mod Manager'ın listesinde görünür.
+s6 = Frosty Mod Manager'da: **Heat Soundtrack** modunu işaretle, diğer müzik modlarını kapat, **Launch** düğmesine bas.
+off_h = Sadece çevrimdışı.
+off = Modlar tek oyunculu oyun içindir. Online'a girmeden önce oyunu modsuz başlat — modlarla online oynamak EA hesabının yasaklanmasına yol açabilir.
+ss = Windows SmartScreen bilinmeyen bir yayımcı hakkında uyarabilir: programın ücretli bir sertifikası yok. **Daha fazla bilgi** → **Yine de çalıştır** seçeneğine tıkla. Kaynak kodu [GitHub'da](github).
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = Yenilikler
+log 1.0 = İlk sürüm.
+
+# --- bottom ---
+license = Açık kaynak — GNU GPL v3 (Frosty Toolsuite kütüphanelerini kullanır). Yapanlar: Kitivski + Claude (Anthropic'in yapay zekâsı).
+hub = Tüm Need for Speed oyunları — NFS Own Music
+foot = Hayran yapımı, Electronic Arts veya Ghost Games ile bağlantılı değildir. Need for Speed ve NFS Heat, Electronic Arts Inc. şirketinin ticari markalarıdır.

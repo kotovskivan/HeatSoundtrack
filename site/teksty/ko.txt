@@ -1,0 +1,62 @@
+# 한국어. Format: key = text. **bold**, [text](link key from sajt.txt or a full address), {version} {size}, \n = line break.
+# Button names in the program (+ 노래 추가, 모드 만들기…) — as in the program window / README-KO.
+
+# --- SEO: browser tab, Google, link preview ---
+seo_title = Heat Soundtrack — NFS Heat 커스텀 음악, 내 노래 넣기 (PC 모드)
+seo_desc = Need for Speed Heat에 내 노래를 새 트랙으로 추가해요. 게임 사운드트랙은 그대로, 차고·도시·레이스에서 낮에도 밤에도. YouTube / YT Music에서도 가져와요. 무료, 오픈 소스.
+og_locale = ko_KR
+lang_name = 한국어
+suggest = 이 페이지는 한국어로도 볼 수 있습니다
+ai_note = 번역은 AI(Claude)가 했습니다
+lang_nav = 언어
+
+# --- first screen ---
+lead = **Need for Speed Heat**에 내 노래를 — 새 트랙으로, 게임 트랙 바로 옆에.
+soon = 곧 출시
+download = 다운로드
+source = 소스 코드
+facts = 무료 · Windows 10/11 · 싱글 플레이 전용 · 팬 메이드
+shot_alt = Heat Soundtrack 창: 게임 트랙과 내 노래
+
+# --- what it does ---
+what_h = 할 수 있는 것
+f1t = 내 노래
+f1 = mp3, flac, wav, ogg, m4a — **새** 트랙으로 추가돼요. 게임 트랙은 그대로 남아요.
+f2t = 낮 · 밤
+f2 = 노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스.
+f3t = 게임 트랙
+f3 = 게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로.
+f4t = YouTube · YT Music
+f4 = 노래, 재생목록, 앨범 링크를 붙여 넣으세요 — 여러 링크를 한꺼번에 넣어도 돼요. 뮤직비디오 링크면 같은 노래를 YT Music에서 가져와요.
+f5t = 모드 하나
+f5 = Frosty Mod Manager용 모드를 딱 하나 만들어요. 게임 파일은 바뀌지 않아요. 프로필: 트랙 구성을 여러 개 만들고 클릭 한 번으로 바꿔요.
+f6t = 13개 언어
+f6 = 창은 13개 언어를 지원해요. zip에는 음악도 게임 파일도 없어요 — 노래는 직접 넣어요.
+
+# --- what you need ---
+need_h = 필요한 것
+n1 = **Windows 10 또는 11** — Microsoft Edge가 기본으로 들어 있고, 창이 Edge를 사용해요.
+n2 = **Need for Speed Heat** — Steam 또는 EA app.
+n3 = **Frosty Mod Manager**, HarGabt 버전 — [릴리스](fmm). 한 번 실행해서 게임을 선택하세요.
+n4 = 게임 암호화 키 — [Nexus Mods](key)의 **NFS Heat Frosty Key**: **NFSHEAT.key**를 Frosty Mod Manager 폴더에 넣으세요.
+
+# --- how to use ---
+how_h = 사용법
+s1 = zip을 **통째로** 일반 폴더에 압축 해제하세요 — 바탕 화면, 문서, D:\Mods… — Program Files 말고요.
+s2 = **Heat Soundtrack.exe**를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.
+s3 = **+ 노래 추가** → 파일 선택 → 재생 위치 체크 → **저장**. 또는 **▶ YT Music에서** → 링크 붙여 넣기 → **다운로드**.
+s4 = 노래는 프로그램 옆 **Music** 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림.
+s5 = **모드 만들기**. 모드가 Frosty Mod Manager 목록에 나타나요.
+s6 = Frosty Mod Manager에서: **Heat Soundtrack**에 체크하고, 다른 음악 모드는 끄고, **Launch**를 누르세요.
+off_h = 오프라인 전용.
+off = 모드는 싱글 플레이 전용이에요. 온라인에 접속하기 전에 모드 없이 게임을 실행하세요 — 모드를 켠 채 온라인을 하면 EA 계정이 정지될 수 있어요.
+ss = Windows SmartScreen이 알 수 없는 게시자라고 경고할 수 있어요: 이 프로그램에는 유료 인증서가 없거든요. **추가 정보** → **실행**을 클릭하세요. 소스 코드는 [GitHub](github)에 있어요.
+
+# --- what's new: one line per version from sajt.txt «versions» ---
+log_h = 새로운 소식
+log 1.0 = 첫 릴리스.
+
+# --- bottom ---
+license = 오픈 소스 — GNU GPL v3(Frosty Toolsuite 라이브러리를 사용해요). 만든 사람: Kitivski + Claude(Anthropic의 AI).
+hub = 모든 Need for Speed 게임 — NFS Own Music
+foot = 팬 메이드이며 Electronic Arts나 Ghost Games와는 관련이 없어요. Need for Speed와 NFS Heat는 Electronic Arts Inc.의 상표예요.

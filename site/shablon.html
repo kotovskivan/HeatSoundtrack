@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="{{!lang}}" class="{{!cls}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{!head}}
+<link rel="icon" href="{{!rel}}favicon.png" type="image/png">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="preload" href="{{!rel}}fonts/MrDafoe-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+/* ЧЕРНОВОЙ ДИЗАЙН (13.11.2026) по окну программы: темные прямые плашки, белый курсив капсом,
+   день — циан, ночь — маджента, подпись «Soundtrack» шрифтом Mr Dafoe (SIL OFL), фон — скрин Kitivski из фоторежима. */
+@font-face{font-family:"Mr Dafoe";src:url("{{!rel}}fonts/MrDafoe-Regular.ttf") format("truetype");font-display:swap}
+:root{--bg:#0d0d0d;--plate:rgba(22,22,28,.86);--line:#2b2b38;--paper:#f1f8fc;--muted:#a3abbd;
+  --day:#00ffff;--night:#ff0080;--indigo:#3100ff;--violet:#9f4cff;--sun:#ffff00}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--paper);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+body{margin:0}
+a{color:var(--day)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.cond{font-family:Bahnschrift,"DIN Condensed","Arial Narrow","Segoe UI",system-ui,sans-serif;font-stretch:condensed;font-style:italic;font-weight:700;text-transform:uppercase}
+.sig{font-family:"Mr Dafoe",cursive;font-style:normal;font-weight:400;text-transform:none;color:var(--night);
+  text-shadow:0 0 2px #ffcced,0 0 10px var(--night),0 0 22px rgba(255,0,128,.6)}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:5;background:rgba(13,13,13,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:26px;height:58px}
+.logo{display:flex;align-items:baseline;text-decoration:none;color:var(--paper)}
+.logo b{font:italic 800 22px/1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.02em}
+.logo .sig{font-size:26px;margin-left:-4px;transform:translateY(4px) rotate(-6deg);display:inline-block}
+.menu{display:flex;gap:4px;margin-left:auto}
+.menu a{color:var(--muted);text-decoration:none;padding:6px 12px;font-size:13px;letter-spacing:.08em}
+.menu a:hover{color:var(--paper);background:var(--plate)}
+.langs{position:relative}
+.langs summary{list-style:none;cursor:pointer;padding:6px 12px;border:1px solid var(--line);font-size:13px;color:var(--muted);letter-spacing:.04em}
+.langs summary::-webkit-details-marker{display:none}
+.langs[open] summary{background:var(--paper);color:#111;border-color:var(--paper)}
+.langs nav{position:absolute;right:0;top:calc(100% + 6px);background:#16161c;border:1px solid var(--line);padding:6px;min-width:210px;
+  max-height:70vh;overflow:auto;box-shadow:0 14px 34px rgba(0,0,0,.6)}
+.langs nav a{display:flex;gap:10px;padding:6px 10px;text-decoration:none;color:var(--paper);font-size:14px}
+.langs nav a b{width:24px;color:var(--muted)}
+.langs nav a:hover{background:var(--line)}
+.langs nav a[aria-current]{background:var(--paper);color:#111}
+.langs nav a[aria-current] b{color:#555}
+.langs nav .ai{margin:6px 10px 4px;font-size:12px;color:var(--muted)}
+
+/* первый экран: фон — скрин из фоторежима */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .bg{position:absolute;inset:0;background:url("{{!rel}}img/bg.jpg") center/cover no-repeat;filter:brightness(.55) saturate(1.1)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.95) 0%,rgba(13,13,13,.7) 45%,rgba(13,13,13,.25) 100%),
+  linear-gradient(0deg,var(--bg) 0%,transparent 30%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:center;padding-top:72px;padding-bottom:72px}
+h1{margin:0;line-height:.9}
+h1 b{display:block;font:italic 800 clamp(64px,10vw,124px)/.9 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.01em}
+h1 .sig{display:block;font-size:clamp(54px,7.4vw,96px);margin:-.32em 0 0 .5em;transform:rotate(-6deg);transform-origin:left}
+.lead{margin:30px 0 26px;font-size:clamp(18px,2.1vw,22px);max-width:520px}
+.lead b{color:var(--paper)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
+.btn{display:inline-flex;flex-direction:column;justify-content:center;padding:12px 22px;text-decoration:none;color:var(--paper);
+  background:var(--plate);border:1px solid var(--line);font:italic 700 17px/1.1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.btn:hover{border-color:var(--paper)}
+.btn small{font:500 12px/1.4 "Segoe UI",sans-serif;letter-spacing:0;text-transform:none;opacity:.7;margin-top:3px}
+.btn.main{background:var(--paper);color:#111;border-color:var(--paper)}
+.btn.soon{background:var(--sun);color:#111;border-color:var(--sun);cursor:default}
+.facts{margin:20px 0 0;color:var(--muted);font-size:14px}
+.shot{margin:0;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(0,255,255,.12),0 24px 60px rgba(0,0,0,.6),0 0 60px rgba(49,0,255,.25)}
+.shot img{display:block;width:100%;height:auto}
+
+/* разделы */
+.sec{padding:56px 0 8px}
+h2{display:inline-block;margin:0 0 26px;padding:6px 60px 6px 16px;border-left:4px solid var(--day);
+  background:linear-gradient(90deg,var(--indigo) 0%,rgba(49,0,255,.55) 55%,transparent 100%);
+  font:italic 800 28px/1.15 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.feats article{background:var(--plate);border:1px solid var(--line);border-top:3px solid var(--c,var(--day));padding:18px 20px 20px}
+.feats article:nth-child(2){--c:var(--night)}
+.feats article:nth-child(3){--c:var(--violet)}
+.feats article:nth-child(5){--c:var(--night)}
+.feats article:nth-child(6){--c:var(--sun)}
+.feats h3{margin:0 0 8px;font:italic 800 20px/1.2 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;color:var(--c,var(--day))}
+.feats p{margin:0;color:#d5dae4}
+ol.list,ol.steps{list-style:none;padding:0;margin:0;counter-reset:n;display:grid;gap:8px}
+ol.list li,ol.steps li{counter-increment:n;position:relative;background:var(--plate);border:1px solid var(--line);padding:14px 18px 14px 64px}
+ol.list li::before,ol.steps li::before{content:counter(n);position:absolute;left:0;top:0;bottom:0;width:48px;display:grid;place-items:center;
+  font:italic 800 24px/1 Bahnschrift,"Arial Narrow",sans-serif;color:#111;background:var(--paper)}
+ol.list li::before{background:transparent;color:var(--day);border-right:1px solid var(--line)}
+.warn{margin:18px 0 0;padding:14px 18px;border-left:4px solid var(--night);background:rgba(255,0,128,.1)}
+.warn b{color:var(--night);text-transform:uppercase;font-style:italic}
+.note{margin:10px 0 0;color:var(--muted);font-size:14px}
+dl.log{margin:0;display:grid;gap:8px}
+dl.log div{display:grid;grid-template-columns:140px 1fr;background:var(--plate);border:1px solid var(--line)}
+dl.log dt{padding:12px 16px;font:italic 800 20px/1.2 Bahnschrift,sans-serif;color:var(--sun)}
+dl.log dt small{display:block;font:12px "Segoe UI",sans-serif;color:var(--muted)}
+dl.log dd{margin:0;padding:12px 16px}
+
+/* низ */
+footer{margin-top:64px;border-top:1px solid var(--line);padding:28px 0 44px;color:var(--muted);font-size:13px}
+footer p{margin:0 0 6px}
+footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnschrift,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:var(--paper);text-decoration:none;border-bottom:2px solid var(--night)}
+
+/* «есть на твоем языке» */
+.suggest{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:9;display:flex;align-items:center;gap:6px;
+  background:var(--paper);color:#111;padding:6px 6px 6px 14px;box-shadow:0 10px 30px rgba(0,0,0,.6);font-size:14px}
+.suggest[hidden]{display:none}
+.suggest a{color:#111;font-weight:700}
+.suggest button{border:0;background:transparent;font-size:18px;cursor:pointer;padding:0 8px;color:inherit}
+
+.cjk .cond,.cjk h1 b,.cjk h2,.cjk .feats h3,.cjk .btn,.cjk .menu a{font-style:normal}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr;padding-top:48px}.feats{grid-template-columns:1fr 1fr}.menu{display:none}.langs{margin-left:auto}}
+@media (max-width:560px){.feats{grid-template-columns:1fr}dl.log div{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="suggest" id="suggest" hidden><a id="suggest-a" href="./"></a><button type="button" id="suggest-x" aria-label="×">×</button></div>
+
+<header class="top"><div class="wrap">
+  <a class="logo" href="{{!home}}" aria-label="Heat Soundtrack"><b>HEAT</b><span class="sig">Soundtrack</span></a>
+  <nav class="menu cond"><a href="#what">{{what_h}}</a><a href="#need">{{need_h}}</a><a href="#how">{{how_h}}</a></nav>
+  <details class="langs">
+    <summary aria-label="{{lang_nav|attr}}">{{!cur_label}}</summary>
+    <nav>{{!langs}}<p class="ai">{{ai_note}}</p></nav>
+  </details>
+</div></header>
+
+<main>
+<section class="hero">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div>
+      <h1><b>HEAT</b><span class="sig">Soundtrack</span></h1>
+      <p class="lead">{{lead}}</p>
+      <div class="cta">{{!cta}}<a class="btn" href="{{@github}}" target="_blank" rel="noopener">{{source}}</a></div>
+      <p class="facts">{{facts}}</p>
+    </div>
+    <figure class="shot"><img src="{{!rel}}img/okno.jpg" width="1440" height="1000" alt="{{shot_alt|attr}}" fetchpriority="high"></figure>
+  </div>
+</section>
+
+<section class="sec" id="what"><div class="wrap">
+  <h2>{{what_h}}</h2>
+  <div class="feats">
+    <article><h3>{{f1t}}</h3><p>{{f1}}</p></article>
+    <article><h3>{{f2t}}</h3><p>{{f2}}</p></article>
+    <article><h3>{{f3t}}</h3><p>{{f3}}</p></article>
+    <article><h3>{{f4t}}</h3><p>{{f4}}</p></article>
+    <article><h3>{{f5t}}</h3><p>{{f5}}</p></article>
+    <article><h3>{{f6t}}</h3><p>{{f6}}</p></article>
+  </div>
+</div></section>
+
+<section class="sec" id="need"><div class="wrap">
+  <h2>{{need_h}}</h2>
+  <ol class="list"><li>{{n1}}</li><li>{{n2}}</li><li>{{n3}}</li><li>{{n4}}</li></ol>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <h2>{{how_h}}</h2>
+  <ol class="steps"><li>{{s1}}</li><li>{{s2}}</li><li>{{s3}}</li><li>{{s4}}</li><li>{{s5}}</li><li>{{s6}}</li></ol>
+  <p class="warn"><b>{{off_h}}</b> {{off}}</p>
+  <p class="note">{{ss}}</p>
+</div></section>
+{{!changelog}}
+</main>
+
+<footer><div class="wrap">
+  <a class="hub" href="{{!hub_href}}">{{hub}} →</a>
+  <p>{{license}}</p>
+  <p>{{foot}}</p>
+  <p>{{ai_note}}</p>
+</div></footer>
+
+<script>
+(function () {
+  var P = {{!pages_json}}, cur = "{{!code}}";
+  try { if (localStorage.getItem("heat-suggest")) return; } catch (e) {}
+  var ls = navigator.languages || [navigator.language || ""];
+  for (var i = 0; i < ls.length; i++) {
+    var c = String(ls[i] || "").toLowerCase().split("-")[0];
+    if (c === "ua") c = "uk";
+    if (c === cur) return;
+    if (P[c]) {
+      var s = document.getElementById("suggest"), a = document.getElementById("suggest-a");
+      a.textContent = P[c].t; a.href = P[c].href; a.lang = c; s.hidden = false;
+      document.getElementById("suggest-x").onclick = function () {
+        s.hidden = true; try { localStorage.setItem("heat-suggest", "1"); } catch (e) {}
+      };
+      return;
+    }
+  }
+})();
+</script>
+</body>
+</html>
