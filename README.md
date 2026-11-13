@@ -3,7 +3,7 @@
 Your own songs in **Need for Speed Heat** (PC) — as new tracks next to the game's ones.
 Free fan-made tool by **Kitivski + Claude** (Claude — AI by Anthropic). Not affiliated with Electronic Arts or Ghost Games.
 
-**Website:** https://kotovskivan.github.io/HeatSoundtrack/ (13 languages) ·
+**Website:** https://kotovskivan.github.io/HeatSoundtrack/ (14 languages) ·
 **All Need for Speed games:** [NFS Own Music](https://kotovskivan.github.io/NFSOwnMusic/) ·
 **NFS Unbound:** [Unbound Soundtrack](https://github.com/kotovskivan/UnboundSoundtrack)
 
@@ -14,7 +14,7 @@ Free fan-made tool by **Kitivski + Claude** (Claude — AI by Anthropic). Not af
 - Turn any of the game's tracks on or off, separately for every place. Profiles — switch sets of tracks in one click.
 - Songs from **YouTube / YT Music**: a link to a song, a playlist or an album, many links at once or a .txt list (via yt-dlp).
 - Race start: the game's intro track plays under the countdown, your songs come after it.
-- Builds **one mod** for Frosty Mod Manager. Game files are not changed. Interface in **13 languages**.
+- Builds **one mod** for Frosty Mod Manager. Game files are not changed. Interface in **14 languages**.
 - **Offline only** — mods are for single player.
 
 ## How it works
@@ -27,9 +27,9 @@ into Frosty Mod Manager's mods folder. Each song is a new music asset added to t
 | Folder | What |
 |---|---|
 | `src/` | the program (C#) — server, game reading, audio cutting, BC7 / BCn texture codecs, mod writer, YouTube / YT Music (`Yt.cs`) |
-| `web/` | the window: HTML/JS/CSS, texts in 13 languages, Mr Dafoe font (SIL OFL) |
+| `web/` | the window: HTML/JS/CSS, texts in 14 languages, Mr Dafoe font (SIL OFL) |
 | `res/` | icon |
-| `docs/` | README (13 languages) and THIRD-PARTY (shipped in the zip) |
+| `docs/` | README (14 languages) and THIRD-PARTY (shipped in the zip) |
 | `site/` | the website (`gh-pages` branch is built from it) — see `site/README.txt` |
 
 Internet use: the ▶ previews (`api.deezer.com`, the audio streams from Deezer / iTunes) and, only when you add songs by a link,

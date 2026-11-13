@@ -125,7 +125,7 @@ static class Ui
     }
 
     // языки окна (те же коды, что в web/i18n.js LANGS)
-    static readonly string[] Langs = { "uk", "en", "de", "es", "fr", "it", "pl", "pt", "tr", "ru", "zh", "ja", "ko" };
+    static readonly string[] Langs = { "uk", "en", "de", "es", "fr", "it", "pl", "pt", "tr", "ru", "zh", "ja", "ko", "fi" };   // fi — 13.11 (Ваня)
 
     // «распакуй zip» на языке Windows (окна еще нет — язык программы неизвестен)
     static string UnpackText()
@@ -144,6 +144,7 @@ static class Ui
             case "pl": return "Program uruchomiono prosto z archiwum.\n\nNajpierw rozpakuj CAŁY zip do zwykłego folderu (Pulpit, Dokumenty, D:\\Mods…), a potem uruchom stamtąd \"Heat Soundtrack.exe\".\nInaczej ustawienia i piosenki przepadną.";
             case "de": return "Das Programm wurde direkt aus dem Archiv gestartet.\n\nEntpacke zuerst das GANZE Zip in einen normalen Ordner (Desktop, Dokumente, D:\\Mods…) und starte \"Heat Soundtrack.exe\" von dort.\nSonst gehen Einstellungen und Songs verloren.";
             case "pt": return "O programa foi aberto direto do arquivo zip.\n\nPrimeiro descompacte o zip INTEIRO numa pasta comum (Área de Trabalho, Documentos, D:\\Mods…) e abra \"Heat Soundtrack.exe\" de lá.\nSenão as configurações e músicas se perdem.";
+            case "fi": return "Ohjelma käynnistettiin suoraan arkistosta.\n\nPura ensin KOKO zip tavalliseen kansioon (Työpöytä, Tiedostot, D:\\Mods…) ja käynnistä \"Heat Soundtrack.exe\" sieltä.\nMuuten asetukset ja biisit katoavat.";
             default: return "The program was started right from the archive.\n\nFirst unpack the WHOLE zip to a normal folder (Desktop, Documents, D:\\Mods…), then start \"Heat Soundtrack.exe\" from there.\nOtherwise your settings and songs will be lost.";
         }
     }

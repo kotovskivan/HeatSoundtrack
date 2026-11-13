@@ -15,7 +15,7 @@ CE QU'IL FAIT
   - Départ de course : pendant le compte à rebours passe le titre d'intro du jeu, tes chansons viennent après. Départ avec ta propre chanson — dans la prochaine version.
   - Profils : différentes sélections de titres, on change en un clic.
   - Crée UN seul mod pour Frosty Mod Manager. Les fichiers du jeu ne sont pas modifiés.
-  - La fenêtre parle 13 langues.
+  - La fenêtre parle 14 langues.
 
 CE QU'IL TE FAUT
   - Windows 10 ou 11 (Microsoft Edge est intégré — la fenêtre l'utilise).
@@ -53,7 +53,7 @@ HORS LIGNE UNIQUEMENT
 
 CONTENU DU DOSSIER
   Heat Soundtrack.exe      le programme
-  app\web                  la fenêtre (pages, textes en 13 langues)
+  app\web                  la fenêtre (pages, textes en 14 langues)
   app\frosty               bibliothèques Frosty Toolsuite — lisent le jeu, écrivent le mod (GPL v3)
   app\encoder              encodeur audio EA, tiré du plugin Sound Editor de Frosty Editor
   app\yt-dlp.exe           télécharge les chansons depuis YouTube / YT Music (Unlicense)

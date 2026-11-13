@@ -15,7 +15,7 @@ O QUE FAZ
   - Largada: na contagem toca a faixa de abertura do jogo, suas músicas vêm depois. Largada com música sua — na próxima versão.
   - Perfis: conjuntos diferentes de faixas, troque com um clique.
   - Gera UM mod para o Frosty Mod Manager. Os arquivos do jogo não mudam.
-  - A janela fala 13 idiomas.
+  - A janela fala 14 idiomas.
 
 VOCÊ PRECISA DE
   - Windows 10 ou 11 (o Microsoft Edge já vem no sistema — a janela funciona com ele).
@@ -53,7 +53,7 @@ SÓ OFFLINE
 
 O QUE TEM NA PASTA
   Heat Soundtrack.exe      o programa
-  app\web                  a janela (páginas, textos em 13 idiomas)
+  app\web                  a janela (páginas, textos em 14 idiomas)
   app\frosty               bibliotecas do Frosty Toolsuite — leem o jogo, gravam o mod (GPL v3)
   app\encoder              codificador de áudio da EA, do plugin Sound Editor do Frosty Editor
   app\yt-dlp.exe           baixa músicas do YouTube / YT Music (Unlicense)

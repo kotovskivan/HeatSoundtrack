@@ -15,7 +15,7 @@ Kitivski + Claude による無料のファンメイドツールです。Electron
   - レースのスタート：カウントダウン中はゲームのイントロ曲が流れ、自分の曲はそのあとに流れます。自分の曲でのレーススタートは次のバージョンで対応します。
   - プロファイル：曲のセットを使い分けて、ワンクリックで切り替えられます。
   - Frosty Mod Manager 用の MOD を 1 つだけ作成します。ゲームのファイルは変更しません。
-  - ウィンドウは 13 言語に対応しています。
+  - ウィンドウは 14 言語に対応しています。
 
 必要なもの
   - Windows 10 または 11（Microsoft Edge が標準で入っています — ウィンドウの表示に使います）。
@@ -53,7 +53,7 @@ Kitivski + Claude による無料のファンメイドツールです。Electron
 
 フォルダーの中身
   Heat Soundtrack.exe      プログラム本体
-  app\web                  ウィンドウ（ページ、13 言語のテキスト）
+  app\web                  ウィンドウ（ページ、14 言語のテキスト）
   app\frosty               Frosty Toolsuite のライブラリ — ゲームの読み込み、MOD の書き出し（GPL v3）
   app\encoder              EA オーディオエンコーダー（Frosty Editor の Sound Editor プラグインから）
   app\yt-dlp.exe           YouTube / YT Music から曲をダウンロード（Unlicense）

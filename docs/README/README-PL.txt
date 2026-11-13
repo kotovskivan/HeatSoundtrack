@@ -15,7 +15,7 @@ CO ROBI
   - Start wyścigu: pod odliczanie gra utwór wstępny gry, twoje piosenki lecą po nim. Start wyścigu z własną piosenką — w następnej wersji.
   - Profile: różne zestawy utworów, przełączanie jednym kliknięciem.
   - Buduje JEDEN mod do Frosty Mod Manager. Pliki gry się nie zmieniają.
-  - Okno mówi w 13 językach.
+  - Okno mówi w 14 językach.
 
 POTRZEBUJESZ
   - Windows 10 lub 11 (Microsoft Edge jest wbudowany — okno z niego korzysta).
@@ -53,7 +53,7 @@ TYLKO OFFLINE
 
 CO JEST W FOLDERZE
   Heat Soundtrack.exe      program
-  app\web                  okno (strony, teksty w 13 językach)
+  app\web                  okno (strony, teksty w 14 językach)
   app\frosty               biblioteki Frosty Toolsuite — czytają grę, zapisują mod (GPL v3)
   app\encoder              koder audio EA z wtyczki Sound Editor do Frosty Editor
   app\yt-dlp.exe           pobiera piosenki z YouTube / YT Music (Unlicense)
