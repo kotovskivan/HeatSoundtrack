@@ -30,8 +30,8 @@ f4t = YouTube · YT Music
 f4 = Füge einen Link zu einem Song, einer Playlist oder einem Album ein — oder viele Links auf einmal. Bei einem Musikvideo-Link nimmt das Programm denselben Song von YT Music.
 f5t = Ein Mod
 f5 = Baut einen Mod für den Frosty Mod Manager. Spieldateien bleiben unverändert. Profile: verschiedene Track-Sets, Umschalten mit einem Klick.
-f6t = 13 Sprachen
-f6 = Das Fenster spricht 13 Sprachen. Keine Musik und keine Spieldateien im Zip — die Songs bringst du selbst mit.
+f6t = 14 Sprachen
+f6 = Das Fenster spricht 14 Sprachen. Keine Musik und keine Spieldateien im Zip — die Songs bringst du selbst mit.
 
 # --- what you need ---
 need_h = Was du brauchst

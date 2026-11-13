@@ -1,5 +1,4 @@
 # Suomi. Muoto: avain = teksti. **lihavointi**, [teksti](linkin avain sajt.txt:stä tai täysi osoite), {version} {size}, \n = rivinvaihto.
-# 13.11.2026: в программе Heat финского нет (13 языков) — кнопки здесь по-английски, как в окне English. Появится fi в программе — заменить кнопки и f6t / f6.
 
 # --- SEO: selaimen välilehti, Google, linkin esikatselu ---
 seo_title = Heat Soundtrack — oma musiikki NFS Heatiin (PC-modi)
@@ -30,8 +29,8 @@ f4t = YouTube · YT Music
 f4 = Liitä linkki biisiin, soittolistaan tai albumiin — tai monta linkkiä kerralla. Musiikkivideon linkistä ohjelma ottaa saman biisin YT Musicista.
 f5t = Yksi modi
 f5 = Rakentaa yhden modin Frosty Mod Manageriin. Pelin tiedostoja ei muuteta. Profiilit: eri kappalevalikoimat, vaihto yhdellä klikkauksella.
-f6t = 13 kieltä
-f6 = Ohjelman ikkuna on 13 kielellä — suomea ei vielä ole, valitse esimerkiksi English. Zipissä ei ole musiikkia eikä pelin tiedostoja — biisit ovat sinun.
+f6t = 14 kieltä
+f6 = Ikkuna puhuu 14 kieltä. Zipissä ei ole musiikkia eikä pelin tiedostoja — biisit ovat sinun.
 
 # --- tarvitset ---
 need_h = Tarvitset
@@ -43,10 +42,10 @@ n4 = Pelin salausavain — **NFS Heat Frosty Key** [Nexus Modsissa](key): laita 
 # --- näin se toimii ---
 how_h = Näin se toimii
 s1 = Pura **koko** zip tavalliseen kansioon — Työpöytä, Tiedostot, D:\Mods… Ei Program Filesiin.
-s2 = Käynnistä **Heat Soundtrack.exe**, valitse kieli (esimerkiksi English) ja hyväksy ehdot. Ensimmäinen käynnistys lukee pelin — muutama minuutti, vain kerran.
-s3 = **+ ADD SONG** → valitse tiedosto → rastita, missä se soi → **Save**. Tai **▶ FROM YT MUSIC** → liitä linkki → **Download**.
+s2 = Käynnistä **Heat Soundtrack.exe**, valitse kieli ja hyväksy ehdot. Ensimmäinen käynnistys lukee pelin — muutama minuutti, vain kerran.
+s3 = **+ LISÄÄ BIISI** → valitse tiedosto → rastita, missä se soi → **Tallenna**. Tai **▶ YT MUSICISTA** → liitä linkki → **Lataa**.
 s4 = Biisit ovat ohjelman vieressä olevassa **Music**-kansiossa — jokaisella biisillä oma numeroitu kansio: biisin tiedosto ja kansikuva.
-s5 = **BUILD MOD**. Modi ilmestyy Frosty Mod Managerin listaan.
+s5 = **RAKENNA MODI**. Modi ilmestyy Frosty Mod Managerin listaan.
 s6 = Frosty Mod Managerissa: rastita **Heat Soundtrack**, kytke muut musiikkimodit pois, paina **Launch**.
 off_h = Vain offline.
 off = Modit ovat yksinpeliin. Ennen kuin menet verkkoon, käynnistä peli ilman modeja — verkkopelaaminen modien kanssa voi johtaa EA-tilisi sulkemiseen.

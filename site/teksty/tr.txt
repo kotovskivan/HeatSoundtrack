@@ -30,8 +30,8 @@ f4t = YouTube · YT Music
 f4 = Bir şarkının, çalma listesinin ya da albümün linkini yapıştır — ya da aynı anda birçok link. Müzik videosu linki verirsen program aynı şarkıyı YT Music'ten alır.
 f5t = Tek mod
 f5 = Frosty Mod Manager için tek bir mod oluşturur. Oyun dosyaları değişmez. Profiller: farklı parça setleri, tek tıkla geçiş.
-f6t = 13 dil
-f6 = Pencere 13 dil biliyor. Zip'te ne müzik ne de oyun dosyası var — şarkılar senin.
+f6t = 14 dil
+f6 = Pencere 14 dil biliyor. Zip'te ne müzik ne de oyun dosyası var — şarkılar senin.
 
 # --- what you need ---
 need_h = Gerekenler
