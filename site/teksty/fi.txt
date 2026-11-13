@@ -1,0 +1,62 @@
+# Suomi. Muoto: avain = teksti. **lihavointi**, [teksti](linkin avain sajt.txt:stä tai täysi osoite), {version} {size}, \n = rivinvaihto.
+# 13.11.2026: в программе Heat финского нет (13 языков) — кнопки здесь по-английски, как в окне English. Появится fi в программе — заменить кнопки и f6t / f6.
+
+# --- SEO: selaimen välilehti, Google, linkin esikatselu ---
+seo_title = Heat Soundtrack — oma musiikki NFS Heatiin (PC-modi)
+seo_desc = Lisää omat biisisi Need for Speed Heatiin uusina kappaleina pelin soundtrackin rinnalle — talli, kaupunki ja kisat, päivällä ja yöllä. Biisit myös YouTubesta / YT Musicista. Ilmainen ja avoin lähdekoodi.
+og_locale = fi_FI
+lang_name = Suomi
+suggest = Tämä sivu on myös suomeksi
+ai_note = Käännökset tehty tekoälyllä (Claude)
+lang_nav = Kieli
+
+# --- ensimmäinen näkymä ---
+lead = Omat biisisi **Need for Speed Heatissa** — uusina kappaleina, suoraan pelin omien rinnalla.
+soon = Tulossa pian
+download = Lataa
+source = Lähdekoodi
+facts = Ilmainen · Windows 10/11 · Vain yksinpeli · Fanien tekemä
+shot_alt = Heat Soundtrack -ikkuna: pelin kappaleet ja omat biisisi
+
+# --- mitä se tekee ---
+what_h = Mitä se tekee
+f1t = Omat biisit
+f1 = mp3, flac, wav, ogg, m4a — lisätään **uusina** kappaleina. Pelin kappaleet pysyvät ennallaan.
+f2t = Päivä · Yö
+f2 = Rastita, missä kukin biisi soi: talli, kaupunki päivällä, kaupunki yöllä, kisat päivällä, kisat yöllä.
+f3t = Pelin kappaleet
+f3 = Kytke mikä tahansa pelin kappale päälle tai pois — erikseen jokaiseen paikkaan.
+f4t = YouTube · YT Music
+f4 = Liitä linkki biisiin, soittolistaan tai albumiin — tai monta linkkiä kerralla. Musiikkivideon linkistä ohjelma ottaa saman biisin YT Musicista.
+f5t = Yksi modi
+f5 = Rakentaa yhden modin Frosty Mod Manageriin. Pelin tiedostoja ei muuteta. Profiilit: eri kappalevalikoimat, vaihto yhdellä klikkauksella.
+f6t = 13 kieltä
+f6 = Ohjelman ikkuna on 13 kielellä — suomea ei vielä ole, valitse esimerkiksi English. Zipissä ei ole musiikkia eikä pelin tiedostoja — biisit ovat sinun.
+
+# --- tarvitset ---
+need_h = Tarvitset
+n1 = **Windows 10 tai 11** — Microsoft Edge on valmiina, ikkuna käyttää sitä.
+n2 = **Need for Speed Heat** — Steam tai EA app.
+n3 = **Frosty Mod Manager**, HarGabtin versio — [julkaisut](fmm). Käynnistä se kerran ja valitse peli.
+n4 = Pelin salausavain — **NFS Heat Frosty Key** [Nexus Modsissa](key): laita **NFSHEAT.key** Frosty Mod Managerin kansioon.
+
+# --- näin se toimii ---
+how_h = Näin se toimii
+s1 = Pura **koko** zip tavalliseen kansioon — Työpöytä, Tiedostot, D:\Mods… Ei Program Filesiin.
+s2 = Käynnistä **Heat Soundtrack.exe**, valitse kieli (esimerkiksi English) ja hyväksy ehdot. Ensimmäinen käynnistys lukee pelin — muutama minuutti, vain kerran.
+s3 = **+ ADD SONG** → valitse tiedosto → rastita, missä se soi → **Save**. Tai **▶ FROM YT MUSIC** → liitä linkki → **Download**.
+s4 = Biisit ovat ohjelman vieressä olevassa **Music**-kansiossa — jokaisella biisillä oma numeroitu kansio: biisin tiedosto ja kansikuva.
+s5 = **BUILD MOD**. Modi ilmestyy Frosty Mod Managerin listaan.
+s6 = Frosty Mod Managerissa: rastita **Heat Soundtrack**, kytke muut musiikkimodit pois, paina **Launch**.
+off_h = Vain offline.
+off = Modit ovat yksinpeliin. Ennen kuin menet verkkoon, käynnistä peli ilman modeja — verkkopelaaminen modien kanssa voi johtaa EA-tilisi sulkemiseen.
+ss = Windows SmartScreen voi varoittaa tuntemattomasta julkaisijasta: ohjelmalla ei ole maksullista varmennetta. Klikkaa **Lisätietoja** → **Suorita silti**. Lähdekoodi on [GitHubissa](github).
+
+# --- muutokset: yksi rivi jokaiselle versiolle sajt.txt:n «versions»-rivistä ---
+log_h = Muutokset
+log 1.0 = Ensimmäinen julkaisu.
+
+# --- alaosa ---
+license = Avoin lähdekoodi — GNU GPL v3 (käyttää Frosty Toolsuiten kirjastoja). Tekijät: Kitivski + Claude (Anthropicin tekoäly).
+hub = Kaikki Need for Speed -pelit — NFS Own Music
+foot = Fanien tekemä, ei yhteydessä Electronic Artsiin eikä Ghost Gamesiin. Need for Speed ja NFS Heat ovat Electronic Arts Inc:n tavaramerkkejä.
