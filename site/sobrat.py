@@ -209,7 +209,7 @@ def main():
             + (' aria-current="page"' if X == L else "")
             + f'><b>{LABEL.get(X, X.upper())}</b>{esc(plain(get_text(X, "lang_name")))}</a>'
             for X in langs)
-        cur_label = f'{LABEL.get(L, L.upper())} · {esc(plain(T["lang_name"]))}'
+        cur_label = f'{LABEL.get(L, L.upper())}<span class="ln"> · {esc(plain(T["lang_name"]))}</span>'   # 16.11: на телефоне .ln прячется — только «UA»
         pages = {X: {"t": plain(get_text(X, "suggest")), "href": href_to(X)} for X in langs}
 
         if released:

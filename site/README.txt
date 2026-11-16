@@ -26,6 +26,15 @@ gh-pages: готовый сайт (папка site\gotovo). Хостинг: GitH
                 fonts\MrDafoe-Regular.ttf + OFL.txt — подпись «Soundtrack» (SIL OFL, лицензию не удалять); favicon.png — иконка программы 32 px
   gotovo\       готовый сайт = ветка gh-pages (git worktree), руками не править
 
+16.11 (Ваня: «приведи в порядок и сайт Heat» — как сайт Unbound, но в стиле Heat):
+  - после первого экрана блок про общий сайт серии (.hubx) между неоновыми линиями циан→маджента: лого NFS Own Music (оранжевый, как хаб),
+    текст, кнопка, карточки Unbound «Готово» / Heat «Скоро» (static\img\hub-*.jpg — копии с хаба). Тексты: hubTag hubLead hubSub hubReady hubSoon hubGo.
+    ПРИ ВЫПУСКЕ HEAT: на карточке Heat в shablon.html — class soon -> ready и {{hubSoon}} -> {{hubReady}}.
+  - подвал: плитки как в окне Heat — NFS Own Music, «Зробили»: Claude, Kitivski (кот на мадженте); тексты hubRole hMade madeC madeK. Ключ «hub» больше не выводится.
+  - телефон: до 900px первый экран и блок хаба по центру; до 560px лого крупнее (курсив сдвинут к центру по замеру пикселей),
+    «Скоро» / «Вихідний код» на всю строку, язык — только «UA» (.ln прячется; cur_label в sobrat.py).
+  Тексты teksty\*.txt — LF, кроме fi.txt (CRLF); при правке скриптом сохранять как было.
+
 SEO — СДЕЛАНО
   title / description на каждом языке под поиск («своя музыка / custom music / eigene Musik…» + NFS Heat), canonical + hreflang,
   Open Graph / Twitter с картинкой og.jpg, JSON-LD SoftwareApplication (после выпуска — версия, размер, ссылка на скачивание),

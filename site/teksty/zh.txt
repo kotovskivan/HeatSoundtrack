@@ -59,4 +59,14 @@ log 1.0 = 首次发布。
 # --- bottom ---
 license = 开源 —— GNU GPL v3（使用了 Frosty Toolsuite 的库）。由 Kitivski + Claude（Anthropic 的 AI）制作。
 hub = 所有 Need for Speed 游戏 —— NFS Own Music
+hubTag = 我们的系列网站
+hubLead = 在 **Need for Speed** 里放你自己的歌——作为新曲目，与游戏音乐并存。
+hubSub = 免费开源工具。从 Unbound 开始，接下来是 Heat，然后是整个系列。
+hubReady = 已发布
+hubSoon = 即将推出
+hubGo = 访问网站
+hubRole = NFS 全系列 · 官网 ↗
+hMade = 制作
+madeK = 开发者 · Steam ↗
+madeC = Anthropic 的 AI · claude.ai ↗
 foot = 粉丝制作，与 Electronic Arts 或 Ghost Games 无关。Need for Speed 和 NFS Heat 是 Electronic Arts Inc. 的商标。

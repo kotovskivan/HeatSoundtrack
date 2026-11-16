@@ -58,4 +58,14 @@ log 1.0 = Ensimmäinen julkaisu.
 # --- alaosa ---
 license = Avoin lähdekoodi — GNU GPL v3 (käyttää Frosty Toolsuiten kirjastoja). Tekijät: Kitivski + Claude (Anthropicin tekoäly).
 hub = Kaikki Need for Speed -pelit — NFS Own Music
+hubTag = Koko sarjan sivustomme
+hubLead = Omat biisisi **Need for Speedissä** — uusina kappaleina, suoraan pelin oman musiikin rinnalla.
+hubSub = Ilmaiset, avoimen lähdekoodin työkalut. Aloitimme Unboundista; seuraavaksi Heat, sitten muu sarja.
+hubReady = Saatavilla
+hubSoon = Tulossa pian
+hubGo = Siirry sivustolle
+hubRole = NFS-sarja · Verkkosivu ↗
+hMade = Tekijät
+madeK = kehittäjä · Steam ↗
+madeC = Anthropicin tekoäly · claude.ai ↗
 foot = Fanien tekemä, ei yhteydessä Electronic Artsiin eikä Ghost Gamesiin. Need for Speed ja NFS Heat ovat Electronic Arts Inc:n tavaramerkkejä.

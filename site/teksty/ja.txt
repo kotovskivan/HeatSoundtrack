@@ -59,4 +59,14 @@ log 1.0 = 最初のリリース。
 # --- bottom ---
 license = オープンソース — GNU GPL v3（Frosty Toolsuite のライブラリを使用）。制作：Kitivski + Claude（Anthropic の AI）。
 hub = Need for Speed シリーズ全作 — NFS Own Music
+hubTag = シリーズ共通サイト
+hubLead = **Need for Speed** に自分の曲を——ゲームの音楽と並ぶ新しいトラックとして。
+hubSub = 無料・オープンソースのツール。Unbound から始め、次は Heat、そしてシリーズ全体へ。
+hubReady = 公開中
+hubSoon = 近日公開
+hubGo = サイトへ
+hubRole = NFS 全シリーズ · サイト ↗
+hMade = 制作
+madeK = 開発者 · Steam ↗
+madeC = Anthropic の AI · claude.ai ↗
 foot = ファンメイドであり、Electronic Arts および Ghost Games とは一切関係ありません。Need for Speed と NFS Heat は Electronic Arts Inc. の商標です。

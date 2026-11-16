@@ -59,4 +59,14 @@ log 1.0 = İlk sürüm.
 # --- bottom ---
 license = Açık kaynak — GNU GPL v3 (Frosty Toolsuite kütüphanelerini kullanır). Yapanlar: Kitivski + Claude (Anthropic'in yapay zekâsı).
 hub = Tüm Need for Speed oyunları — NFS Own Music
+hubTag = Tüm seri için sitemiz
+hubLead = **Need for Speed**'de kendi şarkıların — oyunun müziklerinin yanında, yeni parçalar olarak.
+hubSub = Ücretsiz, açık kaynak araçlar. Unbound ile başladık; sırada Heat ve serinin tamamı var.
+hubReady = Çıktı
+hubSoon = Yakında
+hubGo = Siteye git
+hubRole = tüm NFS oyunları · Site ↗
+hMade = Yapanlar
+madeK = geliştirici · Steam ↗
+madeC = Anthropic'in yapay zekâsı · claude.ai ↗
 foot = Hayran yapımı, Electronic Arts veya Ghost Games ile bağlantılı değildir. Need for Speed ve NFS Heat, Electronic Arts Inc. şirketinin ticari markalarıdır.

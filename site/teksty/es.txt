@@ -59,4 +59,14 @@ log 1.0 = Primera versión.
 # --- bottom ---
 license = Código abierto — GNU GPL v3 (usa las bibliotecas de Frosty Toolsuite). Hecho por Kitivski + Claude (IA de Anthropic).
 hub = Todos los juegos de Need for Speed — NFS Own Music
+hubTag = Nuestro sitio de toda la saga
+hubLead = Tus propias canciones en **Need for Speed**, como pistas nuevas junto a la música del juego.
+hubSub = Herramientas gratis y de código abierto. Empezamos con Unbound; luego Heat y toda la saga.
+hubReady = Disponible
+hubSoon = Próximamente
+hubGo = Ir al sitio
+hubRole = todos los NFS · Web ↗
+hMade = Hecho por
+madeK = desarrollador · Steam ↗
+madeC = IA de Anthropic · claude.ai ↗
 foot = Hecho por fans, sin relación con Electronic Arts ni Ghost Games. Need for Speed y NFS Heat son marcas comerciales de Electronic Arts Inc.

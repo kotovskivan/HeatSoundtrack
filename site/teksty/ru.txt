@@ -59,4 +59,14 @@ log 1.0 = Первый релиз.
 # --- низ страницы ---
 license = Открытый код — GNU GPL v3 (программа использует библиотеки Frosty Toolsuite). Сделали Kitivski + Claude (ИИ от Anthropic).
 hub = Все игры Need for Speed — NFS Own Music
+hubTag = Наш общий сайт
+hubLead = Свои песни в **Need for Speed** — новыми треками, рядом с музыкой игры.
+hubSub = Бесплатные программы с открытым кодом. Начали с Unbound, дальше — Heat и вся серия.
+hubReady = Готово
+hubSoon = Скоро
+hubGo = Перейти на сайт
+hubRole = все части NFS · Сайт ↗
+hMade = Сделали
+madeK = разработчик · Steam ↗
+madeC = ИИ от Anthropic · claude.ai ↗
 foot = Фанатский проект, не связан с Electronic Arts и Ghost Games. Need for Speed и NFS Heat — товарные знаки Electronic Arts Inc.
