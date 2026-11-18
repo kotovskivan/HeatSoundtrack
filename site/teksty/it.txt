@@ -11,7 +11,7 @@ ai_note = Traduzioni fatte con l'IA (Claude)
 lang_nav = Lingua
 
 # --- first screen ---
-lead = Le tue canzoni in **Need for Speed Heat** — come brani nuovi, proprio accanto a quelli del gioco.
+lead = Personalizza completamente la musica di **Need for Speed Heat** a modo tuo: aggiungi le tue canzoni, tieni o disattiva i brani del gioco — scegli tu.
 soon = Presto
 download = Scarica
 source = Codice sorgente
@@ -21,17 +21,17 @@ shot_alt = Finestra di Heat Soundtrack: i brani del gioco e le tue canzoni
 # --- what it does ---
 what_h = Cosa fa
 f1t = Le tue canzoni
-f1 = mp3, flac, wav, ogg, m4a — aggiunte come brani **nuovi**. I brani del gioco restano come sono.
-f2t = Giorno · Notte
-f2 = Spunta dove suona ogni canzone: garage, città di giorno, città di notte, gare di giorno, gare di notte.
-f3t = Brani del gioco
-f3 = Attiva o disattiva qualsiasi brano del gioco — separatamente per ogni posto.
-f4t = YouTube · YT Music
-f4 = Incolla il link di una canzone, una playlist o un album — o tanti link insieme. Con il link di un videoclip, il programma prende la stessa canzone da YT Music.
-f5t = Un solo mod
-f5 = Crea un solo mod per Frosty Mod Manager. I file del gioco non vengono modificati. Profili: diversi set di brani, si cambiano con un clic.
-f6t = 14 lingue
-f6 = La finestra parla 14 lingue. Nello zip non c'è musica né file del gioco — le canzoni le metti tu.
+f1 = mp3, flac, wav, ogg, m4a — come **nuovi** brani con il tuo titolo, senza sostituire i brani del gioco. Centinaia di canzoni in un mod.
+f2t = Drop sul GO
+f2 = Partenza: 17 s di filmato + 3,45 s di conto alla rovescia — il drop arriva sul GO. Il segno GO lo trascini col mouse. E un pezzo breve per l'arrivo.
+f3t = Garage · Città · Gare
+f3 = Spunta dove suona ogni canzone: garage, città di giorno, città di notte, gare di giorno, gare di notte. I brani del gioco allo stesso modo, separatamente per ogni luogo. Profili per diverse selezioni musicali.
+f4t = Un solo mod
+f4 = Crea un solo mod per Frosty Mod Manager. I file del gioco non cambiano — disattivi il mod e il gioco torna com'era.
+f5t = Zip pulito
+f5 = Niente musica e niente file del gioco nello zip: le canzoni sono tue, i brani del gioco vengono letti dal tuo gioco. ▶ — anteprima di 30 secondi di qualsiasi brano del gioco (serve internet).
+f6t = YouTube · YT Music · Spotify
+f6 = Incolla il link di una canzone, playlist o album — o tanti link, o una lista .txt. Il programma scarica da solo; il link di un videoclip prende la stessa canzone da YT Music, senza intro e scenette. Va bene anche un link di Spotify: l'elenco arriva da Spotify, le canzoni da YT Music.
 
 # --- what you need ---
 need_h = Cosa ti serve
@@ -42,22 +42,24 @@ n4 = La chiave di crittografia del gioco — **NFS Heat Frosty Key** su [Nexus M
 
 # --- how to use ---
 how_h = Come si usa
-s1 = Estrai **tutto** lo zip in una cartella normale — Desktop, Documenti, D:\Mods… — non in Program Files.
+s1 = Estrai **tutto** lo zip in una cartella normale — Desktop, Documenti, D:\Mods… Non in Program Files.
 s2 = Avvia **Heat Soundtrack.exe**, scegli la lingua e accetta le condizioni. Il primo avvio legge il gioco — qualche minuto, solo una volta.
-s3 = **+ AGGIUNGI CANZONE** → scegli un file → spunta dove suona → **Salva**. Oppure **▶ DA YT MUSIC** → incolla un link → **Scarica**.
-s4 = Le canzoni stanno nella cartella **Music** accanto al programma — una cartella numerata per canzone: il file della canzone e un'immagine per la copertina. La copertina serve solo al programma: non finisce né nel mod né nel gioco (Heat non ha copertine dei brani).
-s5 = **CREA MOD**. Il mod compare nella lista di Frosty Mod Manager.
-s6 = In Frosty Mod Manager: spunta **Heat Soundtrack**, disattiva gli altri mod musicali, premi **Launch**.
+s3 = **+ AGGIUNGI CANZONE** → scegli un file → spunta dove suona, imposta GO e arrivo → **Salva**.
+s3yt = Oppure **▶ DA YT MUSIC** → incolla un link (canzone, playlist, album), tanti link o una lista .txt → **Scarica**.
+s3ytsub = Link di un videoclip — il programma prende la stessa canzone da YT Music, senza intro e scenette. Prima di una playlist mostra quante canzoni, quante ne hai già, il tempo e lo spazio; quelle che hai già vengono saltate. Lista .txt: Titolo,Artista,Link; (lettere latine) — il programma mostra un file di esempio.
+s3sub = Le canzoni stanno nella cartella **Music** accanto al programma, ognuna in una cartella numerata: Music\1\, Music\2\… Si può anche a mano: una nuova cartella numerata con il file della canzone e un'immagine. La copertina serve solo al programma: nel gioco non finisce.
+s4 = **CREA MOD**. Il mod compare nella lista di Frosty Mod Manager.
+s5 = In Frosty Mod Manager: spunta **Heat Soundtrack**, disattiva gli altri mod musicali, **Launch**.
 off_h = Solo offline.
-off = I mod sono per il gioco in singolo. Prima di andare online, avvia il gioco senza mod — giocare online con i mod può costarti il ban dell'account EA.
-ss = Windows SmartScreen può avvisare di un autore sconosciuto: il programma non ha un certificato a pagamento. Clicca su **Ulteriori informazioni** → **Esegui comunque**. Il codice sorgente è su [GitHub](github).
+off = I mod sono per il gioco in singolo. Prima di giocare Online, avvia il gioco **senza mod**. Giocare Online con i mod può costare il ban dell'account EA.
+ss = Il programma non è firmato con un certificato a pagamento, quindi SmartScreen avvisa. Clicca **Ulteriori informazioni** → **Esegui comunque**. Il codice è aperto — su [GitHub](github) e nella cartella «source» dello zip.
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = Novità
 log 1.0 = Prima versione.
 
 # --- bottom ---
-license = Open source — GNU GPL v3 (usa le librerie di Frosty Toolsuite). Fatto da Kitivski + Claude (IA di Anthropic).
+license = Il codice è stato scritto con l'IA (Claude di Anthropic). Licenza — GNU GPL v3: usalo, condividilo, modificalo — mantieni il credito «Kitivski + Claude» e il codice aperto.
 hub = Tutti i giochi Need for Speed — NFS Own Music
 hubTag = Il nostro sito per tutta la serie
 hubLead = Le tue canzoni in **Need for Speed**, come nuove tracce accanto alla musica del gioco.

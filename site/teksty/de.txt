@@ -11,7 +11,7 @@ ai_note = Übersetzungen mit KI erstellt (Claude)
 lang_nav = Sprache
 
 # --- first screen ---
-lead = Deine eigenen Songs in **Need for Speed Heat** — als neue Tracks, direkt neben denen des Spiels.
+lead = Die Musik in **Need for Speed Heat** ganz nach deinem Geschmack: füge eigene Songs hinzu, behalte die Tracks des Spiels oder schalte sie aus — du hast die Wahl.
 soon = Demnächst
 download = Herunterladen
 source = Quellcode
@@ -21,17 +21,17 @@ shot_alt = Fenster von Heat Soundtrack: die Tracks des Spiels und deine eigenen 
 # --- what it does ---
 what_h = Was es macht
 f1t = Deine Songs
-f1 = mp3, flac, wav, ogg, m4a — als **neue** Tracks hinzugefügt. Die Tracks des Spiels bleiben, wie sie sind.
-f2t = Tag · Nacht
-f2 = Per Häkchen wählst du, wo jeder Song läuft: Garage, Stadt am Tag, Stadt in der Nacht, Rennen am Tag, Rennen in der Nacht.
-f3t = Spiel-Tracks
-f3 = Schalte jeden Track des Spiels an oder aus — für jeden Ort einzeln.
-f4t = YouTube · YT Music
-f4 = Füge einen Link zu einem Song, einer Playlist oder einem Album ein — oder viele Links auf einmal. Bei einem Musikvideo-Link nimmt das Programm denselben Song von YT Music.
-f5t = Ein Mod
-f5 = Baut einen Mod für den Frosty Mod Manager. Spieldateien bleiben unverändert. Profile: verschiedene Track-Sets, Umschalten mit einem Klick.
-f6t = 14 Sprachen
-f6 = Das Fenster spricht 14 Sprachen. Keine Musik und keine Spieldateien im Zip — die Songs bringst du selbst mit.
+f1 = mp3, flac, wav, ogg, m4a — als **neue** Tracks mit eigenem Namen, nicht anstelle der Tracks des Spiels. Hunderte Songs in einem Mod.
+f2t = Drop bei GO
+f2 = Rennstart: 17 s Zwischensequenz + 3,45 s Countdown — der Drop kommt bei GO. Die GO-Markierung ziehst du mit der Maus. Dazu ein kurzes Stück fürs Ziel.
+f3t = Garage · Stadt · Rennen
+f3 = Per Häkchen wählst du, wo jeder Song läuft: Garage, Stadt am Tag, Stadt in der Nacht, Rennen am Tag, Rennen in der Nacht. Die Tracks des Spiels genauso, für jeden Ort getrennt. Profile für verschiedene Musik-Sets.
+f4t = Ein Mod
+f4 = Baut einen Mod für den Frosty Mod Manager. Spieldateien bleiben unverändert — Mod aus, und alles ist wie vorher.
+f5t = Sauberes Zip
+f5 = Keine Musik und keine Spieldateien im Zip: die Songs sind deine, die Tracks des Spiels liest das Programm aus deinem Spiel. ▶ — 30-Sekunden-Vorschau jedes Spiel-Tracks (braucht Internet).
+f6t = YouTube · YT Music · Spotify
+f6 = Füg einen Link zu einem Song, einer Playlist oder einem Album ein — oder viele Links, oder eine .txt-Liste. Das Programm lädt selbst herunter; ein Musikvideo-Link holt denselben Song von YT Music, ohne Intro und Szenen. Ein Spotify-Link geht auch: die Liste kommt von Spotify, die Songs von YT Music.
 
 # --- what you need ---
 need_h = Was du brauchst
@@ -42,22 +42,24 @@ n4 = Der Verschlüsselungsschlüssel des Spiels — **NFS Heat Frosty Key** auf 
 
 # --- how to use ---
 how_h = So geht's
-s1 = Entpacke das **ganze** Zip in einen normalen Ordner — Desktop, Dokumente, D:\Mods… — nicht nach Program Files.
+s1 = Das **ganze** Zip in einen normalen Ordner entpacken — Desktop, Dokumente, D:\Mods… Nicht nach Program Files.
 s2 = Starte **Heat Soundtrack.exe**, wähle die Sprache und nimm die Bedingungen an. Der erste Start liest das Spiel — ein paar Minuten, nur einmal.
-s3 = **+ SONG HINZUFÜGEN** → Datei wählen → Häkchen setzen, wo er läuft → **Speichern**. Oder **▶ AUS YT MUSIC** → Link einfügen → **Herunterladen**.
-s4 = Die Songs liegen im Ordner **Music** neben dem Programm — ein nummerierter Ordner pro Song: die Musikdatei und ein Bild fürs Cover. Das Cover ist nur fürs Programm — es kommt nicht in den Mod und nicht ins Spiel (Heat hat keine Track-Cover).
-s5 = **MOD BAUEN**. Der Mod erscheint in der Liste des Frosty Mod Manager.
-s6 = Im Frosty Mod Manager: hak **Heat Soundtrack** an, schalte andere Musik-Mods aus, drück **Launch**.
+s3 = **+ SONG HINZUFÜGEN** → Datei wählen → Häkchen setzen, wo er läuft, GO und Ziel setzen → **Speichern**.
+s3yt = Oder **▶ AUS YT MUSIC** → Link einfügen (Song, Playlist, Album), viele Links oder eine .txt-Liste → **Herunterladen**.
+s3ytsub = Musikvideo-Link — das Programm nimmt denselben Song von YT Music, ohne Intro und Szenen. Vor einer Playlist zeigt es, wie viele Songs, wie viele du schon hast, Zeit und Platz; vorhandene werden übersprungen. .txt-Liste: Titel,Interpret,Link; (lateinische Buchstaben) — eine Beispieldatei gibt es im Programm.
+s3sub = Die Songs liegen im Ordner **Music** neben dem Programm, jeder in einem nummerierten Ordner: Music\1\, Music\2\… Geht auch von Hand: neuer nummerierter Ordner mit Musikdatei und Bild. Das Cover ist nur fürs Programm — ins Spiel kommt es nicht.
+s4 = **MOD BAUEN**. Der Mod erscheint in der Liste des Frosty Mod Manager.
+s5 = Im Frosty Mod Manager **Heat Soundtrack** anhaken, andere Musik-Mods aus, **Launch**.
 off_h = Nur offline.
-off = Mods sind fürs Einzelspieler-Spiel. Bevor du online gehst, starte das Spiel ohne Mods — online mit Mods zu spielen kann zur Sperre deines EA-Kontos führen.
-ss = Windows SmartScreen warnt vielleicht vor einem unbekannten Herausgeber: Das Programm hat kein kostenpflichtiges Zertifikat. Klick auf **Weitere Informationen** → **Trotzdem ausführen**. Der Quellcode liegt auf [GitHub](github).
+off = Mods sind fürs Einzelspieler-Spiel. Vor dem Online-Spiel das Spiel **ohne Mods** starten. Online mit Mods droht eine Sperre des EA-Kontos.
+ss = Das Programm ist nicht mit einem kostenpflichtigen Zertifikat signiert, deshalb warnt SmartScreen. **Weitere Informationen** → **Trotzdem ausführen**. Der Code ist offen — auf [GitHub](github) und im Ordner „source“ im Zip.
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = Was ist neu
 log 1.0 = Erste Version.
 
 # --- bottom ---
-license = Open Source — GNU GPL v3 (nutzt die Bibliotheken von Frosty Toolsuite). Gemacht von Kitivski + Claude (KI von Anthropic).
+license = Der Code wurde mit KI geschrieben (Claude von Anthropic). Lizenz — GNU GPL v3: nutzen, teilen, ändern — der Vermerk „Kitivski + Claude“ und der offene Code bleiben.
 hub = Alle Spiele von Need for Speed — NFS Own Music
 hubTag = Unsere Seite für die ganze Reihe
 hubLead = Deine eigenen Songs in **Need for Speed** — als neue Tracks, direkt neben der Musik des Spiels.
