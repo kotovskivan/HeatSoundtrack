@@ -45,7 +45,7 @@ how_h = 使用方法
 s1 = 把 zip 的**全部**内容解压到一个普通文件夹 —— 桌面、文档、D:\Mods… —— 不要解压到 Program Files。
 s2 = 运行 **Heat Soundtrack.exe**，选择语言并接受条款。首次启动会读取游戏 —— 需要几分钟，只有这一次。
 s3 = **+ 添加歌曲** → 选择文件 → 勾选播放场景 → **保存**。或者 **▶ 从 YT Music 导入** → 粘贴链接 → **下载**。
-s4 = 歌曲都放在程序旁边的 **Music** 文件夹里 —— 每首歌一个带编号的文件夹：歌曲文件和一张封面图片。
+s4 = 歌曲都放在程序旁边的 **Music** 文件夹里 —— 每首歌一个带编号的文件夹：歌曲文件和一张封面图片。封面只在本程序中显示，不会进入模组和游戏（Heat 的曲目没有封面）。
 s5 = **生成模组**。模组会出现在 Frosty Mod Manager 的列表里。
 s6 = 在 Frosty Mod Manager 中：勾选 **Heat Soundtrack**，关闭其他音乐模组，点击 **Launch**。
 off_h = 仅限离线。
@@ -70,3 +70,36 @@ hMade = 制作
 madeK = 开发者 · Steam ↗
 madeC = Anthropic 的 AI · claude.ai ↗
 foot = 粉丝制作，与 Electronic Arts 或 Ghost Games 无关。Need for Speed 和 NFS Heat 是 Electronic Arts Inc. 的商标。
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = 截图
+cLang = 14 种语言 —— 首次启动时选择你的语言。
+c1 = 你的歌曲和游戏曲目放在一起。
+c2 = 起步：Drop 正好落在 GO。终点：冲线后的一小段。
+c4 = 一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。
+cYt = 来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。
+cSp = 也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。
+cHelp = 程序内置帮助 —— 告诉你点哪里、做什么。
+video = 观看视频
+close = 关闭
+guide = Steam 指南
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = 自定义音乐模组 · NFS Heat · PC
+hubStrip = 整个 NFS 系列都能放自己的歌
+hWhat = 功能
+hNeed = 你需要
+hHow = 如何把自己的音乐加入 NFS Heat
+hOff = 仅限离线
+hSs = “Windows 已保护你的电脑”
+hHelp = 如果出了问题
+h1 = 日志在 **data\log.txt**（窗口里的 “日志” 按钮）。
+h2 = 重新开始：关闭程序并删除 **data** 文件夹。
+h3 = 游戏更新后，程序会自动重新读取游戏。如果模组仍然无法生成 —— 请来这里找新版本。
+h5 = 卸载：在 Frosty Mod Manager 中关闭模组，然后删除程序文件夹。
+bug = 报告 Bug
+bugSub = 描述你做了什么，并粘贴 data\log.txt 的末尾
+hLog = 更新内容
+hLearned = 我们参考了
+learned1 = [Frosty Toolsuite](frosty)（CadeEvs）和 [HarGabt 的 NFS Unbound 分支](hargabt) —— 库和 EA 音频编码器。
+learned2 = [vgmstream](vgm) —— 游戏音乐的结构；[Unbound Soundtrack](unbound) —— 我们为 NFS Unbound 做的程序，Heat Soundtrack 由它发展而来。

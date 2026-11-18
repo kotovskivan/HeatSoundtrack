@@ -45,7 +45,7 @@ how_h = Comment l'utiliser
 s1 = Décompresse **tout** le zip dans un dossier normal — Bureau, Documents, D:\Mods… — pas dans Program Files.
 s2 = Lance **Heat Soundtrack.exe**, choisis la langue et accepte les conditions. Le premier lancement lit le jeu — quelques minutes, une seule fois.
 s3 = **+ AJOUTER UNE CHANSON** → choisis un fichier → coche où elle passe → **Enregistrer**. Ou **▶ DEPUIS YT MUSIC** → colle un lien → **Télécharger**.
-s4 = Les chansons sont dans le dossier **Music** à côté du programme — un dossier numéroté par chanson : le fichier de la chanson et une image pour la pochette.
+s4 = Les chansons sont dans le dossier **Music** à côté du programme — un dossier numéroté par chanson : le fichier de la chanson et une image pour la pochette. La pochette sert seulement au programme : elle ne va ni dans le mod ni dans le jeu (Heat n'a pas de pochettes de titres).
 s5 = **CRÉER LE MOD**. Le mod apparaît dans la liste de Frosty Mod Manager.
 s6 = Dans Frosty Mod Manager : coche **Heat Soundtrack**, désactive les autres mods de musique, appuie sur **Launch**.
 off_h = Hors ligne uniquement.
@@ -70,3 +70,36 @@ hMade = Créé par
 madeK = développeur · Steam ↗
 madeC = IA d'Anthropic · claude.ai ↗
 foot = Fait par des fans, sans lien avec Electronic Arts ou Ghost Games. Need for Speed et NFS Heat sont des marques commerciales d'Electronic Arts Inc.
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = Captures d'écran
+cLang = 14 langues — tu choisis la tienne au premier lancement.
+c1 = Tes chansons à côté des titres du jeu.
+c2 = Départ : le drop tombe sur le GO. Arrivée : un court passage après la ligne.
+c4 = Un bouton — et le mod est déjà dans la liste de Frosty Mod Manager.
+cYt = Des chansons depuis YouTube et YT Music — un lien, une playlist ou une liste .txt.
+cSp = Spotify aussi — un titre, un album ou une playlist. Le son vient de YouTube Music.
+cHelp = L'aide directement dans le programme — quoi cliquer et où.
+video = Voir la vidéo
+close = Fermer
+guide = Guide Steam
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = Mod de musique perso · NFS Heat · PC
+hubStrip = Tes chansons dans toute la série NFS
+hWhat = Ce que ça fait
+hNeed = Il te faut
+hHow = Comment ajouter ta propre musique dans NFS Heat
+hOff = Hors ligne uniquement
+hSs = « Windows a protégé votre ordinateur »
+hHelp = Si ça ne marche pas
+h1 = Le log : **data\log.txt** (bouton « Log » dans la fenêtre).
+h2 = Repartir de zéro : ferme le programme et supprime le dossier **data**.
+h3 = Après une mise à jour du jeu, le programme relit le jeu tout seul. Si le mod ne se crée toujours pas — cherche ici une version plus récente.
+h5 = Désinstaller : désactive le mod dans Frosty Mod Manager et supprime le dossier du programme.
+bug = Signaler un bug
+bugSub = décris ce que tu as fait et colle la fin de data\log.txt
+hLog = Nouveautés
+hLearned = On a appris grâce à
+learned1 = [Frosty Toolsuite](frosty) (CadeEvs) et le [fork de HarGabt pour NFS Unbound](hargabt) — bibliothèques et encodeur audio EA.
+learned2 = [vgmstream](vgm) — comment fonctionne la musique du jeu ; [Unbound Soundtrack](unbound) — notre programme pour NFS Unbound, d'où est né Heat Soundtrack.

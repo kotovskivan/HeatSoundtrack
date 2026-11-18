@@ -45,7 +45,7 @@ how_h = 사용법
 s1 = zip을 **통째로** 일반 폴더에 압축 해제하세요 — 바탕 화면, 문서, D:\Mods… — Program Files 말고요.
 s2 = **Heat Soundtrack.exe**를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.
 s3 = **+ 노래 추가** → 파일 선택 → 재생 위치 체크 → **저장**. 또는 **▶ YT Music에서** → 링크 붙여 넣기 → **다운로드**.
-s4 = 노래는 프로그램 옆 **Music** 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림.
+s4 = 노래는 프로그램 옆 **Music** 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림. 커버는 이 프로그램에서만 보여요 — 모드와 게임에는 들어가지 않아요(Heat에는 트랙 커버가 없어요).
 s5 = **모드 만들기**. 모드가 Frosty Mod Manager 목록에 나타나요.
 s6 = Frosty Mod Manager에서: **Heat Soundtrack**에 체크하고, 다른 음악 모드는 끄고, **Launch**를 누르세요.
 off_h = 오프라인 전용.
@@ -70,3 +70,36 @@ hMade = 만든 사람
 madeK = 개발자 · Steam ↗
 madeC = Anthropic의 AI · claude.ai ↗
 foot = 팬 메이드이며 Electronic Arts나 Ghost Games와는 관련이 없어요. Need for Speed와 NFS Heat는 Electronic Arts Inc.의 상표예요.
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = 스크린샷
+cLang = 14개 언어 — 처음 실행할 때 고릅니다.
+c1 = 내 노래가 게임 트랙 옆에.
+c2 = 출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간.
+c4 = 버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다.
+cYt = YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록.
+cSp = Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다.
+cHelp = 프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다.
+video = 영상 보기
+close = 닫기
+guide = Steam 가이드
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = 내 음악 모드 · NFS Heat · PC
+hubStrip = NFS 시리즈 전체에 나만의 노래
+hWhat = 할 수 있는 것
+hNeed = 필요한 것
+hHow = NFS Heat에 내 음악을 넣는 방법
+hOff = 오프라인 전용
+hSs = “Windows의 PC 보호”
+hHelp = 잘 안 될 때
+h1 = 로그: **data\log.txt** (창의 “로그” 버튼).
+h2 = 처음부터 다시: 프로그램을 닫고 **data** 폴더를 삭제하세요.
+h3 = 게임이 업데이트되면 프로그램이 알아서 게임을 다시 읽습니다. 그래도 모드가 만들어지지 않으면 — 여기서 새 버전을 찾아보세요.
+h5 = 삭제: Frosty Mod Manager에서 모드를 끄고 프로그램 폴더를 삭제하세요.
+bug = 버그 신고
+bugSub = 무엇을 했는지 적고 data\log.txt 끝부분을 붙여 넣으세요
+hLog = 업데이트 내역
+hLearned = 참고한 것
+learned1 = [Frosty Toolsuite](frosty) (CadeEvs)와 [HarGabt의 NFS Unbound 포크](hargabt) — 라이브러리와 EA 오디오 인코더.
+learned2 = [vgmstream](vgm) — 게임 음악의 구조; [Unbound Soundtrack](unbound) — NFS Unbound용 우리 프로그램, Heat Soundtrack은 여기서 시작됐습니다.

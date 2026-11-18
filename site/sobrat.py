@@ -28,6 +28,7 @@ APP = "Heat Soundtrack"
 LABEL = {"uk": "UA"}                      # подпись кнопки языка (остальные — код большими буквами)
 HTML_LANG = {"zh": "zh-Hans"}             # lang="" в html; в адресе и hreflang — код как есть
 CJK = {"zh", "ja", "ko"}                  # без курсива
+TICKER = "HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / "   # 18.11: бегущая строка, как у Unbound
 
 warnings = []
 
@@ -88,7 +89,8 @@ def main():
     need = sorted(set(re.findall(r"\{\{([\w .-]+?)(?:\|attr)?\}\}", template)) |
                   {f"log {v}" for v, _ in versions} |
                   {"seo_title", "seo_desc", "og_locale", "lang_name", "suggest",
-                   "soon", "download", "log_h", "hub"})
+                   "soon", "download", "log_h", "hub", "hLog", "guide", "video", "shot_alt", "f3",
+                   "cLang", "c1", "c2", "cYt", "cSp", "cHelp", "c4"})
 
     def path_of(L):
         return "" if L == main_lang else f"{L}/"
@@ -215,15 +217,41 @@ def main():
         if released:
             cta = (f'<a class="btn main" href="{esc(cfg["download"])}" target="_blank" rel="noopener">{T["download"]}'
                    f'<small>v{esc(cfg["version"])} · {esc(size)} MB</small></a>')
-            changelog = ('<section class="sec" id="log"><div class="wrap"><h2>' + T["log_h"] + '</h2><dl class="log">'
+            changelog = ('<section class="sec" id="log"><div class="wrap"><h2><span class="n">06</span>' + T["hLog"] + '</h2><dl class="log">'
                          + "".join(f'<div><dt>{esc(v)}<small>{esc(d)}</small></dt><dd>{T["log " + v]}</dd></div>'
                                    for v, d in versions)
                          + "</dl></div></section>")
         else:
             cta = f'<span class="btn soon">{T["soon"]}</span>'
             changelog = ""
+        # 18.11: кнопка в шапке, как у Unbound: до выпуска — «Скоро», после — «Скачать»
+        cta_mini = (f'<a class="dl-mini" href="{esc(cfg["download"])}" target="_blank" rel="noopener">{plain(T["download"])}</a>' if released
+                    else f'<span class="dl-mini soon">{plain(T["soon"])}</span>')
+
+        # 18.11: плитки под кнопками (только те, у кого есть ссылка в sajt.txt), ролик или скрин справа, раздел скринов
+        tiles = [("guide", T["guide"], "UA · EN"), ("nfsmods", "NFSMods", "nfsmods.xyz"),
+                 ("nfsaddons", "NFSAddons", "nfsaddons.com"), ("nexus", "Nexus Mods", "nexusmods.com")]
+        tiles = [f'<a class="btn" href="{esc(cfg[k])}" target="_blank" rel="noopener"><span>{n}</span><small>{s}</small></a>'
+                 for k, n, s in tiles if cfg.get(k)]
+        more = f'<div class="cta-more">{"".join(tiles)}</div>' if tiles else ""
+        if cfg.get("youtube_video"):
+            media = (f'<div class="yt" data-id="{esc(cfg["youtube_video"])}"><button class="yt-btn" type="button" aria-label="{esc(plain(T["video"]))} (YouTube)">'
+                     f'<img src="{rel}img/video.jpg" srcset="{rel}img/video-s.jpg 720w, {rel}img/video.jpg 1280w" sizes="(min-width: 901px) 55vw, 100vw"'
+                     f' width="1280" height="720" alt="{esc(plain(T["video"]))}" fetchpriority="high"><span class="yt-play"><span>▶</span>{T["video"]}</span></button></div>')
+        else:
+            media = (f'<figure class="shot"><img src="{rel}img/main-{L}.jpg" srcset="{rel}img/main-{L}-s.jpg 720w, {rel}img/main-{L}.jpg 1440w"'
+                     f' sizes="(min-width: 901px) 55vw, 100vw" width="1440" height="900" alt="{esc(plain(T["shot_alt"]))}" fetchpriority="high"></figure>')
+        il = L   # скрины окна — на каждом языке свои
+        shots = "".join(
+            f'<figure><button class="shot-btn" type="button" data-full="{rel}img/{k}-{il}.jpg"><img src="{rel}img/{k}-{il}-s.jpg"'
+            f' srcset="{rel}img/{k}-{il}-s.jpg 720w, {rel}img/{k}-{il}.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450"'
+            f' loading="lazy" alt="{esc(plain(T[c]))}"></button><figcaption>{T[c]}</figcaption></figure>'
+            for k, c in (("lang", "cLang"), ("main", "c1"), ("panel", "c2"), ("tracks", "f3"),
+                         ("yt", "cYt"), ("sp", "cSp"), ("help", "cHelp"), ("built", "c4")))
 
         special = {
+            "more": more, "media": media, "shots": shots, "cta_mini": cta_mini,
+            "ticker": esc(TICKER * 12), "hubTicker": esc(f"NFS OWN MUSIC → {plain(T['hubStrip'])} / " * 12),
             "lang": HTML_LANG.get(L, L), "code": L, "cls": "cjk" if L in CJK else "", "rel": rel, "home": href_to(L),
             "head": "\n".join(head), "langs": langs_nav, "cur_label": cur_label, "cta": cta, "changelog": changelog,
             "hub_href": esc(cfg["hub"].rstrip("/") + "/" + path_of(L)),
@@ -247,6 +275,7 @@ def main():
             fail(f"{L}: в странице остались {{{{...}}}} — проверь shablon.html")
         dest = OUT / path_of(L) / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
+        page = page.replace("▶", "▶︎")   # 18.11: ▶ на iPhone рисовался смайликом — FE0E = «рисуй как текст»
         dest.write_text(page, encoding="utf-8")
         print(f"  {L:3} -> gotovo/{path_of(L)}index.html   «{title}»")
 

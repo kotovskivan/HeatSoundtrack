@@ -44,3 +44,14 @@ SEO — СДЕЛАТЬ ТЕБЕ (один раз)
   (13.11 вечер: подтверждение ФАЙЛОМ — он уже в static и в сети; тег google_verify не нужен)
   Google Search Console: ресурс «Префикс URL» https://kotovskivan.github.io/HeatSoundtrack/ -> «HTML-тег» -> content="..." ->
   sajt.txt google_verify -> opublikovat.cmd -> «Подтвердить» -> Файлы Sitemap -> sitemap.xml. Bing — импорт из Google.
+
+18.11 (Ваня: «обновлять сайт Heat по подобию Unbound»):
+  - ФОН первого экрана — видео static\video\hero.mp4 (34 с, 1280x544, 4,7 МБ, без звука) из официального трейлера EA
+    youtu.be/p4Q3uh2RaZo (исходник inputs\nfs-heat\video\trailer.mp4): куски 11-16.8, 18-27.8, 30.2-32, 40-50.9, 52-58 с — машины ночью,
+    без возрастного значка, взрывов, вспышки, танцоров на светлом и финальных логотипов; crop 1920:816, scale 1280:544, crf 33.
+    Грузится последним (после load), и на телефоне; не при «меньше движения» / «экономии трафика». Пока не заиграло — картинка bg.jpg.
+  - ПЛИТКИ под кнопками (Steam-гайд, NFSMods, NFSAddons, Nexus) — ключи guide / nfsmods / nfsaddons / nexus в sajt.txt: пусто — плитки нет.
+  - РОЛИК справа: sajt.txt youtube_video = ID + static\img\video.jpg / video-s.jpg; пусто — справа скрин главного окна на языке страницы.
+  - СКРИНЫ: раздел #shots, 8 кадров на каждый язык (img\<lang|main|panel|tracks|yt|sp|help|built>-<язык>[-s].jpg),
+    сняты со стенда скриптами outputs\nfs-heat\skriny-sajt\skripty; подписи — ключи hShots cLang c1 c2 f3 cYt cSp cHelp c4 (как у Unbound).
+  - ▶ на iPhone был смайликом — sobrat.py ставит после ▶ знак U+FE0E.

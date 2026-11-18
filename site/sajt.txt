@@ -17,6 +17,20 @@ fmm = https://github.com/HarGabt/FrostyToolsuite/releases
 key = https://www.nexusmods.com/needforspeedheat/mods/74
 hub = https://kotovskivan.github.io/NFSOwnMusic/
 kitivski = https://steamcommunity.com/id/kitivski/
+# 18.11: форма «Повідомити про баг» — общая с Unbound; «Вчилися на» — ссылки
+bug = https://forms.gle/StNa4GFZRHckFVpi8
+frosty = https://github.com/CadeEvs/FrostyToolsuite
+hargabt = https://github.com/HarGabt/FrostyToolsuite
+vgm = https://github.com/vgmstream/vgmstream
+unbound = https://kotovskivan.github.io/UnboundSoundtrack/
+# 18.11 (Ваня): плитки под кнопками, как у Unbound — пусто = плитки нет; вставил ссылку -> opublikovat.cmd, плитка появится
+guide =
+nfsmods =
+nfsaddons =
+nexus =
+# ролик YouTube на первом экране вместо скрина окна: ID ролика (после watch?v=) + обложка static\img\video.jpg (1280) и video-s.jpg (720)
+#   (i.ytimg.com/vi/<ID>/maxresdefault.jpg -> ffmpeg -q:v 4; пусто — справа скрин окна okno.jpg)
+youtube_video =
 
 # --- адрес сайта (SEO: canonical, hreflang, sitemap, картинка в превью ссылки) ---
 base_url = https://kotovskivan.github.io/HeatSoundtrack/

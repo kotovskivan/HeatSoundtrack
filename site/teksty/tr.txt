@@ -45,7 +45,7 @@ how_h = Nasıl kullanılır
 s1 = Zip arşivinin **tamamını** normal bir klasöre çıkar — Masaüstü, Belgeler, D:\Mods… — Program Files klasörüne değil.
 s2 = **Heat Soundtrack.exe** dosyasını başlat, dili seç ve koşulları kabul et. İlk açılışta program oyunu okur — birkaç dakika, sadece bir kez.
 s3 = **+ ŞARKI EKLE** → bir dosya seç → nerede çalacağını işaretle → **Kaydet**. Ya da **▶ YT MUSIC'TEN** → bir link yapıştır → **İndir**.
-s4 = Şarkılar programın yanındaki **Music** klasöründe durur — her şarkı için numaralı bir klasör: şarkı dosyası ve bir kapak resmi.
+s4 = Şarkılar programın yanındaki **Music** klasöründe durur — her şarkı için numaralı bir klasör: şarkı dosyası ve bir kapak resmi. Kapak sadece program içindir — moda ve oyuna girmez (Heat'te şarkı kapakları yok).
 s5 = **MOD OLUŞTUR**. Mod, Frosty Mod Manager'ın listesinde görünür.
 s6 = Frosty Mod Manager'da: **Heat Soundtrack** modunu işaretle, diğer müzik modlarını kapat, **Launch** düğmesine bas.
 off_h = Sadece çevrimdışı.
@@ -70,3 +70,36 @@ hMade = Yapanlar
 madeK = geliştirici · Steam ↗
 madeC = Anthropic'in yapay zekâsı · claude.ai ↗
 foot = Hayran yapımı, Electronic Arts veya Ghost Games ile bağlantılı değildir. Need for Speed ve NFS Heat, Electronic Arts Inc. şirketinin ticari markalarıdır.
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = Ekran görüntüleri
+cLang = 14 dil — kendi dilini ilk açılışta seçersin.
+c1 = Şarkıların oyunun parçalarının yanında.
+c2 = Başlangıç: drop tam GO'da gelir. Bitiş: çizgiden sonra kısa bir parça.
+c4 = Tek düğme — ve mod Frosty Mod Manager listesinde.
+cYt = YouTube ve YT Music'ten şarkılar — bağlantı, oynatma listesi ya da .txt listesi.
+cSp = Spotify da var — şarkı, albüm ya da oynatma listesi. Ses YouTube Music'ten gelir.
+cHelp = Yardım programın içinde — neye ve nereden tıklanacağı.
+video = Videoyu izle
+close = Kapat
+guide = Steam rehberi
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = Kendi müziğin için mod · NFS Heat · PC
+hubStrip = Tüm NFS serisinde kendi şarkıların
+hWhat = Ne yapar
+hNeed = Gerekenler
+hHow = NFS Heat'a kendi müziğini nasıl eklersin
+hOff = Sadece çevrimdışı
+hSs = “Windows bilgisayarınızı korudu”
+hHelp = Bir şey çalışmazsa
+h1 = Log: **data\log.txt** (penceredeki “Log” düğmesi).
+h2 = Baştan başlamak için: programı kapat ve **data** klasörünü sil.
+h3 = Oyun güncellenince program oyunu kendisi yeniden okur. Mod yine de oluşmuyorsa — burada yeni bir sürüm ara.
+h5 = Kaldırmak için: modu Frosty Mod Manager'da kapat ve program klasörünü sil.
+bug = Hata bildir
+bugSub = ne yaptığını yaz ve data\log.txt dosyasının sonunu yapıştır
+hLog = Yenilikler
+hLearned = Kimden öğrendik
+learned1 = [Frosty Toolsuite](frosty) (CadeEvs) ve [HarGabt'ın NFS Unbound fork'u](hargabt) — kütüphaneler ve EA ses kodlayıcısı.
+learned2 = [vgmstream](vgm) — oyunun müziğinin nasıl çalıştığı; [Unbound Soundtrack](unbound) — NFS Unbound için programımız, Heat Soundtrack ondan doğdu.

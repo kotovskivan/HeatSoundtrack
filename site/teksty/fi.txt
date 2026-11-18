@@ -44,7 +44,7 @@ how_h = Näin se toimii
 s1 = Pura **koko** zip tavalliseen kansioon — Työpöytä, Tiedostot, D:\Mods… Ei Program Filesiin.
 s2 = Käynnistä **Heat Soundtrack.exe**, valitse kieli ja hyväksy ehdot. Ensimmäinen käynnistys lukee pelin — muutama minuutti, vain kerran.
 s3 = **+ LISÄÄ BIISI** → valitse tiedosto → rastita, missä se soi → **Tallenna**. Tai **▶ YT MUSICISTA** → liitä linkki → **Lataa**.
-s4 = Biisit ovat ohjelman vieressä olevassa **Music**-kansiossa — jokaisella biisillä oma numeroitu kansio: biisin tiedosto ja kansikuva.
+s4 = Biisit ovat ohjelman vieressä olevassa **Music**-kansiossa — jokaisella biisillä oma numeroitu kansio: biisin tiedosto ja kansikuva. Kansikuva on vain ohjelmaa varten — se ei mene modiin eikä peliin (Heatissa kappaleilla ei ole kansikuvia).
 s5 = **RAKENNA MODI**. Modi ilmestyy Frosty Mod Managerin listaan.
 s6 = Frosty Mod Managerissa: rastita **Heat Soundtrack**, kytke muut musiikkimodit pois, paina **Launch**.
 off_h = Vain offline.
@@ -69,3 +69,36 @@ hMade = Tekijät
 madeK = kehittäjä · Steam ↗
 madeC = Anthropicin tekoäly · claude.ai ↗
 foot = Fanien tekemä, ei yhteydessä Electronic Artsiin eikä Ghost Gamesiin. Need for Speed ja NFS Heat ovat Electronic Arts Inc:n tavaramerkkejä.
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = Kuvakaappaukset
+cLang = 14 kieltä — valitset omasi ensimmäisellä käynnistyskerralla.
+c1 = Omat biisisi pelin kappaleiden rinnalla.
+c2 = Kisan lähtö: drop iskee kohdassa GO. Maali: lyhyt pätkä maaliviivan jälkeen.
+c4 = Yksi painike — ja modi on Frosty Mod Managerin listassa.
+cYt = Biisit YouTubesta ja YT Musicista — linkki, soittolista tai .txt-lista.
+cSp = Myös Spotify — biisi, albumi tai soittolista. Ääni tulee YouTube Musicista.
+cHelp = Ohjeet suoraan ohjelmassa — mitä klikata ja missä.
+video = Katso video
+close = Sulje
+guide = Steam-opas
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = Oman musiikin modi · NFS Heat · PC
+hubStrip = Omat kappaleet koko NFS-sarjaan
+hWhat = Mitä se tekee
+hNeed = Tarvitset
+hHow = Näin lisäät omaa musiikkia NFS Heatiin
+hOff = Vain offline
+hSs = ”Windows suojasi tietokonettasi”
+hHelp = Jos jokin ei toimi
+h1 = Loki on **data\log.txt** (painike ”Loki” ikkunassa).
+h2 = Aloita alusta: sulje ohjelma ja poista **data**-kansio.
+h3 = Pelin päivityksen jälkeen ohjelma lukee pelin uudelleen itse. Jos modin rakentaminen epäonnistuu silti — katso täältä uudempi versio.
+h5 = Poisto: kytke modi pois Frosty Mod Managerissa ja poista ohjelman kansio.
+bug = Ilmoita virheestä
+bugSub = kerro, mitä teit, ja liitä data\log.txt-tiedoston loppu
+hLog = Muutokset
+hLearned = Opimme näiltä
+learned1 = [Frosty Toolsuite](frosty) (CadeEvs) ja [HarGabtin NFS Unbound -forkki](hargabt) — kirjastot ja EA:n äänienkooderi.
+learned2 = [vgmstream](vgm) — miten pelin musiikki toimii; [Unbound Soundtrack](unbound) — ohjelmamme NFS Unboundiin, josta Heat Soundtrack kasvoi.

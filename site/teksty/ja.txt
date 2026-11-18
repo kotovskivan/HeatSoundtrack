@@ -45,7 +45,7 @@ how_h = 使い方
 s1 = zip を**丸ごと**普通のフォルダーに展開してください — デスクトップ、ドキュメント、D:\Mods… など。Program Files の中には展開しないでください。
 s2 = **Heat Soundtrack.exe** を起動し、言語を選んで利用条件に同意します。初回起動時はゲームを読み込みます — 数分かかりますが、最初の一回だけです。
 s3 = **+ 曲を追加** → ファイルを選ぶ → 流れる場所をチェック → **保存**。または **▶ YT Music から** → リンクを貼り付け → **ダウンロード**。
-s4 = 曲はプログラムの隣にある **Music** フォルダーに入ります — 1 曲につき番号付きのフォルダーが 1 つ：曲のファイルとジャケット用の画像。
+s4 = 曲はプログラムの隣にある **Music** フォルダーに入ります — 1 曲につき番号付きのフォルダーが 1 つ：曲のファイルとジャケット用の画像。ジャケットはこのプログラム内だけのもので、MOD にもゲームにも入りません（Heat には曲のジャケットがありません）。
 s5 = **MOD を作成**。MOD が Frosty Mod Manager のリストに表示されます。
 s6 = Frosty Mod Manager で **Heat Soundtrack** にチェックを入れ、ほかの音楽 MOD をオフにして、**Launch** を押します。
 off_h = オフライン専用。
@@ -70,3 +70,36 @@ hMade = 制作
 madeK = 開発者 · Steam ↗
 madeC = Anthropic の AI · claude.ai ↗
 foot = ファンメイドであり、Electronic Arts および Ghost Games とは一切関係ありません。Need for Speed と NFS Heat は Electronic Arts Inc. の商標です。
+
+# 18.11: раздел скринов, ролик, плитки (тексты — как на сайте Unbound)
+hShots = スクリーンショット
+cLang = 14 言語 — 初回起動時に選べます。
+c1 = 自分の曲がゲームの曲と並びます。
+c2 = スタート：GO の瞬間にドロップ。フィニッシュ：ゴール後の短いパート。
+c4 = ボタンひとつで、MOD が Frosty Mod Manager のリストに入ります。
+cYt = YouTube と YT Music から曲を追加 — リンク、プレイリスト、.txt リスト。
+cSp = Spotify にも対応 — 曲、アルバム、プレイリスト。音源は YouTube Music から。
+cHelp = ヘルプはプログラムの中に — どこを押せばいいかすぐわかります。
+video = 動画を見る
+close = 閉じる
+guide = Steam ガイド
+
+# 18.11: блоки как у Unbound (плашка, бегущая строка, заголовки, помощь, «Вчилися на»)
+heroTag = 自分の音楽を入れる MOD · NFS Heat · PC
+hubStrip = NFS シリーズ全体に自分の曲を
+hWhat = できること
+hNeed = 必要なもの
+hHow = NFS Heat に自分の音楽を入れる方法
+hOff = オフライン専用
+hSs = 「Windows によって PC が保護されました」
+hHelp = うまく動かないとき
+h1 = ログは **data\log.txt**（ウィンドウの「ログ」ボタン）。
+h2 = 最初からやり直す：プログラムを閉じて **data** フォルダーを削除。
+h3 = ゲームのアップデート後は、プログラムが自動でゲームを読み直します。それでも MOD が作れない場合は、ここで新しいバージョンを探してください。
+h5 = 削除：Frosty Mod Manager で MOD をオフにして、プログラムのフォルダーを削除。
+bug = バグを報告
+bugSub = 何をしたかを書いて、data\log.txt の最後の部分を貼り付けてください
+hLog = 更新履歴
+hLearned = 参考にしたもの
+learned1 = [Frosty Toolsuite](frosty)（CadeEvs）と [HarGabt の NFS Unbound フォーク](hargabt) — ライブラリと EA オーディオエンコーダー。
+learned2 = [vgmstream](vgm) — ゲーム音楽の仕組み。[Unbound Soundtrack](unbound) — NFS Unbound 用の私たちのツールで、Heat Soundtrack はここから生まれました。
