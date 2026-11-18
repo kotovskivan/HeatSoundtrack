@@ -126,13 +126,13 @@ a.dl-mini:hover{background:var(--day);box-shadow:4px 4px 0 var(--indigo)}
 .langs nav .ai{margin:6px 10px 4px;font-size:12px;color:var(--muted)}
 
 /* первый экран: фон — скрин из фоторежима */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero{position:relative;overflow:hidden} /* 18.11: без линии снизу — сразу полоска, как у Unbound */
 .hero .bg{position:absolute;inset:0;background:url("img/bg.jpg") center/cover no-repeat;filter:brightness(.55) saturate(1.1)}
 .hero .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s;pointer-events:none}
 .hero .bg.vid video{opacity:1}
 /* 18.11 (Ваня): фон — кусок официального трейлера (машины ночью, без титров), грузится последним, после всей страницы; картинка — пока видео нет */
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.95) 0%,rgba(13,13,13,.7) 45%,rgba(13,13,13,.25) 100%),
-  linear-gradient(0deg,var(--bg) 0%,transparent 30%)}
+  linear-gradient(0deg,var(--bg) 0%,transparent 14%)} /* 18.11: низ темнее только у самой полоски — видео видно до нее */
 .hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:center;padding-top:72px;padding-bottom:72px}
 h1{margin:0;line-height:.9}
 h1 b{display:block;font:italic 800 clamp(64px,10vw,124px)/.9 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.01em}
