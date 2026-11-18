@@ -15,7 +15,7 @@ lead = Twoje piosenki w **Need for Speed Heat** — jako nowe utwory, tuż obok 
 soon = Wkrótce
 download = Pobierz
 source = Kod źródłowy
-facts = Za darmo · Windows 10/11 · Tylko tryb jednoosobowy · Projekt fanowski
+facts = Za darmo · Windows 10/11 · Tylko gra jednoosobowa · Projekt fanowski, niezwiązany z EA
 shot_alt = Okno Heat Soundtrack: utwory gry i twoje piosenki
 
 # --- what it does ---

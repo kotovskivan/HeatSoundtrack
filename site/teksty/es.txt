@@ -15,7 +15,7 @@ lead = Tus propias canciones en **Need for Speed Heat** — como pistas nuevas, 
 soon = Próximamente
 download = Descargar
 source = Código fuente
-facts = Gratis · Windows 10/11 · Solo un jugador · Hecho por fans
+facts = Gratis · Windows 10/11 · Solo un jugador · Hecho por fans, sin relación con EA
 shot_alt = Ventana de Heat Soundtrack: las pistas del juego y tus propias canciones
 
 # --- what it does ---

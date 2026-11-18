@@ -15,7 +15,7 @@ lead = **Need for Speed Heat**에 내 노래를 — 새 트랙으로, 게임 트
 soon = 곧 출시
 download = 다운로드
 source = 소스 코드
-facts = 무료 · Windows 10/11 · 싱글 플레이 전용 · 팬 메이드
+facts = 무료 · Windows 10/11 · 싱글 플레이 전용 · 팬 메이드, EA와 무관
 shot_alt = Heat Soundtrack 창: 게임 트랙과 내 노래
 
 # --- what it does ---

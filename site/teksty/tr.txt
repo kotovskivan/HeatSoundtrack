@@ -15,7 +15,7 @@ lead = **Need for Speed Heat** oyununda kendi şarkıların — oyunun parçalar
 soon = Yakında
 download = İndir
 source = Kaynak kodu
-facts = Ücretsiz · Windows 10/11 · Sadece tek oyunculu · Hayran yapımı
+facts = Ücretsiz · Windows 10/11 · Sadece tek oyunculu · Hayran yapımı, EA ile bağlantısı yok
 shot_alt = Heat Soundtrack penceresi: oyunun parçaları ve kendi şarkıların
 
 # --- what it does ---

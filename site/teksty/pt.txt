@@ -15,7 +15,7 @@ lead = Suas próprias músicas no **Need for Speed Heat** — como faixas novas,
 soon = Em breve
 download = Baixar
 source = Código-fonte
-facts = Grátis · Windows 10/11 · Só single-player · Feito por fãs
+facts = Grátis · Windows 10/11 · Só single player · Feito por fãs, sem vínculo com a EA
 shot_alt = Janela do Heat Soundtrack: as faixas do jogo e suas próprias músicas
 
 # --- what it does ---

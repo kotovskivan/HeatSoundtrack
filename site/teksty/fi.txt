@@ -14,7 +14,7 @@ lead = Omat biisisi **Need for Speed Heatissa** — uusina kappaleina, suoraan p
 soon = Tulossa pian
 download = Lataa
 source = Lähdekoodi
-facts = Ilmainen · Windows 10/11 · Vain yksinpeli · Fanien tekemä
+facts = Ilmainen · Windows 10/11 · Vain yksinpeli · Fanien tekemä, ei yhteydessä EA:han
 shot_alt = Heat Soundtrack -ikkuna: pelin kappaleet ja omat biisisi
 
 # --- mitä se tekee ---

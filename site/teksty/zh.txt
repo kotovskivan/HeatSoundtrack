@@ -15,7 +15,7 @@ lead = 把你自己的歌曲放进 **Need for Speed Heat** —— 作为新曲�
 soon = 即将推出
 download = 下载
 source = 源代码
-facts = 免费 · Windows 10/11 · 仅限单人游戏 · 粉丝制作
+facts = 免费 · Windows 10/11 · 仅限单人游戏 · 粉丝作品，与 EA 无关
 shot_alt = Heat Soundtrack 窗口：游戏曲目和你自己的歌曲
 
 # --- what it does ---

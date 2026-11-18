@@ -15,7 +15,7 @@ lead = **Need for Speed Heat** に自分の曲を — 新しい曲として、�
 soon = 近日公開
 download = ダウンロード
 source = ソースコード
-facts = 無料 · Windows 10/11 · シングルプレイ専用 · ファンメイド
+facts = 無料 · Windows 10/11 · シングルプレイ専用 · ファンメイド、EA とは無関係
 shot_alt = Heat Soundtrack のウィンドウ：ゲームの曲と自分の曲
 
 # --- what it does ---
