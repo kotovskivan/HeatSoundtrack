@@ -255,6 +255,7 @@ def main():
             "lang": HTML_LANG.get(L, L), "code": L, "cls": "cjk" if L in CJK else "", "rel": rel, "home": href_to(L),
             "head": "\n".join(head), "langs": langs_nav, "cur_label": cur_label, "cta": cta, "changelog": changelog,
             "hub_href": esc(cfg["hub"].rstrip("/") + "/" + path_of(L)),
+            "unbound_href": esc(cfg["unbound"].rstrip("/") + "/" + path_of(L)),
             "pages_json": json.dumps(pages, ensure_ascii=False).replace("</", "<\\/"),
         }
 
