@@ -209,6 +209,9 @@ ul.plus li::before{content:"+";position:absolute;left:16px;top:10px;color:var(--
 .feats article:nth-child(6){--c:var(--sun)}
 .feats h3{margin:0 0 8px;font:italic 800 20px/1.2 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;color:var(--c,var(--day))}
 .feats p{margin:0;color:#d5dae4}
+/* 18.11: шаг 3 как у Unbound — второй путь (YT Music) и пояснения мельче */
+.steps .or{display:block;margin-top:10px}
+.steps .sub{display:block;margin-top:6px;color:var(--muted);font-size:14px}
 ol.list,ol.steps{list-style:none;padding:0;margin:0;counter-reset:n;display:grid;gap:8px}
 ol.list li,ol.steps li{counter-increment:n;position:relative;background:var(--plate);border:1px solid var(--line);padding:14px 18px 14px 64px}
 ol.list li::before,ol.steps li::before{content:counter(n);position:absolute;left:0;top:0;bottom:0;width:48px;display:grid;place-items:center;
@@ -329,7 +332,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <div>
       <p class="tag">自分の音楽を入れる MOD · NFS Heat · PC</p>
       <h1><b>HEAT</b><span class="sig">Soundtrack</span></h1>
-      <p class="lead"><b>Need for Speed Heat</b> に自分の曲を — 新しい曲として、ゲームの曲のすぐ隣に。</p>
+      <p class="lead"><b>Need for Speed Heat</b> の音楽を自分好みに完全カスタマイズ：自分の曲を追加し、ゲームの曲は残すもオフにするも自由。</p>
       <div class="cta"><span class="btn soon">近日公開</span><a class="btn" href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">ソースコード</a></div>
       
       <p class="facts">無料 · Windows 10/11 · シングルプレイ専用 · ファンメイド、EA とは無関係</p>
@@ -363,18 +366,18 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 <section class="sec" id="what"><div class="wrap">
   <h2><span class="n">01</span>できること</h2>
   <div class="feats">
-    <article><h3>自分の曲</h3><p>mp3、flac、wav、ogg、m4a — <b>新しい</b>曲として追加します。ゲームの曲はそのまま残ります。</p></article>
-    <article><h3>昼 · 夜</h3><p>曲ごとに流れる場所をチェックで選べます：ガレージ、昼の街、夜の街、昼のレース、夜のレース。</p></article>
-    <article><h3>ゲームの曲</h3><p>ゲームのどの曲もオン／オフできます — 場所ごとに別々に。</p></article>
-    <article><h3>YouTube · YT Music</h3><p>曲・プレイリスト・アルバムのリンクを貼り付けるだけ — 複数のリンクをまとめて貼っても OK。MV のリンクなら、同じ曲を YT Music から取得します。</p></article>
-    <article><h3>MOD は 1 つ</h3><p>Frosty Mod Manager 用の MOD を 1 つだけ作成します。ゲームのファイルは変更しません。プロファイル：曲のセットを使い分けて、ワンクリックで切り替え。</p></article>
-    <article><h3>14 言語</h3><p>ウィンドウは 14 言語に対応。zip に音楽やゲームのファイルは入っていません — 曲はあなたが用意します。</p></article>
+    <article><h3>自分の曲</h3><p>mp3、flac、wav、ogg、m4a を、自分のタイトル付きの<b>新しい</b>トラックとして追加。ゲームの曲を置き換えません。1 つの MOD に数百曲。</p></article>
+    <article><h3>YouTube · YT Music · Spotify</h3><p>曲・プレイリスト・アルバムのリンク、複数のリンク、.txt リストを貼るだけ。ダウンロードはプログラムが自動で行います。MV のリンクなら YT Music の同じ曲を、イントロや寸劇なしで取得します。 Spotify のリンクも使えます：リストは Spotify から、曲は YT Music から。</p></article>
+    <article><h3>GO でドロップ</h3><p>スタート：17 秒のカットシーン + 3.45 秒のカウントダウン、GO の瞬間にドロップ。GO マーカーはマウスでドラッグ。フィニッシュ用の短いパートも。</p></article>
+    <article><h3>ガレージ · 街 · レース</h3><p>曲ごとに流れる場所をチェックで選べます：ガレージ、昼の街、夜の街、昼のレース、夜のレース。ゲームの曲も同じく、場所ごとに設定。音楽セットごとにプロファイルも作れます。</p></article>
+    <article><h3>MOD はひとつ</h3><p>Frosty Mod Manager 用の MOD をひとつ作ります。ゲームファイルは変更しません — MOD をオフにすれば元どおりです。</p></article>
+    <article><h3>クリーンな zip</h3><p>zip に音楽やゲームファイルは入っていません。曲はあなたのもの、ゲームの曲はあなたのゲームから読み込みます。▶︎ — ゲーム内の曲を 30 秒試聴（インターネットが必要）。</p></article>
   </div>
 </div></section>
 
 <section class="sec" id="shots"><div class="wrap">
   <h2><span class="n">02</span>スクリーンショット</h2>
-  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-ja.jpg"><img src="../img/lang-ja-s.jpg" srcset="../img/lang-ja-s.jpg 720w, ../img/lang-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14 言語 — 初回起動時に選べます。"></button><figcaption>14 言語 — 初回起動時に選べます。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-ja.jpg"><img src="../img/main-ja-s.jpg" srcset="../img/main-ja-s.jpg 720w, ../img/main-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="自分の曲がゲームの曲と並びます。"></button><figcaption>自分の曲がゲームの曲と並びます。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-ja.jpg"><img src="../img/panel-ja-s.jpg" srcset="../img/panel-ja-s.jpg 720w, ../img/panel-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="スタート：GO の瞬間にドロップ。フィニッシュ：ゴール後の短いパート。"></button><figcaption>スタート：GO の瞬間にドロップ。フィニッシュ：ゴール後の短いパート。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-ja.jpg"><img src="../img/tracks-ja-s.jpg" srcset="../img/tracks-ja-s.jpg 720w, ../img/tracks-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="ゲームのどの曲もオン／オフできます — 場所ごとに別々に。"></button><figcaption>ゲームのどの曲もオン／オフできます — 場所ごとに別々に。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-ja.jpg"><img src="../img/yt-ja-s.jpg" srcset="../img/yt-ja-s.jpg 720w, ../img/yt-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="YouTube と YT Music から曲を追加 — リンク、プレイリスト、.txt リスト。"></button><figcaption>YouTube と YT Music から曲を追加 — リンク、プレイリスト、.txt リスト。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-ja.jpg"><img src="../img/sp-ja-s.jpg" srcset="../img/sp-ja-s.jpg 720w, ../img/sp-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="Spotify にも対応 — 曲、アルバム、プレイリスト。音源は YouTube Music から。"></button><figcaption>Spotify にも対応 — 曲、アルバム、プレイリスト。音源は YouTube Music から。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-ja.jpg"><img src="../img/help-ja-s.jpg" srcset="../img/help-ja-s.jpg 720w, ../img/help-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="ヘルプはプログラムの中に — どこを押せばいいかすぐわかります。"></button><figcaption>ヘルプはプログラムの中に — どこを押せばいいかすぐわかります。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-ja.jpg"><img src="../img/built-ja-s.jpg" srcset="../img/built-ja-s.jpg 720w, ../img/built-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="ボタンひとつで、MOD が Frosty Mod Manager のリストに入ります。"></button><figcaption>ボタンひとつで、MOD が Frosty Mod Manager のリストに入ります。</figcaption></figure></div>
+  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-ja.jpg"><img src="../img/lang-ja-s.jpg" srcset="../img/lang-ja-s.jpg 720w, ../img/lang-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14 言語 — 初回起動時に選べます。"></button><figcaption>14 言語 — 初回起動時に選べます。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-ja.jpg"><img src="../img/main-ja-s.jpg" srcset="../img/main-ja-s.jpg 720w, ../img/main-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="自分の曲がゲームの曲と並びます。"></button><figcaption>自分の曲がゲームの曲と並びます。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-ja.jpg"><img src="../img/panel-ja-s.jpg" srcset="../img/panel-ja-s.jpg 720w, ../img/panel-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="スタート：GO の瞬間にドロップ。フィニッシュ：ゴール後の短いパート。"></button><figcaption>スタート：GO の瞬間にドロップ。フィニッシュ：ゴール後の短いパート。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-ja.jpg"><img src="../img/tracks-ja-s.jpg" srcset="../img/tracks-ja-s.jpg 720w, ../img/tracks-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="曲ごとに流れる場所をチェックで選べます：ガレージ、昼の街、夜の街、昼のレース、夜のレース。ゲームの曲も同じく、場所ごとに設定。音楽セットごとにプロファイルも作れます。"></button><figcaption>曲ごとに流れる場所をチェックで選べます：ガレージ、昼の街、夜の街、昼のレース、夜のレース。ゲームの曲も同じく、場所ごとに設定。音楽セットごとにプロファイルも作れます。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-ja.jpg"><img src="../img/yt-ja-s.jpg" srcset="../img/yt-ja-s.jpg 720w, ../img/yt-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="YouTube と YT Music から曲を追加 — リンク、プレイリスト、.txt リスト。"></button><figcaption>YouTube と YT Music から曲を追加 — リンク、プレイリスト、.txt リスト。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-ja.jpg"><img src="../img/sp-ja-s.jpg" srcset="../img/sp-ja-s.jpg 720w, ../img/sp-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="Spotify にも対応 — 曲、アルバム、プレイリスト。音源は YouTube Music から。"></button><figcaption>Spotify にも対応 — 曲、アルバム、プレイリスト。音源は YouTube Music から。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-ja.jpg"><img src="../img/help-ja-s.jpg" srcset="../img/help-ja-s.jpg 720w, ../img/help-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="ヘルプはプログラムの中に — どこを押せばいいかすぐわかります。"></button><figcaption>ヘルプはプログラムの中に — どこを押せばいいかすぐわかります。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-ja.jpg"><img src="../img/built-ja-s.jpg" srcset="../img/built-ja-s.jpg 720w, ../img/built-ja.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="ボタンひとつで、MOD が Frosty Mod Manager のリストに入ります。"></button><figcaption>ボタンひとつで、MOD が Frosty Mod Manager のリストに入ります。</figcaption></figure></div>
 </div></section>
 
 <div class="wrap two">
@@ -384,14 +387,14 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   </section>
   <section class="sec" id="how">
     <h2><span class="n">04</span>NFS Heat に自分の音楽を入れる方法</h2>
-    <ol class="steps"><li>zip を<b>丸ごと</b>普通のフォルダーに展開してください — デスクトップ、ドキュメント、D:\Mods… など。Program Files の中には展開しないでください。</li><li><b>Heat Soundtrack.exe</b> を起動し、言語を選んで利用条件に同意します。初回起動時はゲームを読み込みます — 数分かかりますが、最初の一回だけです。</li><li><b>+ 曲を追加</b> → ファイルを選ぶ → 流れる場所をチェック → <b>保存</b>。または <b>▶︎ YT Music から</b> → リンクを貼り付け → <b>ダウンロード</b>。</li><li>曲はプログラムの隣にある <b>Music</b> フォルダーに入ります — 1 曲につき番号付きのフォルダーが 1 つ：曲のファイルとジャケット用の画像。ジャケットはこのプログラム内だけのもので、MOD にもゲームにも入りません（Heat には曲のジャケットがありません）。</li><li><b>MOD を作成</b>。MOD が Frosty Mod Manager のリストに表示されます。</li><li>Frosty Mod Manager で <b>Heat Soundtrack</b> にチェックを入れ、ほかの音楽 MOD をオフにして、<b>Launch</b> を押します。</li></ol>
+    <ol class="steps"><li>zip を<b>まるごと</b>普通のフォルダーに展開 — デスクトップ、ドキュメント、D:\Mods… Program Files には入れないでください。</li><li><b>Heat Soundtrack.exe</b> を起動し、言語を選んで利用条件に同意します。初回起動時はゲームを読み込みます — 数分かかりますが、最初の一回だけです。</li><li><b>+ 曲を追加</b> → ファイルを選ぶ → 流れる場所をチェック、GO とフィニッシュを設定 → <b>保存</b>。<span class="or">または <b>▶︎ YT Music から</b> → リンクを貼り付け（曲、プレイリスト、アルバム）。複数のリンクや .txt リストも可 → <b>ダウンロード</b>。</span><span class="sub">MV のリンクなら、YT Music の同じ曲をイントロや寸劇なしで取得します。プレイリストの前に、曲数・すでにある曲・時間・容量を表示し、すでにある曲はスキップします。.txt リスト：タイトル,アーティスト,リンク;（ラテン文字で）— サンプルファイルはプログラム内にあります。</span><span class="sub">曲はプログラムの隣の <b>Music</b> フォルダーに、1 曲ずつ番号付きフォルダーで入っています：Music\1\、Music\2\… 手動でも OK：番号付きの新しいフォルダーに曲ファイルと画像を入れるだけ。ジャケットはこのプログラム内だけのもので、ゲームには入りません。</span></li><li><b>MOD を作成</b>。MOD が Frosty Mod Manager のリストに表示されます。</li><li>Frosty Mod Manager で <b>Heat Soundtrack</b> にチェック、ほかの音楽 MOD はオフにして <b>Launch</b>。</li></ol>
   </section>
 </div>
 
 <section class="sec" id="warn"><div class="wrap">
   <div class="alerts">
-    <div class="alert"><h3>オフライン専用</h3><p>MOD はシングルプレイ専用です。オンラインで遊ぶ前に、MOD なしでゲームを起動してください — MOD を入れたままオンラインで遊ぶと、EA アカウントが BAN される可能性があります。</p></div>
-    <div class="alert sun"><h3>「Windows によって PC が保護されました」</h3><p>Windows SmartScreen が「不明な発行元」と警告することがあります：このプログラムには有料の証明書がないためです。<b>詳細情報</b> → <b>実行</b> をクリックしてください。ソースコードは <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a> にあります。</p></div>
+    <div class="alert"><h3>オフライン専用</h3><p>MOD はシングルプレイ用です。オンラインで遊ぶ前に、<b>MOD なし</b>でゲームを起動してください。MOD を入れたままオンラインで遊ぶと、EA アカウントが BAN される可能性があります。</p></div>
+    <div class="alert sun"><h3>「Windows によって PC が保護されました」</h3><p>有料の証明書で署名していないため、SmartScreen が警告を出します。<b>詳細情報</b> → <b>実行</b> をクリックしてください。コードは公開しています — <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a> と zip 内の「source」フォルダーにあります。</p></div>
   </div>
 </div></section>
 
@@ -447,7 +450,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <p class="cr-h">参考にしたもの</p>
     <p><a href="https://github.com/CadeEvs/FrostyToolsuite" target="_blank" rel="noopener">Frosty Toolsuite</a>（CadeEvs）と <a href="https://github.com/HarGabt/FrostyToolsuite" target="_blank" rel="noopener">HarGabt の NFS Unbound フォーク</a> — ライブラリと EA オーディオエンコーダー。</p>
     <p><a href="https://github.com/vgmstream/vgmstream" target="_blank" rel="noopener">vgmstream</a> — ゲーム音楽の仕組み。<a href="https://kotovskivan.github.io/UnboundSoundtrack/" target="_blank" rel="noopener">Unbound Soundtrack</a> — NFS Unbound 用の私たちのツールで、Heat Soundtrack はここから生まれました。</p>
-    <p>オープンソース — GNU GPL v3（Frosty Toolsuite のライブラリを使用）。制作：Kitivski + Claude（Anthropic の AI）。</p>
+    <p>コードは AI（Anthropic の Claude）と一緒に書きました。ライセンス — GNU GPL v3：自由に使い、共有し、改変できます — 「Kitivski + Claude」のクレジットとオープンなコードを残してください。</p>
   </div>
 </div>
 <div class="wrap"><p class="legal">ファンメイドであり、Electronic Arts および Ghost Games とは一切関係ありません。Need for Speed と NFS Heat は Electronic Arts Inc. の商標です。</p></div></footer>

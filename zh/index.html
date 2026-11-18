@@ -209,6 +209,9 @@ ul.plus li::before{content:"+";position:absolute;left:16px;top:10px;color:var(--
 .feats article:nth-child(6){--c:var(--sun)}
 .feats h3{margin:0 0 8px;font:italic 800 20px/1.2 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;color:var(--c,var(--day))}
 .feats p{margin:0;color:#d5dae4}
+/* 18.11: шаг 3 как у Unbound — второй путь (YT Music) и пояснения мельче */
+.steps .or{display:block;margin-top:10px}
+.steps .sub{display:block;margin-top:6px;color:var(--muted);font-size:14px}
 ol.list,ol.steps{list-style:none;padding:0;margin:0;counter-reset:n;display:grid;gap:8px}
 ol.list li,ol.steps li{counter-increment:n;position:relative;background:var(--plate);border:1px solid var(--line);padding:14px 18px 14px 64px}
 ol.list li::before,ol.steps li::before{content:counter(n);position:absolute;left:0;top:0;bottom:0;width:48px;display:grid;place-items:center;
@@ -329,7 +332,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <div>
       <p class="tag">自定义音乐模组 · NFS Heat · PC</p>
       <h1><b>HEAT</b><span class="sig">Soundtrack</span></h1>
-      <p class="lead">把你自己的歌曲放进 <b>Need for Speed Heat</b> —— 作为新曲目，就在游戏曲目旁边。</p>
+      <p class="lead">在 <b>Need for Speed Heat</b>（极品飞车：热度）里完全按你的喜好定制音乐：加入自己的歌，游戏原有曲目可保留也可关闭 —— 由你选择。</p>
       <div class="cta"><span class="btn soon">即将推出</span><a class="btn" href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">源代码</a></div>
       
       <p class="facts">免费 · Windows 10/11 · 仅限单人游戏 · 粉丝作品，与 EA 无关</p>
@@ -363,18 +366,18 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 <section class="sec" id="what"><div class="wrap">
   <h2><span class="n">01</span>功能</h2>
   <div class="feats">
-    <article><h3>你的歌曲</h3><p>mp3、flac、wav、ogg、m4a —— 作为<b>全新</b>曲目加入。游戏原有的曲目保持不变。</p></article>
-    <article><h3>白天 · 夜晚</h3><p>勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。</p></article>
-    <article><h3>游戏曲目</h3><p>任意游戏曲目都可以开启或关闭 —— 每个场景单独设置。</p></article>
-    <article><h3>YouTube · YT Music</h3><p>粘贴单曲、播放列表或专辑的链接 —— 也可以一次粘贴多个链接。如果是 MV 链接，程序会从 YT Music 获取同一首歌。</p></article>
-    <article><h3>一个模组</h3><p>只为 Frosty Mod Manager 生成一个模组。不修改游戏文件。配置：不同的曲目组合，一键切换。</p></article>
-    <article><h3>14 种语言</h3><p>程序窗口支持 14 种语言。zip 里没有音乐，也没有游戏文件 —— 歌曲由你自己提供。</p></article>
+    <article><h3>你的歌曲</h3><p>mp3、flac、wav、ogg、m4a —— 以你自己的名称作为<b>新</b>曲目加入，不会替换游戏原有曲目。一个模组可放数百首歌。</p></article>
+    <article><h3>YouTube · YT Music · Spotify</h3><p>粘贴单曲、播放列表或专辑链接，也可以一次多个链接或 .txt 列表。程序会自动下载；MV 链接会从 YT Music 取同一首歌，没有片头和小剧情。 也可以用 Spotify 链接：列表来自 Spotify，歌曲来自 YT Music。</p></article>
+    <article><h3>GO 时起 Drop</h3><p>比赛起步：17 秒过场动画 + 3.45 秒倒计时，Drop 正好落在 GO。用鼠标拖动 GO 标记即可。另有冲线后的一小段。</p></article>
+    <article><h3>车库 · 城市 · 比赛</h3><p>勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。游戏原有曲目也一样，每个场景分别设置。可为不同的音乐组合建立配置。</p></article>
+    <article><h3>一个模组</h3><p>为 Frosty Mod Manager 生成一个模组。游戏文件不会被修改 —— 关闭模组，游戏就恢复原样。</p></article>
+    <article><h3>干净的 zip</h3><p>zip 里没有音乐，也没有游戏文件：歌曲是你自己的，游戏原有曲目从你自己的游戏中读取。▶︎ —— 任意游戏曲目的 30 秒试听（需要联网）。</p></article>
   </div>
 </div></section>
 
 <section class="sec" id="shots"><div class="wrap">
   <h2><span class="n">02</span>截图</h2>
-  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-zh.jpg"><img src="../img/lang-zh-s.jpg" srcset="../img/lang-zh-s.jpg 720w, ../img/lang-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14 种语言 —— 首次启动时选择你的语言。"></button><figcaption>14 种语言 —— 首次启动时选择你的语言。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-zh.jpg"><img src="../img/main-zh-s.jpg" srcset="../img/main-zh-s.jpg 720w, ../img/main-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="你的歌曲和游戏曲目放在一起。"></button><figcaption>你的歌曲和游戏曲目放在一起。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-zh.jpg"><img src="../img/panel-zh-s.jpg" srcset="../img/panel-zh-s.jpg 720w, ../img/panel-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="起步：Drop 正好落在 GO。终点：冲线后的一小段。"></button><figcaption>起步：Drop 正好落在 GO。终点：冲线后的一小段。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-zh.jpg"><img src="../img/tracks-zh-s.jpg" srcset="../img/tracks-zh-s.jpg 720w, ../img/tracks-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="任意游戏曲目都可以开启或关闭 —— 每个场景单独设置。"></button><figcaption>任意游戏曲目都可以开启或关闭 —— 每个场景单独设置。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-zh.jpg"><img src="../img/yt-zh-s.jpg" srcset="../img/yt-zh-s.jpg 720w, ../img/yt-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。"></button><figcaption>来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-zh.jpg"><img src="../img/sp-zh-s.jpg" srcset="../img/sp-zh-s.jpg 720w, ../img/sp-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。"></button><figcaption>也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-zh.jpg"><img src="../img/help-zh-s.jpg" srcset="../img/help-zh-s.jpg 720w, ../img/help-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="程序内置帮助 —— 告诉你点哪里、做什么。"></button><figcaption>程序内置帮助 —— 告诉你点哪里、做什么。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-zh.jpg"><img src="../img/built-zh-s.jpg" srcset="../img/built-zh-s.jpg 720w, ../img/built-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。"></button><figcaption>一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。</figcaption></figure></div>
+  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-zh.jpg"><img src="../img/lang-zh-s.jpg" srcset="../img/lang-zh-s.jpg 720w, ../img/lang-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14 种语言 —— 首次启动时选择你的语言。"></button><figcaption>14 种语言 —— 首次启动时选择你的语言。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-zh.jpg"><img src="../img/main-zh-s.jpg" srcset="../img/main-zh-s.jpg 720w, ../img/main-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="你的歌曲和游戏曲目放在一起。"></button><figcaption>你的歌曲和游戏曲目放在一起。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-zh.jpg"><img src="../img/panel-zh-s.jpg" srcset="../img/panel-zh-s.jpg 720w, ../img/panel-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="起步：Drop 正好落在 GO。终点：冲线后的一小段。"></button><figcaption>起步：Drop 正好落在 GO。终点：冲线后的一小段。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-zh.jpg"><img src="../img/tracks-zh-s.jpg" srcset="../img/tracks-zh-s.jpg 720w, ../img/tracks-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。游戏原有曲目也一样，每个场景分别设置。可为不同的音乐组合建立配置。"></button><figcaption>勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。游戏原有曲目也一样，每个场景分别设置。可为不同的音乐组合建立配置。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-zh.jpg"><img src="../img/yt-zh-s.jpg" srcset="../img/yt-zh-s.jpg 720w, ../img/yt-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。"></button><figcaption>来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-zh.jpg"><img src="../img/sp-zh-s.jpg" srcset="../img/sp-zh-s.jpg 720w, ../img/sp-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。"></button><figcaption>也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-zh.jpg"><img src="../img/help-zh-s.jpg" srcset="../img/help-zh-s.jpg 720w, ../img/help-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="程序内置帮助 —— 告诉你点哪里、做什么。"></button><figcaption>程序内置帮助 —— 告诉你点哪里、做什么。</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-zh.jpg"><img src="../img/built-zh-s.jpg" srcset="../img/built-zh-s.jpg 720w, ../img/built-zh.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。"></button><figcaption>一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。</figcaption></figure></div>
 </div></section>
 
 <div class="wrap two">
@@ -384,14 +387,14 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   </section>
   <section class="sec" id="how">
     <h2><span class="n">04</span>如何把自己的音乐加入 NFS Heat</h2>
-    <ol class="steps"><li>把 zip 的<b>全部</b>内容解压到一个普通文件夹 —— 桌面、文档、D:\Mods… —— 不要解压到 Program Files。</li><li>运行 <b>Heat Soundtrack.exe</b>，选择语言并接受条款。首次启动会读取游戏 —— 需要几分钟，只有这一次。</li><li><b>+ 添加歌曲</b> → 选择文件 → 勾选播放场景 → <b>保存</b>。或者 <b>▶︎ 从 YT Music 导入</b> → 粘贴链接 → <b>下载</b>。</li><li>歌曲都放在程序旁边的 <b>Music</b> 文件夹里 —— 每首歌一个带编号的文件夹：歌曲文件和一张封面图片。封面只在本程序中显示，不会进入模组和游戏（Heat 的曲目没有封面）。</li><li><b>生成模组</b>。模组会出现在 Frosty Mod Manager 的列表里。</li><li>在 Frosty Mod Manager 中：勾选 <b>Heat Soundtrack</b>，关闭其他音乐模组，点击 <b>Launch</b>。</li></ol>
+    <ol class="steps"><li>把<b>整个</b> zip 解压到普通文件夹 —— 桌面、文档、D:\Mods… 不要放在 Program Files。</li><li>运行 <b>Heat Soundtrack.exe</b>，选择语言并接受条款。首次启动会读取游戏 —— 需要几分钟，只有这一次。</li><li><b>+ 添加歌曲</b> → 选择文件 → 勾选播放场景，设置 GO 和终点 → <b>保存</b>。<span class="or">或者 <b>▶︎ 从 YT Music 导入</b> → 粘贴链接（单曲、播放列表、专辑），也可以多个链接或 .txt 列表 → <b>下载</b>。</span><span class="sub">MV 链接会从 YT Music 取同一首歌，没有片头和小剧情。导入播放列表前会显示歌曲数、已有数量、所需时间和空间；已有的歌曲会跳过。.txt 列表：标题,艺术家,链接;（用拉丁字母）—— 程序里有示例文件。</span><span class="sub">歌曲放在程序旁边的 <b>Music</b> 文件夹里，每首一个编号文件夹：Music\1\、Music\2\… 也可以手动：新建一个编号文件夹，放入歌曲文件和一张图片。封面只在本程序中显示，不会进入游戏。</span></li><li><b>生成模组</b>。模组会出现在 Frosty Mod Manager 的列表里。</li><li>在 Frosty Mod Manager 中勾选 <b>Heat Soundtrack</b>，关闭其他音乐模组，点击 <b>Launch</b>。</li></ol>
   </section>
 </div>
 
 <section class="sec" id="warn"><div class="wrap">
   <div class="alerts">
-    <div class="alert"><h3>仅限离线</h3><p>模组仅用于单人游戏。联机之前，请先不带模组启动游戏 —— 带模组联机可能导致你的 EA 账号被封。</p></div>
-    <div class="alert sun"><h3>“Windows 已保护你的电脑”</h3><p>Windows SmartScreen 可能会提示“未知发布者”：本程序没有付费证书。点击 <b>更多信息</b> → <b>仍要运行</b>。源代码在 <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a> 上。</p></div>
+    <div class="alert"><h3>仅限离线</h3><p>模组只用于单人游戏。玩 Online 前，请<b>不带模组</b>启动游戏。带模组玩 Online 可能导致 EA 账号被封。</p></div>
+    <div class="alert sun"><h3>“Windows 已保护你的电脑”</h3><p>程序没有付费证书签名，所以 SmartScreen 会发出警告。点击 <b>更多信息</b> → <b>仍要运行</b>。代码是开源的 —— 在 <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a> 和 zip 中的 “source” 文件夹里。</p></div>
   </div>
 </div></section>
 
@@ -447,7 +450,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <p class="cr-h">我们参考了</p>
     <p><a href="https://github.com/CadeEvs/FrostyToolsuite" target="_blank" rel="noopener">Frosty Toolsuite</a>（CadeEvs）和 <a href="https://github.com/HarGabt/FrostyToolsuite" target="_blank" rel="noopener">HarGabt 的 NFS Unbound 分支</a> —— 库和 EA 音频编码器。</p>
     <p><a href="https://github.com/vgmstream/vgmstream" target="_blank" rel="noopener">vgmstream</a> —— 游戏音乐的结构；<a href="https://kotovskivan.github.io/UnboundSoundtrack/" target="_blank" rel="noopener">Unbound Soundtrack</a> —— 我们为 NFS Unbound 做的程序，Heat Soundtrack 由它发展而来。</p>
-    <p>开源 —— GNU GPL v3（使用了 Frosty Toolsuite 的库）。由 Kitivski + Claude（Anthropic 的 AI）制作。</p>
+    <p>代码由 AI（Anthropic 的 Claude）协助编写。许可证 —— GNU GPL v3：可以使用、分享、修改 —— 请保留 “Kitivski + Claude” 署名并保持代码开源。</p>
   </div>
 </div>
 <div class="wrap"><p class="legal">粉丝制作，与 Electronic Arts 或 Ghost Games 无关。Need for Speed 和 NFS Heat 是 Electronic Arts Inc. 的商标。</p></div></footer>

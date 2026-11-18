@@ -209,6 +209,9 @@ ul.plus li::before{content:"+";position:absolute;left:16px;top:10px;color:var(--
 .feats article:nth-child(6){--c:var(--sun)}
 .feats h3{margin:0 0 8px;font:italic 800 20px/1.2 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;color:var(--c,var(--day))}
 .feats p{margin:0;color:#d5dae4}
+/* 18.11: шаг 3 как у Unbound — второй путь (YT Music) и пояснения мельче */
+.steps .or{display:block;margin-top:10px}
+.steps .sub{display:block;margin-top:6px;color:var(--muted);font-size:14px}
 ol.list,ol.steps{list-style:none;padding:0;margin:0;counter-reset:n;display:grid;gap:8px}
 ol.list li,ol.steps li{counter-increment:n;position:relative;background:var(--plate);border:1px solid var(--line);padding:14px 18px 14px 64px}
 ol.list li::before,ol.steps li::before{content:counter(n);position:absolute;left:0;top:0;bottom:0;width:48px;display:grid;place-items:center;
@@ -329,7 +332,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <div>
       <p class="tag">내 음악 모드 · NFS Heat · PC</p>
       <h1><b>HEAT</b><span class="sig">Soundtrack</span></h1>
-      <p class="lead"><b>Need for Speed Heat</b>에 내 노래를 — 새 트랙으로, 게임 트랙 바로 옆에.</p>
+      <p class="lead"><b>Need for Speed Heat</b>의 음악을 내 마음대로 완전히 커스터마이즈: 내 노래를 추가하고, 게임 원곡은 남기거나 끄거나 — 선택은 자유.</p>
       <div class="cta"><span class="btn soon">곧 출시</span><a class="btn" href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">소스 코드</a></div>
       
       <p class="facts">무료 · Windows 10/11 · 싱글 플레이 전용 · 팬 메이드, EA와 무관</p>
@@ -363,18 +366,18 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 <section class="sec" id="what"><div class="wrap">
   <h2><span class="n">01</span>할 수 있는 것</h2>
   <div class="feats">
-    <article><h3>내 노래</h3><p>mp3, flac, wav, ogg, m4a — <b>새</b> 트랙으로 추가돼요. 게임 트랙은 그대로 남아요.</p></article>
-    <article><h3>낮 · 밤</h3><p>노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스.</p></article>
-    <article><h3>게임 트랙</h3><p>게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로.</p></article>
-    <article><h3>YouTube · YT Music</h3><p>노래, 재생목록, 앨범 링크를 붙여 넣으세요 — 여러 링크를 한꺼번에 넣어도 돼요. 뮤직비디오 링크면 같은 노래를 YT Music에서 가져와요.</p></article>
-    <article><h3>모드 하나</h3><p>Frosty Mod Manager용 모드를 딱 하나 만들어요. 게임 파일은 바뀌지 않아요. 프로필: 트랙 구성을 여러 개 만들고 클릭 한 번으로 바꿔요.</p></article>
-    <article><h3>14개 언어</h3><p>창은 14개 언어를 지원해요. zip에는 음악도 게임 파일도 없어요 — 노래는 직접 넣어요.</p></article>
+    <article><h3>내 노래</h3><p>mp3, flac, wav, ogg, m4a — 내 제목을 단 <b>새</b> 트랙으로. 게임 원곡을 대체하지 않습니다. 모드 하나에 노래 수백 곡.</p></article>
+    <article><h3>YouTube · YT Music · Spotify</h3><p>노래, 플레이리스트, 앨범 링크를 붙여 넣거나 여러 링크, .txt 목록을 넣으면 됩니다. 다운로드는 프로그램이 알아서 합니다. 뮤직비디오 링크면 YT Music의 같은 노래를 인트로와 장면 없이 가져옵니다. Spotify 링크도 됩니다: 목록은 Spotify에서, 노래는 YT Music에서 가져옵니다.</p></article>
+    <article><h3>GO에 드롭</h3><p>출발: 컷신 17초 + 카운트다운 3.45초, GO에 드롭이 딱 맞습니다. GO 표시는 마우스로 끌어서 옮깁니다. 결승선 뒤의 짧은 구간도 설정합니다.</p></article>
+    <article><h3>차고 · 도시 · 레이스</h3><p>노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스. 게임 원곡도 마찬가지로 장소별로 따로. 음악 세트별 프로필도 만들 수 있습니다.</p></article>
+    <article><h3>모드 하나</h3><p>Frosty Mod Manager용 모드를 하나 만듭니다. 게임 파일은 바뀌지 않습니다 — 모드를 끄면 원래대로입니다.</p></article>
+    <article><h3>깨끗한 zip</h3><p>zip에는 음악도 게임 파일도 없습니다. 노래는 당신의 것이고, 게임 원곡은 당신의 게임에서 읽어옵니다. ▶︎ — 게임 트랙 30초 미리 듣기(인터넷 필요).</p></article>
   </div>
 </div></section>
 
 <section class="sec" id="shots"><div class="wrap">
   <h2><span class="n">02</span>스크린샷</h2>
-  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-ko.jpg"><img src="../img/lang-ko-s.jpg" srcset="../img/lang-ko-s.jpg 720w, ../img/lang-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14개 언어 — 처음 실행할 때 고릅니다."></button><figcaption>14개 언어 — 처음 실행할 때 고릅니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-ko.jpg"><img src="../img/main-ko-s.jpg" srcset="../img/main-ko-s.jpg 720w, ../img/main-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="내 노래가 게임 트랙 옆에."></button><figcaption>내 노래가 게임 트랙 옆에.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-ko.jpg"><img src="../img/panel-ko-s.jpg" srcset="../img/panel-ko-s.jpg 720w, ../img/panel-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간."></button><figcaption>출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-ko.jpg"><img src="../img/tracks-ko-s.jpg" srcset="../img/tracks-ko-s.jpg 720w, ../img/tracks-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로."></button><figcaption>게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-ko.jpg"><img src="../img/yt-ko-s.jpg" srcset="../img/yt-ko-s.jpg 720w, ../img/yt-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록."></button><figcaption>YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-ko.jpg"><img src="../img/sp-ko-s.jpg" srcset="../img/sp-ko-s.jpg 720w, ../img/sp-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다."></button><figcaption>Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-ko.jpg"><img src="../img/help-ko-s.jpg" srcset="../img/help-ko-s.jpg 720w, ../img/help-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다."></button><figcaption>프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-ko.jpg"><img src="../img/built-ko-s.jpg" srcset="../img/built-ko-s.jpg 720w, ../img/built-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다."></button><figcaption>버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다.</figcaption></figure></div>
+  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-ko.jpg"><img src="../img/lang-ko-s.jpg" srcset="../img/lang-ko-s.jpg 720w, ../img/lang-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14개 언어 — 처음 실행할 때 고릅니다."></button><figcaption>14개 언어 — 처음 실행할 때 고릅니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-ko.jpg"><img src="../img/main-ko-s.jpg" srcset="../img/main-ko-s.jpg 720w, ../img/main-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="내 노래가 게임 트랙 옆에."></button><figcaption>내 노래가 게임 트랙 옆에.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-ko.jpg"><img src="../img/panel-ko-s.jpg" srcset="../img/panel-ko-s.jpg 720w, ../img/panel-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간."></button><figcaption>출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-ko.jpg"><img src="../img/tracks-ko-s.jpg" srcset="../img/tracks-ko-s.jpg 720w, ../img/tracks-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스. 게임 원곡도 마찬가지로 장소별로 따로. 음악 세트별 프로필도 만들 수 있습니다."></button><figcaption>노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스. 게임 원곡도 마찬가지로 장소별로 따로. 음악 세트별 프로필도 만들 수 있습니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-ko.jpg"><img src="../img/yt-ko-s.jpg" srcset="../img/yt-ko-s.jpg 720w, ../img/yt-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록."></button><figcaption>YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-ko.jpg"><img src="../img/sp-ko-s.jpg" srcset="../img/sp-ko-s.jpg 720w, ../img/sp-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다."></button><figcaption>Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-ko.jpg"><img src="../img/help-ko-s.jpg" srcset="../img/help-ko-s.jpg 720w, ../img/help-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다."></button><figcaption>프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-ko.jpg"><img src="../img/built-ko-s.jpg" srcset="../img/built-ko-s.jpg 720w, ../img/built-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다."></button><figcaption>버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다.</figcaption></figure></div>
 </div></section>
 
 <div class="wrap two">
@@ -384,14 +387,14 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   </section>
   <section class="sec" id="how">
     <h2><span class="n">04</span>NFS Heat에 내 음악을 넣는 방법</h2>
-    <ol class="steps"><li>zip을 <b>통째로</b> 일반 폴더에 압축 해제하세요 — 바탕 화면, 문서, D:\Mods… — Program Files 말고요.</li><li><b>Heat Soundtrack.exe</b>를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.</li><li><b>+ 노래 추가</b> → 파일 선택 → 재생 위치 체크 → <b>저장</b>. 또는 <b>▶︎ YT Music에서</b> → 링크 붙여 넣기 → <b>다운로드</b>.</li><li>노래는 프로그램 옆 <b>Music</b> 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림. 커버는 이 프로그램에서만 보여요 — 모드와 게임에는 들어가지 않아요(Heat에는 트랙 커버가 없어요).</li><li><b>모드 만들기</b>. 모드가 Frosty Mod Manager 목록에 나타나요.</li><li>Frosty Mod Manager에서: <b>Heat Soundtrack</b>에 체크하고, 다른 음악 모드는 끄고, <b>Launch</b>를 누르세요.</li></ol>
+    <ol class="steps"><li>zip <b>전체</b>를 일반 폴더에 압축 해제 — 바탕 화면, 문서, D:\Mods… Program Files에는 넣지 마세요.</li><li><b>Heat Soundtrack.exe</b>를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.</li><li><b>+ 노래 추가</b> → 파일 선택 → 재생 위치 체크, GO와 결승 설정 → <b>저장</b>.<span class="or">또는 <b>▶︎ YT Music에서</b> → 링크 붙여 넣기(노래, 재생목록, 앨범). 여러 링크나 .txt 목록도 가능 → <b>다운로드</b>.</span><span class="sub">뮤직비디오 링크면 YT Music의 같은 노래를 인트로와 장면 없이 가져옵니다. 플레이리스트 전에는 곡 수, 이미 있는 곡, 시간과 용량을 보여 주고, 이미 있는 곡은 건너뜁니다. .txt 목록: 제목,아티스트,링크; (라틴 문자로) — 예시 파일은 프로그램에 있습니다.</span><span class="sub">노래는 프로그램 옆의 <b>Music</b> 폴더에, 한 곡씩 번호 폴더로 들어 있습니다: Music\1\, Music\2\… 직접 해도 됩니다: 번호를 붙인 새 폴더에 노래 파일과 이미지를 넣으면 끝. 커버는 이 프로그램에서만 보이고, 게임에는 들어가지 않습니다.</span></li><li><b>모드 만들기</b>. 모드가 Frosty Mod Manager 목록에 나타나요.</li><li>Frosty Mod Manager에서 <b>Heat Soundtrack</b>을 체크하고, 다른 음악 모드는 끈 뒤 <b>Launch</b>.</li></ol>
   </section>
 </div>
 
 <section class="sec" id="warn"><div class="wrap">
   <div class="alerts">
-    <div class="alert"><h3>오프라인 전용</h3><p>모드는 싱글 플레이 전용이에요. 온라인에 접속하기 전에 모드 없이 게임을 실행하세요 — 모드를 켠 채 온라인을 하면 EA 계정이 정지될 수 있어요.</p></div>
-    <div class="alert sun"><h3>“Windows의 PC 보호”</h3><p>Windows SmartScreen이 알 수 없는 게시자라고 경고할 수 있어요: 이 프로그램에는 유료 인증서가 없거든요. <b>추가 정보</b> → <b>실행</b>을 클릭하세요. 소스 코드는 <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a>에 있어요.</p></div>
+    <div class="alert"><h3>오프라인 전용</h3><p>모드는 싱글 플레이용입니다. 온라인으로 하기 전에 게임을 <b>모드 없이</b> 실행하세요. 모드를 켠 채 온라인을 하면 EA 계정이 정지될 수 있습니다.</p></div>
+    <div class="alert sun"><h3>“Windows의 PC 보호”</h3><p>유료 인증서로 서명하지 않아서 SmartScreen이 경고합니다. <b>추가 정보</b> → <b>실행</b>을 누르세요. 코드는 공개되어 있습니다 — <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a>와 zip의 “source” 폴더에.</p></div>
   </div>
 </div></section>
 
@@ -447,7 +450,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <p class="cr-h">참고한 것</p>
     <p><a href="https://github.com/CadeEvs/FrostyToolsuite" target="_blank" rel="noopener">Frosty Toolsuite</a> (CadeEvs)와 <a href="https://github.com/HarGabt/FrostyToolsuite" target="_blank" rel="noopener">HarGabt의 NFS Unbound 포크</a> — 라이브러리와 EA 오디오 인코더.</p>
     <p><a href="https://github.com/vgmstream/vgmstream" target="_blank" rel="noopener">vgmstream</a> — 게임 음악의 구조; <a href="https://kotovskivan.github.io/UnboundSoundtrack/" target="_blank" rel="noopener">Unbound Soundtrack</a> — NFS Unbound용 우리 프로그램, Heat Soundtrack은 여기서 시작됐습니다.</p>
-    <p>오픈 소스 — GNU GPL v3(Frosty Toolsuite 라이브러리를 사용해요). 만든 사람: Kitivski + Claude(Anthropic의 AI).</p>
+    <p>코드는 AI(Anthropic의 Claude)와 함께 작성했습니다. 라이선스 — GNU GPL v3: 자유롭게 쓰고, 공유하고, 수정하세요 — “Kitivski + Claude” 표기와 공개 코드는 유지해 주세요.</p>
   </div>
 </div>
 <div class="wrap"><p class="legal">팬 메이드이며 Electronic Arts나 Ghost Games와는 관련이 없어요. Need for Speed와 NFS Heat는 Electronic Arts Inc.의 상표예요.</p></div></footer>
