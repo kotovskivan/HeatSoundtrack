@@ -90,7 +90,8 @@
   --day:#00ffff;--night:#ff0080;--indigo:#3100ff;--violet:#9f4cff;--sun:#ffff00}
 *{box-sizing:border-box}
 html{background:var(--bg);color:var(--paper);font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;scroll-behavior:smooth}
-body{margin:0}
+html,body{overflow-x:clip}
+body{margin:0;font-variant-emoji:text}
 a{color:var(--day)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
 .cond{font-family:Bahnschrift,"DIN Condensed","Arial Narrow","Segoe UI",system-ui,sans-serif;font-stretch:condensed;font-style:italic;font-weight:700;text-transform:uppercase}
@@ -103,13 +104,18 @@ a{color:var(--day)}
 .logo{display:flex;align-items:baseline;text-decoration:none;color:var(--paper)}
 .logo b{font:italic 800 22px/1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.02em}
 .logo .sig{font-size:26px;margin-left:-4px;transform:translateY(4px) rotate(-6deg);display:inline-block}
-.menu{display:flex;gap:4px;margin-left:auto}
-.menu a{color:var(--muted);text-decoration:none;padding:6px 12px;font-size:13px;letter-spacing:.08em}
-.menu a:hover{color:var(--paper);background:var(--plate)}
-.langs{position:relative}
-.langs summary{list-style:none;cursor:pointer;padding:6px 12px;border:1px solid var(--line);font-size:13px;color:var(--muted);letter-spacing:.04em}
+/* 18.11 (Ваня: «почему шапки разные?»): шапка как у Unbound — лого, язык с ▼, кнопка справа; меню разделов убрано */
+.langs{position:relative;margin-left:auto}
+.langs summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--paper);letter-spacing:.06em;user-select:none}
+.langs summary:hover,.langs[open] summary{border-color:var(--night)}
+.langs summary .ar{color:var(--night);font-size:10px;transition:transform .15s}
+.langs[open] summary .ar{transform:rotate(180deg)}
+.dl-mini{display:none;text-decoration:none;font:italic 700 13px/1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:10px 14px;
+  background:var(--paper);color:#111;box-shadow:4px 4px 0 var(--night)}
+a.dl-mini:hover{background:var(--day);box-shadow:4px 4px 0 var(--indigo)}
+.dl-mini.soon{background:var(--sun);box-shadow:4px 4px 0 var(--night);cursor:default}
+@media (min-width:860px){.dl-mini{display:inline-block}}
 .langs summary::-webkit-details-marker{display:none}
-.langs[open] summary{background:var(--paper);color:#111;border-color:var(--paper)}
 .langs nav{position:absolute;right:0;top:calc(100% + 6px);background:#16161c;border:1px solid var(--line);padding:6px;min-width:210px;
   max-height:70vh;overflow:auto;box-shadow:0 14px 34px rgba(0,0,0,.6)}
 .langs nav a{display:flex;gap:10px;padding:6px 10px;text-decoration:none;color:var(--paper);font-size:14px}
@@ -122,6 +128,9 @@ a{color:var(--day)}
 /* первый экран: фон — скрин из фоторежима */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero .bg{position:absolute;inset:0;background:url("../img/bg.jpg") center/cover no-repeat;filter:brightness(.55) saturate(1.1)}
+.hero .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s;pointer-events:none}
+.hero .bg.vid video{opacity:1}
+/* 18.11 (Ваня): фон — кусок официального трейлера (машины ночью, без титров), грузится последним, после всей страницы; картинка — пока видео нет */
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.95) 0%,rgba(13,13,13,.7) 45%,rgba(13,13,13,.25) 100%),
   linear-gradient(0deg,var(--bg) 0%,transparent 30%)}
 .hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:44px;align-items:center;padding-top:72px;padding-bottom:72px}
@@ -140,12 +149,58 @@ h1 .sig{display:block;font-size:clamp(54px,7.4vw,96px);margin:-.32em 0 0 .5em;tr
 .facts{margin:20px 0 0;color:var(--muted);font-size:14px}
 .shot{margin:0;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(0,255,255,.12),0 24px 60px rgba(0,0,0,.6),0 0 60px rgba(49,0,255,.25)}
 .shot img{display:block;width:100%;height:auto}
+/* 18.11: плитки под кнопками (Steam-гайд, NFSMods, NFSAddons, Nexus) — как у Unbound; появляются, когда в sajt.txt есть ссылка */
+.cta-more{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:10px;max-width:520px;margin:10px 0 0}
+.cta-more .btn{text-align:center;align-items:center}
+/* 18.11: ролик YouTube справа (когда есть ID в sajt.txt): обложка + кнопка, плеер — только по клику */
+.yt{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(0,255,255,.12),0 24px 60px rgba(0,0,0,.6),0 0 60px rgba(49,0,255,.25)}
+.yt-btn{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer}
+.yt-btn img{display:block;width:100%;height:100%;object-fit:cover}
+.yt-play{position:absolute;left:50%;top:50%;display:inline-flex;align-items:center;gap:12px;white-space:nowrap;padding:12px 22px;transform:translate(-50%,-50%);
+  background:var(--night);color:#fff;font:italic 700 17px/1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 0 24px rgba(255,0,128,.55)}
+.yt-play span{font-style:normal}
+.yt-btn:hover .yt-play{background:var(--paper);color:#111}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* 18.11: раздел скринов окна (на каждом языке свои) + окно на весь экран */
+.shots{display:grid;gap:24px 20px}
+@media (min-width:760px){.shots{grid-template-columns:1fr 1fr}}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--line);transition:border-color .15s,box-shadow .15s}
+.shot-btn{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.shot-btn:hover img{border-color:var(--day);box-shadow:0 0 22px rgba(0,255,255,.25)}
+.shots figcaption{margin-top:10px;color:var(--muted);font-size:15px}
+dialog#lb{padding:0;border:1px solid var(--day);background:#000;max-width:min(96vw,1600px);max-height:94vh}
+dialog#lb::backdrop{background:rgba(0,0,0,.86)}
+dialog#lb img{display:block;max-width:100%;max-height:92vh;width:auto}
+dialog#lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;cursor:pointer;background:var(--bg);color:var(--paper);border:1px solid var(--line);font-size:20px;line-height:1}
+dialog#lb button:hover{border-color:var(--night);color:var(--night)}
 
+/* 18.11: плашка над заголовком (как у Unbound), в стиле Heat — прямая плашка, циан-кромка */
+.tag{display:inline-block;margin:0 0 22px;padding:7px 16px 7px 12px;border-left:4px solid var(--day);background:linear-gradient(90deg,var(--indigo),rgba(49,0,255,.35) 70%,transparent);
+  font:italic 700 13px/1.2 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--paper)}
 /* разделы */
 .sec{padding:56px 0 8px}
 h2{display:inline-block;margin:0 0 26px;padding:6px 60px 6px 16px;border-left:4px solid var(--day);
   background:linear-gradient(90deg,var(--indigo) 0%,rgba(49,0,255,.55) 55%,transparent 100%);
   font:italic 800 28px/1.15 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em}
+h2 .n{margin-right:14px;color:var(--day);font-style:italic}
+.two{display:grid;gap:0 40px}
+@media (min-width:980px){.two{grid-template-columns:5fr 7fr}}
+.alerts{display:grid;gap:12px}
+@media (min-width:760px){.alerts{grid-template-columns:1fr 1fr}}
+.alert{padding:18px 20px 20px;background:var(--plate);border:1px solid var(--line);border-top:3px solid var(--night)}
+.alert.sun{border-top-color:var(--sun)}
+.alert h3{margin:0 0 8px;font:italic 800 20px/1.2 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;color:var(--night)}
+.alert.sun h3{color:var(--sun)}
+.alert p{margin:0;color:#d5dae4}
+ul.plus{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.plus li{position:relative;background:var(--plate);border:1px solid var(--line);padding:12px 18px 12px 44px}
+ul.plus li::before{content:"+";position:absolute;left:16px;top:10px;color:var(--day);font:italic 800 20px/1.2 Bahnschrift,sans-serif}
+.help-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:18px}
+.btn.bug{background:var(--night);border-color:var(--night);color:#fff}
+.btn.bug:hover{background:var(--paper);border-color:var(--paper);color:#111}
+.hint{color:var(--muted);font-size:14px}
+.legal{margin:26px 0 0;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:#7b8294}
 .feats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .feats article{background:var(--plate);border:1px solid var(--line);border-top:3px solid var(--c,var(--day));padding:18px 20px 20px}
 .feats article:nth-child(2){--c:var(--night)}
@@ -183,8 +238,17 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 /* 16.11 (Ваня: «приведи в порядок и сайт Heat» — как Unbound, но в стиле Heat):
    блок про общий сайт серии NFS Own Music между неоновыми линиями (вместо бегущих строк Unbound); лого и оранжевый — как на хабе */
 .hubx{--hub:#ff5a1f;position:relative;padding:56px 0;background:radial-gradient(640px 340px at 18% 45%,rgba(255,90,31,.12),transparent 70%)}
-.hubx::before,.hubx::after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--day),var(--indigo) 50%,var(--night));box-shadow:0 0 12px rgba(255,0,128,.45)}
-.hubx::before{top:0}.hubx::after{bottom:0}
+/* 18.11 (Ваня: «все как у Unbound, но со стилем Heat»): вместо неоновых линий — две бегущие строки, наклон в разные стороны:
+   первая — градиент Heat циан → синий → маджента, вторая (ссылка на хаб) — оранжевая NFS Own Music */
+.ticker{display:block;width:110vw;margin-left:-5vw;overflow:hidden;white-space:nowrap;transform:rotate(-1.2deg);padding:9px 0;position:relative;z-index:1;
+  background:linear-gradient(90deg,var(--day),var(--indigo) 50%,var(--night));color:#fff;box-shadow:0 0 22px rgba(255,0,128,.35);
+  font:italic 700 14px/1.2 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.ticker-track{display:inline-block;animation:tick 45s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+.ticker.hub{background:#ff5a1f;color:#1a0800;text-decoration:none;transform:rotate(1.2deg);box-shadow:0 0 22px rgba(255,90,31,.35);transition:background .15s}
+.ticker.hub:hover,.ticker.hub:focus-visible{background:var(--sun)}
+.ticker.hub .ticker-track{animation-direction:reverse}
 .hubx-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:center}
 .hubx-tag{display:flex;align-items:center;gap:10px;margin:0 0 12px;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
 .eq4{display:inline-flex;align-items:flex-end;gap:2px;height:15px;flex:none}
@@ -227,19 +291,22 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 .foot-txt p{margin:0 0 8px}
 .langs summary{white-space:nowrap}
 
-.cjk .cond,.cjk h1 b,.cjk h2,.cjk .feats h3,.cjk .btn,.cjk .menu a{font-style:normal}
-@media (max-width:900px){.hero-in{grid-template-columns:1fr;padding-top:48px}.feats{grid-template-columns:1fr 1fr}.menu{display:none}.langs{margin-left:auto}
+.cjk .cond,.cjk h1 b,.cjk h2,.cjk .feats h3,.cjk .btn,.cjk .dl-mini,.cjk .tag,.cjk .ticker,.cjk .alert h3{font-style:normal}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr;padding-top:48px}.feats{grid-template-columns:1fr 1fr}
   /* 16.11: телефон / узкое окно — первый экран и блок хаба по центру */
   .hero-in>div:first-child,.hubx-txt{text-align:center}
   h1 .sig{margin-left:0;transform-origin:center}
   .lead,.hubx-lead,.hubx-sub{margin-left:auto;margin-right:auto}
-  .cta{justify-content:center}.btn{text-align:center}
+  .cta{justify-content:center}.btn{text-align:center}.cta-more{margin-left:auto;margin-right:auto}
+  .hero .bg::after{background:linear-gradient(0deg,var(--bg) 0%,transparent 18%),rgba(13,13,13,.55)} /* 18.11 телефон: текст по центру — пленка ровная */
   .hubx-in{grid-template-columns:1fr;gap:30px}.hubx-tag{justify-content:center}
   .foot-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.feats{grid-template-columns:1fr}dl.log div{grid-template-columns:1fr}
   h1 b{font-size:clamp(64px,26vw,120px);transform:translateX(-.14em)} /* лого крупнее; курсив кренит вправо — сдвиг к центру (замер по пикселям) */
   h1 .sig{font-size:clamp(54px,18vw,90px);transform:translateX(.09em) rotate(-6deg)}
   .cta>.btn{flex:1 1 auto}
+  .cta-more .btn{padding:12px 8px;font-size:13px;letter-spacing:.04em}
+  .yt-play{font-size:0;gap:0;padding:12px 18px}.yt-play span{font-size:20px}
   .langs summary .ln{display:none}}
 </style>
 </head>
@@ -248,27 +315,30 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 
 <header class="top"><div class="wrap">
   <a class="logo" href="../ko/" aria-label="Heat Soundtrack"><b>HEAT</b><span class="sig">Soundtrack</span></a>
-  <nav class="menu cond"><a href="#what">할 수 있는 것</a><a href="#need">필요한 것</a><a href="#how">사용법</a></nav>
-  <details class="langs">
-    <summary aria-label="언어">KO<span class="ln"> · 한국어</span></summary>
+  <details class="langs" id="langs">
+    <summary aria-label="언어"><span>KO<span class="ln"> · 한국어</span></span><span class="ar" aria-hidden="true">▼</span></summary>
     <nav><a href="../" hreflang="uk" lang="uk"><b>UA</b>Українська</a><a href="../en/" hreflang="en" lang="en"><b>EN</b>English</a><a href="../de/" hreflang="de" lang="de"><b>DE</b>Deutsch</a><a href="../es/" hreflang="es" lang="es"><b>ES</b>Español</a><a href="../fr/" hreflang="fr" lang="fr"><b>FR</b>Français</a><a href="../it/" hreflang="it" lang="it"><b>IT</b>Italiano</a><a href="../pl/" hreflang="pl" lang="pl"><b>PL</b>Polski</a><a href="../pt/" hreflang="pt" lang="pt"><b>PT</b>Português</a><a href="../tr/" hreflang="tr" lang="tr"><b>TR</b>Türkçe</a><a href="../ru/" hreflang="ru" lang="ru"><b>RU</b>Русский</a><a href="../zh/" hreflang="zh" lang="zh-Hans"><b>ZH</b>简体中文</a><a href="../ja/" hreflang="ja" lang="ja"><b>JA</b>日本語</a><a href="../ko/" hreflang="ko" lang="ko" aria-current="page"><b>KO</b>한국어</a><a href="../fi/" hreflang="fi" lang="fi"><b>FI</b>Suomi</a><p class="ai">번역은 AI(Claude)가 했습니다</p></nav>
   </details>
+  <span class="dl-mini soon">곧 출시</span>
 </div></header>
 
 <main>
 <section class="hero">
-  <div class="bg" aria-hidden="true"></div>
+  <div class="bg" aria-hidden="true"><video muted loop playsinline preload="none" tabindex="-1" data-src="../video/hero.mp4"></video></div>
   <div class="wrap hero-in">
     <div>
+      <p class="tag">내 음악 모드 · NFS Heat · PC</p>
       <h1><b>HEAT</b><span class="sig">Soundtrack</span></h1>
       <p class="lead"><b>Need for Speed Heat</b>에 내 노래를 — 새 트랙으로, 게임 트랙 바로 옆에.</p>
       <div class="cta"><span class="btn soon">곧 출시</span><a class="btn" href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">소스 코드</a></div>
+      
       <p class="facts">무료 · Windows 10/11 · 싱글 플레이 전용 · 팬 메이드</p>
     </div>
-    <figure class="shot"><img src="../img/okno.jpg" width="1440" height="1000" alt="Heat Soundtrack 창: 게임 트랙과 내 노래" fetchpriority="high"></figure>
+    <figure class="shot"><img src="../img/main-ko.jpg" srcset="../img/main-ko-s.jpg 720w, ../img/main-ko.jpg 1440w" sizes="(min-width: 901px) 55vw, 100vw" width="1440" height="900" alt="Heat Soundtrack 창: 게임 트랙과 내 노래" fetchpriority="high"></figure>
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true"><div class="ticker-track">HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / HEAT SOUNDTRACK / FAN-MADE / NOT AFFILIATED WITH EA / KITIVSKI + CLAUDE / </div></div>
 <section class="hubx" aria-labelledby="hubx-h"><div class="wrap hubx-in">
   <div class="hubx-txt">
     <p class="hubx-tag"><span class="eq4" aria-hidden="true"><i></i><i></i><i></i><i></i></span>시리즈 공용 사이트</p>
@@ -288,9 +358,10 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     </a>
   </div>
 </div></section>
+<a class="ticker hub" href="https://kotovskivan.github.io/NFSOwnMusic/ko/" target="_blank" rel="noopener" aria-label="NFS Own Music — NFS 시리즈 전체에 나만의 노래"><span class="ticker-track" aria-hidden="true">NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / NFS OWN MUSIC → NFS 시리즈 전체에 나만의 노래 / </span></a>
 
 <section class="sec" id="what"><div class="wrap">
-  <h2>할 수 있는 것</h2>
+  <h2><span class="n">01</span>할 수 있는 것</h2>
   <div class="feats">
     <article><h3>내 노래</h3><p>mp3, flac, wav, ogg, m4a — <b>새</b> 트랙으로 추가돼요. 게임 트랙은 그대로 남아요.</p></article>
     <article><h3>낮 · 밤</h3><p>노래마다 나올 곳을 체크하세요: 차고, 낮 도시, 밤 도시, 낮 레이스, 밤 레이스.</p></article>
@@ -301,16 +372,36 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   </div>
 </div></section>
 
-<section class="sec" id="need"><div class="wrap">
-  <h2>필요한 것</h2>
-  <ol class="list"><li><b>Windows 10 또는 11</b> — Microsoft Edge가 기본으로 들어 있고, 창이 Edge를 사용해요.</li><li><b>Need for Speed Heat</b> — Steam 또는 EA app.</li><li><b>Frosty Mod Manager</b>, HarGabt 버전 — <a href="https://github.com/HarGabt/FrostyToolsuite/releases" target="_blank" rel="noopener">릴리스</a>. 한 번 실행해서 게임을 선택하세요.</li><li>게임 암호화 키 — <a href="https://www.nexusmods.com/needforspeedheat/mods/74" target="_blank" rel="noopener">Nexus Mods</a>의 <b>NFS Heat Frosty Key</b>: <b>NFSHEAT.key</b>를 Frosty Mod Manager 폴더에 넣으세요.</li></ol>
+<section class="sec" id="shots"><div class="wrap">
+  <h2><span class="n">02</span>스크린샷</h2>
+  <div class="shots"><figure><button class="shot-btn" type="button" data-full="../img/lang-ko.jpg"><img src="../img/lang-ko-s.jpg" srcset="../img/lang-ko-s.jpg 720w, ../img/lang-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="14개 언어 — 처음 실행할 때 고릅니다."></button><figcaption>14개 언어 — 처음 실행할 때 고릅니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/main-ko.jpg"><img src="../img/main-ko-s.jpg" srcset="../img/main-ko-s.jpg 720w, ../img/main-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="내 노래가 게임 트랙 옆에."></button><figcaption>내 노래가 게임 트랙 옆에.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/panel-ko.jpg"><img src="../img/panel-ko-s.jpg" srcset="../img/panel-ko-s.jpg 720w, ../img/panel-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간."></button><figcaption>출발: 드롭이 GO에 딱. 결승: 결승선 뒤의 짧은 구간.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/tracks-ko.jpg"><img src="../img/tracks-ko-s.jpg" srcset="../img/tracks-ko-s.jpg 720w, ../img/tracks-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로."></button><figcaption>게임 트랙은 어떤 것이든 켜고 끌 수 있어요 — 장소마다 따로.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/yt-ko.jpg"><img src="../img/yt-ko-s.jpg" srcset="../img/yt-ko-s.jpg 720w, ../img/yt-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록."></button><figcaption>YouTube와 YT Music에서 노래 가져오기 — 링크, 재생목록, .txt 목록.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/sp-ko.jpg"><img src="../img/sp-ko-s.jpg" srcset="../img/sp-ko-s.jpg 720w, ../img/sp-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다."></button><figcaption>Spotify도 지원 — 노래, 앨범, 재생목록. 소리는 YouTube Music에서 가져옵니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/help-ko.jpg"><img src="../img/help-ko-s.jpg" srcset="../img/help-ko-s.jpg 720w, ../img/help-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다."></button><figcaption>프로그램 안의 도움말 — 무엇을 어디서 누르는지 바로 알 수 있습니다.</figcaption></figure><figure><button class="shot-btn" type="button" data-full="../img/built-ko.jpg"><img src="../img/built-ko-s.jpg" srcset="../img/built-ko-s.jpg 720w, ../img/built-ko.jpg 1440w" sizes="(min-width: 760px) 50vw, 100vw" width="720" height="450" loading="lazy" alt="버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다."></button><figcaption>버튼 하나로 모드가 Frosty Mod Manager 목록에 들어갑니다.</figcaption></figure></div>
 </div></section>
 
-<section class="sec" id="how"><div class="wrap">
-  <h2>사용법</h2>
-  <ol class="steps"><li>zip을 <b>통째로</b> 일반 폴더에 압축 해제하세요 — 바탕 화면, 문서, D:\Mods… — Program Files 말고요.</li><li><b>Heat Soundtrack.exe</b>를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.</li><li><b>+ 노래 추가</b> → 파일 선택 → 재생 위치 체크 → <b>저장</b>. 또는 <b>▶ YT Music에서</b> → 링크 붙여 넣기 → <b>다운로드</b>.</li><li>노래는 프로그램 옆 <b>Music</b> 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림.</li><li><b>모드 만들기</b>. 모드가 Frosty Mod Manager 목록에 나타나요.</li><li>Frosty Mod Manager에서: <b>Heat Soundtrack</b>에 체크하고, 다른 음악 모드는 끄고, <b>Launch</b>를 누르세요.</li></ol>
-  <p class="warn"><b>오프라인 전용.</b> 모드는 싱글 플레이 전용이에요. 온라인에 접속하기 전에 모드 없이 게임을 실행하세요 — 모드를 켠 채 온라인을 하면 EA 계정이 정지될 수 있어요.</p>
-  <p class="note">Windows SmartScreen이 알 수 없는 게시자라고 경고할 수 있어요: 이 프로그램에는 유료 인증서가 없거든요. <b>추가 정보</b> → <b>실행</b>을 클릭하세요. 소스 코드는 <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a>에 있어요.</p>
+<div class="wrap two">
+  <section class="sec" id="need">
+    <h2><span class="n">03</span>필요한 것</h2>
+    <ol class="list"><li><b>Windows 10 또는 11</b> — Microsoft Edge가 기본으로 들어 있고, 창이 Edge를 사용해요.</li><li><b>Need for Speed Heat</b> — Steam 또는 EA app.</li><li><b>Frosty Mod Manager</b>, HarGabt 버전 — <a href="https://github.com/HarGabt/FrostyToolsuite/releases" target="_blank" rel="noopener">릴리스</a>. 한 번 실행해서 게임을 선택하세요.</li><li>게임 암호화 키 — <a href="https://www.nexusmods.com/needforspeedheat/mods/74" target="_blank" rel="noopener">Nexus Mods</a>의 <b>NFS Heat Frosty Key</b>: <b>NFSHEAT.key</b>를 Frosty Mod Manager 폴더에 넣으세요.</li></ol>
+  </section>
+  <section class="sec" id="how">
+    <h2><span class="n">04</span>NFS Heat에 내 음악을 넣는 방법</h2>
+    <ol class="steps"><li>zip을 <b>통째로</b> 일반 폴더에 압축 해제하세요 — 바탕 화면, 문서, D:\Mods… — Program Files 말고요.</li><li><b>Heat Soundtrack.exe</b>를 실행하고 언어를 고른 뒤 약관에 동의하세요. 처음 실행할 때 게임을 읽어요 — 몇 분 걸리지만 딱 한 번이에요.</li><li><b>+ 노래 추가</b> → 파일 선택 → 재생 위치 체크 → <b>저장</b>. 또는 <b>▶︎ YT Music에서</b> → 링크 붙여 넣기 → <b>다운로드</b>.</li><li>노래는 프로그램 옆 <b>Music</b> 폴더에 있어요 — 노래마다 번호 폴더 하나: 노래 파일과 커버 그림. 커버는 이 프로그램에서만 보여요 — 모드와 게임에는 들어가지 않아요(Heat에는 트랙 커버가 없어요).</li><li><b>모드 만들기</b>. 모드가 Frosty Mod Manager 목록에 나타나요.</li><li>Frosty Mod Manager에서: <b>Heat Soundtrack</b>에 체크하고, 다른 음악 모드는 끄고, <b>Launch</b>를 누르세요.</li></ol>
+  </section>
+</div>
+
+<section class="sec" id="warn"><div class="wrap">
+  <div class="alerts">
+    <div class="alert"><h3>오프라인 전용</h3><p>모드는 싱글 플레이 전용이에요. 온라인에 접속하기 전에 모드 없이 게임을 실행하세요 — 모드를 켠 채 온라인을 하면 EA 계정이 정지될 수 있어요.</p></div>
+    <div class="alert sun"><h3>“Windows의 PC 보호”</h3><p>Windows SmartScreen이 알 수 없는 게시자라고 경고할 수 있어요: 이 프로그램에는 유료 인증서가 없거든요. <b>추가 정보</b> → <b>실행</b>을 클릭하세요. 소스 코드는 <a href="https://github.com/kotovskivan/HeatSoundtrack" target="_blank" rel="noopener">GitHub</a>에 있어요.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="help"><div class="wrap">
+  <h2><span class="n">05</span>잘 안 될 때</h2>
+  <ul class="plus"><li>로그: <b>data\log.txt</b> (창의 “로그” 버튼).</li><li>처음부터 다시: 프로그램을 닫고 <b>data</b> 폴더를 삭제하세요.</li><li>게임이 업데이트되면 프로그램이 알아서 게임을 다시 읽습니다. 그래도 모드가 만들어지지 않으면 — 여기서 새 버전을 찾아보세요.</li><li>삭제: Frosty Mod Manager에서 모드를 끄고 프로그램 폴더를 삭제하세요.</li></ul>
+  <div class="help-row">
+    <a class="btn bug" href="https://forms.gle/StNa4GFZRHckFVpi8" target="_blank" rel="noopener">버그 신고</a>
+    <span class="hint">무엇을 했는지 적고 data\log.txt 끝부분을 붙여 넣으세요</span>
+  </div>
 </div></section>
 
 </main>
@@ -353,13 +444,57 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     </div>
   </div>
   <div class="foot-txt">
+    <p class="cr-h">참고한 것</p>
+    <p><a href="https://github.com/CadeEvs/FrostyToolsuite" target="_blank" rel="noopener">Frosty Toolsuite</a> (CadeEvs)와 <a href="https://github.com/HarGabt/FrostyToolsuite" target="_blank" rel="noopener">HarGabt의 NFS Unbound 포크</a> — 라이브러리와 EA 오디오 인코더.</p>
+    <p><a href="https://github.com/vgmstream/vgmstream" target="_blank" rel="noopener">vgmstream</a> — 게임 음악의 구조; <a href="https://kotovskivan.github.io/UnboundSoundtrack/" target="_blank" rel="noopener">Unbound Soundtrack</a> — NFS Unbound용 우리 프로그램, Heat Soundtrack은 여기서 시작됐습니다.</p>
     <p>오픈 소스 — GNU GPL v3(Frosty Toolsuite 라이브러리를 사용해요). 만든 사람: Kitivski + Claude(Anthropic의 AI).</p>
-    <p>팬 메이드이며 Electronic Arts나 Ghost Games와는 관련이 없어요. Need for Speed와 NFS Heat는 Electronic Arts Inc.의 상표예요.</p>
-    <p>번역은 AI(Claude)가 했습니다</p>
   </div>
-</div></footer>
+</div>
+<div class="wrap"><p class="legal">팬 메이드이며 Electronic Arts나 Ghost Games와는 관련이 없어요. Need for Speed와 NFS Heat는 Electronic Arts Inc.의 상표예요.</p></div></footer>
+
+<dialog id="lb"><button type="button" aria-label="닫기">✕</button><img alt=""></dialog>
 
 <script>
+(function () {
+  /* 18.11: список языков — закрыть кликом мимо и по Esc (как у Unbound) */
+  var dd = document.getElementById("langs");
+  document.addEventListener("click", function (e) { if (dd.open && !dd.contains(e.target)) dd.open = false; });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && dd.open) { dd.open = false; dd.querySelector("summary").focus(); } });
+
+  /* 18.11: скрин окна на весь экран */
+  var lb = document.getElementById("lb"), lbImg = lb.querySelector("img");
+  document.querySelectorAll(".shot-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (!lb.showModal) { window.open(b.dataset.full, "_blank"); return; }
+      lbImg.src = b.dataset.full; lbImg.alt = b.querySelector("img").alt; lb.showModal();
+    });
+  });
+  lb.querySelector("button").addEventListener("click", function () { lb.close(); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+
+  /* 18.11: ролик YouTube (youtube-nocookie) — плеер только по клику */
+  var yt = document.querySelector(".yt");
+  if (yt) yt.querySelector(".yt-btn").addEventListener("click", function () {
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(yt.dataset.id) + "?autoplay=1&rel=0&playsinline=1";
+    f.title = this.getAttribute("aria-label"); f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true; f.referrerPolicy = "strict-origin-when-cross-origin"; yt.replaceChildren(f);
+  });
+
+  /* 18.11 (Ваня): видео-фон — качаем последним, после полной загрузки страницы; и на телефоне.
+     «меньше движения» / «экономия трафика» — не качаем; ушло с экрана — пауза */
+  var bv = document.querySelector(".hero .bg video"), net = navigator.connection;
+  if (bv && !matchMedia("(prefers-reduced-motion: reduce)").matches && !(net && net.saveData)) {
+    var play = function () { var p = bv.play(); if (p && p.catch) p.catch(function () {}); };
+    var go = function () {
+      bv.muted = true;
+      bv.addEventListener("playing", function () { bv.parentNode.classList.add("vid"); }, { once: true });
+      bv.src = bv.dataset.src; play();
+      if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { if (e[0].isIntersecting) play(); else bv.pause(); }).observe(bv);
+    };
+    if (document.readyState === "complete") go(); else window.addEventListener("load", go);
+  }
+})();
 (function () {
   var P = {"uk": {"t": "Ця сторінка є українською", "href": "../"}, "en": {"t": "This page is also in English", "href": "../en/"}, "de": {"t": "Diese Seite gibt es auch auf Deutsch", "href": "../de/"}, "es": {"t": "Esta página también está en español", "href": "../es/"}, "fr": {"t": "Cette page existe aussi en français", "href": "../fr/"}, "it": {"t": "Questa pagina è disponibile anche in italiano", "href": "../it/"}, "pl": {"t": "Ta strona jest też po polsku", "href": "../pl/"}, "pt": {"t": "Esta página também está em português", "href": "../pt/"}, "tr": {"t": "Bu sayfa Türkçe olarak da var", "href": "../tr/"}, "ru": {"t": "Эта страница есть на русском", "href": "../ru/"}, "zh": {"t": "本页面也有简体中文版", "href": "../zh/"}, "ja": {"t": "このページは日本語でもご覧いただけます", "href": "../ja/"}, "ko": {"t": "이 페이지는 한국어로도 볼 수 있습니다", "href": "../ko/"}, "fi": {"t": "Tämä sivu on myös suomeksi", "href": "../fi/"}}, cur = "ko";
   try { if (localStorage.getItem("heat-suggest")) return; } catch (e) {}
