@@ -256,6 +256,7 @@ def main():
             "head": "\n".join(head), "langs": langs_nav, "cur_label": cur_label, "cta": cta, "changelog": changelog,
             "hub_href": esc(cfg["hub"].rstrip("/") + "/" + path_of(L)),
             "unbound_href": esc(cfg["unbound"].rstrip("/") + "/" + path_of(L)),
+            "hp_href": esc(cfg["hp"].rstrip("/") + "/" + path_of(L)),   # 21.11: карточка Hot Pursuit «Скоро»
             "pages_json": json.dumps(pages, ensure_ascii=False).replace("</", "<\\/"),
         }
 

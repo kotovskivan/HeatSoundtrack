@@ -55,3 +55,6 @@ SEO — СДЕЛАТЬ ТЕБЕ (один раз)
   - СКРИНЫ: раздел #shots, 8 кадров на каждый язык (img\<lang|main|panel|tracks|yt|sp|help|built>-<язык>[-s].jpg),
     сняты со стенда скриптами outputs\nfs-heat\skriny-sajt\skripty; подписи — ключи hShots cLang c1 c2 f3 cYt cSp cHelp c4 (как у Unbound).
   - ▶ на iPhone был смайликом — sobrat.py ставит после ▶ знак U+FE0E.
+
+21.11: в блоке NFS Own Music третья карточка — Hot Pursuit «Скоро» на всю ширину (.hubx-card.wide, static\img\hub-hp.jpg — копия с сайта HP,
+  адрес — hp в sajt.txt). ПРИ ВЫПУСКЕ HP: в shablon.html на этой карточке class soon -> ready и {{hubSoon}} -> {{hubReady}}.

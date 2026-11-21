@@ -24,6 +24,7 @@ frosty = https://github.com/CadeEvs/FrostyToolsuite
 hargabt = https://github.com/HarGabt/FrostyToolsuite
 vgm = https://github.com/vgmstream/vgmstream
 unbound = https://kotovskivan.github.io/UnboundSoundtrack/
+hp = https://kotovskivan.github.io/HotPursuitSoundtrack/
 # 18.11 (Ваня): плитки под кнопками, как у Unbound — пусто = плитки нет; вставил ссылку -> opublikovat.cmd, плитка появится
 guide =
 nfsmods =
