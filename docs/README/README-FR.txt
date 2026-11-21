@@ -12,7 +12,12 @@ CE QU'IL FAIT
     Les titres du jeu restent tels quels.
   - Chansons de YouTube / YT Music : lien d'une chanson, playlist ou album, plusieurs liens d'un coup ou une liste .txt.
     Si le lien est un clip, le programme prend la même chanson sur YT Music — sans les intros ni les sketchs du clip.
-  - Départ de course : pendant le compte à rebours passe le titre d'intro du jeu, tes chansons viennent après. Départ avec ta propre chanson — dans la prochaine version.
+  - Spotify : lien d'une chanson, d'un album ou d'une playlist (jusqu'à 100 chansons par lien ; une playlist plus grande en fichier .csv via exportify.app).
+    Seule la liste vient de Spotify — les chansons elles-mêmes sont téléchargées depuis YT Music.
+  - Départ de course avec ta chanson : marque le drop — les plans de la cinématique et le compte à rebours 3-2-1 passent sur ta chanson, le drop tombe juste après le GO!. Le programme peut trouver le drop tout seul.
+  - Sortie du garage : un drapeau sur l'onde — d'où joue la chanson quand tu sors du garage. Sans y toucher, le programme prend le passage le plus fort.
+  - Volume de chaque chanson : 0–300 %, « Auto » et protection contre la saturation.
+  - « Sans narrateur » : Ana, les bavardages en route et le narrateur du menu se taisent ; les cinématiques restent.
   - Profils : différentes sélections de titres, on change en un clic.
   - Crée UN seul mod pour Frosty Mod Manager. Les fichiers du jeu ne sont pas modifiés.
   - La fenêtre parle 14 langues.
@@ -40,6 +45,7 @@ COMMENT L'UTILISER
      À la main : un nouveau dossier numéroté avec le fichier de la chanson + une image (jpg, png) pour la pochette.
      Supprime un dossier — la chanson disparaît du programme.
      Image : nom libre si c'est la seule du dossier ; plusieurs — cover.jpg l'emporte. Taille libre.
+     La pochette sert seulement au programme : elle ne va ni dans le mod ni dans le jeu (Heat n'a pas de pochettes de titres).
   5. CRÉER LE MOD. Le mod apparaît dans la liste de Frosty Mod Manager.
   6. Dans Frosty Mod Manager : coche "Heat Soundtrack", désactive les autres mods de musique, appuie sur Launch.
 

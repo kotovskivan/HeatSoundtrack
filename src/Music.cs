@@ -146,6 +146,18 @@ static class Music
             string pj = Path.Combine(dir, InfoFile);
             var j = App.ReadJson<Dictionary<string, object>>(pj) ?? new Dictionary<string, object>();   // чужие поля (yt — id видео) не теряем
             j["artist"] = s.artist; j["title"] = s.title; j["drop"] = s.drop; j["outro"] = s.outro; j["cDur"] = s.cDur;
+            if (s.bFade > 0) j["bFade"] = s.bFade; else j.Remove("bFade");   // нарастание старта (16.11) — только если есть
+            if (s.bFade > 0 && s.bLevel < 1) j["bLevel"] = s.bLevel; else j.Remove("bLevel");
+            if (s.cFade != 3) j["cFade"] = s.cFade; else j.Remove("cFade");   // затухание финиша (16.11) — только если не обычные 3 с
+            if (s.cLevel < 1) j["cLevel"] = s.cLevel; else j.Remove("cLevel");
+            if (s.vol != 1) j["vol"] = s.vol; else j.Remove("vol");   // громкость песни (18.11, из Unbound) — только если не 100 %
+            if (!s.lim) j["lim"] = false; else j.Remove("lim");
+            if (s.vsStart >= 0) j["vsStart"] = s.vsStart; else j.Remove("vsStart");   // выезд из гаража (19.11): свой старт — только если не авто
+            if (s.vsFi > 0) j["vsFi"] = s.vsFi; else j.Remove("vsFi");
+            if (s.vsFo != Audio.VS_FO) j["vsFo"] = s.vsFo; else j.Remove("vsFo");
+            j.Remove("vsLen");   // было 19.11 утром (длина куска) — больше нет
+            if (s.vsOk) j["vsOk"] = true; else j.Remove("vsOk");   // выезд смотрели — после переустановки не напоминать снова
+            if (s.goOk) j["goOk"] = true; else j.Remove("goOk");   // старт гонки смотрели (19.11) — тоже
             App.WriteJson(pj, j);
         }
         catch (Exception e) { App.Log("song.json " + s.src + ": " + e.Message); }

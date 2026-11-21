@@ -241,6 +241,7 @@ static class Ui
                     Process.Start(new ProcessStartInfo(exe, "--app=" + url + " --user-data-dir=\"" + prof + "\" --no-first-run --no-default-browser-check --disable-features=Translate" +
                         " --window-size=" + w + "," + h + " --window-position=" + x + "," + y) { UseShellExecute = false });
                     winProfile = prof;
+                    // WinIcon.Keep(Path.GetFileNameWithoutExtension(exe));   // 18.11 ОТКЛЮЧЕНО: WinIcon.cs поднимает VirusTotal 3/70 → 13/71 (Microsoft Wacatac!ml) — ждем вариант B от Unbound; файл — outputs/nfs-heat/pravki-pesochnicy/otlozheno/
                 }
                 else Process.Start(new ProcessStartInfo(exe, (Path.GetFileName(exe).Equals("firefox.exe", StringComparison.OrdinalIgnoreCase) ? "-new-window " : "") + url) { UseShellExecute = false });
                 App.Log("window: " + exe + (winProfile != null ? " (app window)" : " (tab)"));
@@ -314,7 +315,7 @@ static class Ui
         foreach (string f in new[] { "photo.jpg", "leak.jpg", "logo.png", "halftone.png", "grunge.png", "dots.png", "noise.png" })
             if (File.Exists(Path.Combine(App.UiDir, "bg", f))) bg[Path.GetFileNameWithoutExtension(f)] = "/ui/bg/" + f;
         return new Dictionary<string, object> {
-            { "version", App.Version }, { "lang", st.lang }, { "agreed", st.agreed }, { "pathsOk", st.pathsOk }, { "musicTold", st.musicTold },
+            { "version", App.Version }, { "lang", st.lang }, { "agreed", st.agreed }, { "pathsOk", st.pathsOk }, { "musicTold", st.musicTold }, { "muteVo", st.muteVo },
             { "game", game }, { "fmm", fmm }, { "key", fmm != null && File.Exists(Find.KeyPath(fmm)) },
             { "ready", ready }, { "stale", stale }, { "tracks", tracks }, { "bg", bg },
             { "songs", Music.Ordered(st.songs.Where(s => !s.draft)).Select(SongView).ToList() },
@@ -333,8 +334,8 @@ static class Ui
     static Dictionary<string, object> SongView(Song s)
     {
         return new Dictionary<string, object> {
-            { "id", s.id }, { "title", s.title }, { "artist", s.artist }, { "file", s.file }, { "dur", s.dur }, { "drop", s.drop }, { "outro", s.outro }, { "cDur", s.cDur },
-            { "garage", s.garage }, { "cityDay", s.cityDay }, { "cityNight", s.cityNight }, { "raceDay", s.raceDay }, { "raceNight", s.raceNight }, { "added", s.added }, { "audio", "/songs/" + s.id + "/song.wav" }, { "src", s.src },
+            { "id", s.id }, { "title", s.title }, { "artist", s.artist }, { "file", s.file }, { "dur", s.dur }, { "drop", s.drop }, { "outro", s.outro }, { "cDur", s.cDur }, { "bFade", s.bFade }, { "bLevel", s.bLevel }, { "cFade", s.cFade }, { "cLevel", s.cLevel },
+            { "garage", s.garage }, { "cityDay", s.cityDay }, { "cityNight", s.cityNight }, { "raceDay", s.raceDay }, { "raceNight", s.raceNight }, { "added", s.added }, { "vol", s.vol }, { "lim", s.lim }, { "vsStart", s.vsStart }, { "vsFi", s.vsFi }, { "vsFo", s.vsFo }, { "vsOk", s.vsOk }, { "goOk", s.goOk }, { "audio", "/songs/" + s.id + "/song.wav" }, { "src", s.src },
             { "cover", s.cover ? "/songs/" + s.id + "/cover.png?v=" + s.added : null } };
     }
 
@@ -374,6 +375,7 @@ static class Ui
     }
 
     // ---------- задания (рабочий процесс) ----------
+    const string VcUrl = "https://aka.ms/vs/17/release/vc_redist.x64.exe";   // официальная постоянная ссылка Microsoft: Visual C++ 2015–2022 x64
     static Process jobProc;            // рабочий процесс текущего задания
     static volatile bool jobStop;      // остановили сами («Стоп» / вышли из программы) — это не ошибка
     // рабочий процесс + его кодировщик (Tool.exe) — деревом по PID
@@ -514,7 +516,7 @@ static class Ui
             {
                 // вид главного окна (P2-07) — в settings.json: localStorage окна каждый запуск новый (порт другой)
                 var b = r.JsonBody(); var v = new Dictionary<string, string>();
-                foreach (string k in new[] { "sort", "art", "where", "view" }) { object o; if (b.TryGetValue(k, out o) && o != null) v[k] = Music.Cut(Convert.ToString(o), 200); }
+                foreach (string k in new[] { "sort", "art", "where", "view", "fold" }) { object o; if (b.TryGetValue(k, out o) && o != null) v[k] = Music.Cut(Convert.ToString(o), 200); }   // fold — свернутые разделы окна (17.11)
                 Settings.Edit(s => s.view = v); w.Json(OK); return;
             }
             case "/api/browser":
@@ -527,6 +529,11 @@ static class Ui
                 lastPing = DateTime.Now.AddSeconds(60);   // старое окно уйдет (bye) раньше, чем новое пришлет ping — не выходить
                 OpenWindow("http://127.0.0.1:" + srv.Port + "/");
                 w.Json(OK); return;
+            }
+            case "/api/mutevo":   // пункт меню «Без диктора»: пусто / TRUE (Ваня 15.11)
+            {
+                bool on = Convert.ToBoolean(r.JsonBody()["on"]);
+                Settings.Edit(s => s.muteVo = on); App.Log("mute narrator: " + on); w.Json(OK); return;
             }
             case "/api/agree": Settings.Edit(s => s.agreed = true); App.Log("agreement accepted"); w.Json(OK); return;
             case "/api/pathsok": Settings.Edit(s => s.pathsOk = true); App.Log("folders confirmed: " + Settings.Get().gamePath + " | " + Settings.Get().fmmPath); w.Json(OK); return;
@@ -675,9 +682,21 @@ static class Ui
                 {
                     var s = x.songs.FirstOrDefault(y => y.id == id); if (s == null) throw new UserError("songMissing");
                     s.title = Music.Cut((string)b["title"], Music.MaxTitle); s.artist = Music.Cut((string)b["artist"], Music.MaxArtist);
-                    // GO / финиш (куски B / C Unbound) — в Heat v1 окно их может не слать (старт гонки — v2)
-                    if (b.ContainsKey("drop")) s.drop = Convert.ToDouble(b["drop"]); if (b.ContainsKey("outro")) s.outro = Convert.ToDouble(b["outro"]); if (b.ContainsKey("cDur")) s.cDur = Convert.ToDouble(b["cDur"]);
+                    // GO (19.11 окно «Старт гонки»): дроп песни, с; 0 — без вступления; не позже чем за 1 с до конца (Song.Intro). Финиш (C Unbound) Heat не шлет
+                    if (b.ContainsKey("drop")) { double d = Convert.ToDouble(b["drop"]); s.drop = d > 0 ? Math.Round(Math.Min(d, s.dur > 1 ? s.dur - 1.01 : d), 2) : 0; } if (b.ContainsKey("outro")) s.outro = Convert.ToDouble(b["outro"]); if (b.ContainsKey("cDur")) s.cDur = Convert.ToDouble(b["cDur"]);
                     SetCtx(s, b);
+                    if (b.ContainsKey("bFade")) s.bFade = Math.Round(Math.Max(0, Math.Min(Audio.IntroLen(s), Convert.ToDouble(b["bFade"]))), 2);   // нарастание старта: до дропа
+                    if (b.ContainsKey("bLevel")) s.bLevel = Math.Round(Math.Max(0, Math.Min(1, Convert.ToDouble(b["bLevel"]))), 2);
+                    if (b.ContainsKey("cFade")) s.cFade = Math.Round(Math.Max(0, Math.Min(s.cDur, Convert.ToDouble(b["cFade"]))), 2);   // затухание финиша (16.11)
+                    if (b.ContainsKey("cLevel")) s.cLevel = Math.Round(Math.Max(0, Math.Min(1, Convert.ToDouble(b["cLevel"]))), 2);
+                    if (b.ContainsKey("vol")) s.vol = Math.Round(Math.Max(0, Math.Min(3, Convert.ToDouble(b["vol"]))), 2);   // громкость песни (18.11, из Unbound): 0–300 %
+                    if (b.ContainsKey("lim")) s.lim = Convert.ToBoolean(b["lim"]);
+                    // выезд из гаража (19.11): старт < 0 — авто (самое громкое место, Audio.VsAuto); нарастание / затухание — 0…половина запаса, с
+                    if (b.ContainsKey("vsStart")) { double v = Convert.ToDouble(b["vsStart"]); s.vsStart = v < 0 ? -1 : Math.Round(v, 2); }
+                    if (b.ContainsKey("vsFi")) s.vsFi = Math.Round(Math.Max(0, Math.Min(Audio.VS_LEN / 2, Convert.ToDouble(b["vsFi"]))), 2);
+                    if (b.ContainsKey("vsOk")) s.vsOk = Convert.ToBoolean(b["vsOk"]);   // выезд смотрели в окне (напоминание)
+                    if (b.ContainsKey("goOk")) s.goOk = Convert.ToBoolean(b["goOk"]);   // старт гонки смотрели в окне (напоминание, 19.11)
+                    if (b.ContainsKey("vsFo")) s.vsFo = Math.Round(Math.Max(0, Math.Min(Audio.VS_LEN / 2, Convert.ToDouble(b["vsFo"]))), 2);
                     if (s.title == "") s.title = Music.Cut(Path.GetFileNameWithoutExtension(s.file), Music.MaxTitle);
                     s.draft = false;
                 });
@@ -688,6 +707,14 @@ static class Ui
             {
                 var b = r.JsonBody(); string id = (string)b["id"];
                 Settings.Edit(x => { var s = x.songs.FirstOrDefault(y => y.id == id); if (s != null) SetCtx(s, b); });
+                w.Json(OK); return;
+            }
+            case "/api/song/flagsMany":
+            {
+                // 18.11 (Ваня: много раз «Увімкнути / Вимкнути всі» на 286 песнях → 2288 запросов разом, окна «Немає зв'язку», программа вышла,
+                // сохранилось 69 из 286): массовое — одним запросом и одной записью settings.json. Имя и вид — как в Unbound: { list: [{ id, garage, cityDay, … }] }
+                var list = ((System.Collections.ArrayList)r.JsonBody()["list"]).Cast<Dictionary<string, object>>().ToList();
+                Settings.Edit(x => { foreach (var b in list) { string id = (string)b["id"]; var s = x.songs.FirstOrDefault(y => y.id == id); if (s != null) SetCtx(s, b); } });
                 w.Json(OK); return;
             }
             case "/api/music/order":
@@ -793,6 +820,19 @@ static class Ui
                 var b = r.JsonBody(); object it;
                 w.Json(Yt.HaveList(b.TryGetValue("items", out it) ? it as System.Collections.IEnumerable : null)); return;
             }
+            case "/api/sp/list":
+            {
+                // ссылка Spotify (песня / альбом / плейлист) -> список песен: исполнитель, название, длина (Spotify.cs; звук — с YT Music)
+                var b = r.JsonBody(); object u;
+                w.Json(Spot.List(b.TryGetValue("url", out u) ? u as string : null)); return;
+            }
+            case "/api/sp/find":
+            {
+                // песня из Spotify -> та же песня на YT Music ({artist, title, dur} -> {found, id, title, by, len, ok, why, have})
+                var b = r.JsonBody(); object ar, ti, du;
+                w.Json(Spot.Find(b.TryGetValue("artist", out ar) ? ar as string : null, b.TryGetValue("title", out ti) ? ti as string : null,
+                                 b.TryGetValue("dur", out du) && du != null ? Convert.ToDouble(du) : 0)); return;
+            }
             case "/api/build":
             {
                 var st = Settings.Get();
@@ -801,7 +841,7 @@ static class Ui
                 var songs = Music.Ordered(st.songs.Where(s => !s.draft && s.Any()));   // в мод — только включенные; выключенные в игре и так не играют
                 w.Json(StartJob("build", new Dictionary<string, object> {
                     { "game", st.gamePath }, { "fmm", st.fmmPath }, { "fingerprint", Find.Fingerprint(st.gamePath) },
-                    { "songs", songs }, { "choice", st.choice }, { "preset", st.Active.name }, { "out", Path.Combine(Find.ModsDir(st.fmmPath), "HeatSoundtrack.fbmod") } }).View());
+                    { "songs", songs }, { "choice", st.choice }, { "preset", st.Active.name }, { "muteVo", st.muteVo }, { "out", Path.Combine(Find.ModsDir(st.fmmPath), "HeatSoundtrack.fbmod") } }).View());
                 return;
             }
             case "/api/open":
@@ -820,11 +860,18 @@ static class Ui
                 }
                 else if (what == "vcredist")
                 {
-                    // P2-01, запасной путь: Visual C++ Redistributable x64 (установщик Microsoft лежит в app\vcredist)
+                    // P2-01, запасной путь: Visual C++ Redistributable x64. С 17.11 установщика в zip нет (Ваня: «выпиливай» — антивирусы, вес):
+                    // кнопка открывает официальную загрузку Microsoft; лежит в app\vcredist (zip до 1.0.4) — запускаем его, как раньше
                     string vc = Path.Combine(App.AppDir, "vcredist", "VC_redist.x64.exe");
-                    if (!File.Exists(vc)) throw new UserError("crash", "no " + vc);
-                    try { Process.Start(new ProcessStartInfo(vc) { UseShellExecute = true }); App.Log("VC++ installer started"); }
-                    catch (System.ComponentModel.Win32Exception e) { if (e.NativeErrorCode != 1223) throw; App.Log("VC++ installer: UAC cancelled"); }
+                    if (!File.Exists(vc))
+                    {
+                        try { Process.Start(VcUrl); App.Log("VC++: download " + VcUrl); } catch (Exception e) { App.Log("VC++ link: " + e.Message); }
+                    }
+                    else
+                    {
+                        try { Process.Start(new ProcessStartInfo(vc) { UseShellExecute = true }); App.Log("VC++ installer started"); }
+                        catch (System.ComponentModel.Win32Exception e) { if (e.NativeErrorCode != 1223) throw; App.Log("VC++ installer: UAC cancelled"); }
+                    }
                 }
                 else if (what == "log") Process.Start("explorer.exe", "/select,\"" + App.LogPath + "\"");
                 else if (what == "folder") Process.Start("explorer.exe", "\"" + App.Root + "\"");

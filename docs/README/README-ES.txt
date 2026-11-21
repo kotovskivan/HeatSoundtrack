@@ -12,7 +12,12 @@ QUÉ HACE
     Las pistas del juego se quedan como están.
   - Canciones de YouTube / YT Music: el enlace de una canción, playlist o álbum, varios enlaces a la vez o una lista .txt.
     Si el enlace es un videoclip, el programa toma la misma canción de YT Music — sin las intros ni los sketches del vídeo.
-  - Salida de la carrera: con la cuenta atrás suena la pista de entrada del juego, tus canciones van después. Salida con tu propia canción — en la próxima versión.
+  - Spotify: el enlace de una canción, álbum o playlist (hasta 100 canciones por enlace; una playlist más grande, como archivo .csv de exportify.app).
+    De Spotify solo se toma la lista — las canciones se descargan de YT Music.
+  - Salida de la carrera con tu canción: marca el drop — los planos de la escena y la cuenta atrás 3-2-1 suenan sobre tu canción y el drop golpea justo después del GO!. El programa puede encontrar el drop solo.
+  - Salida del garaje: una bandera en la onda — desde dónde suena la canción cuando sales del garaje. Si no la tocas, el programa toma la parte más fuerte.
+  - Volumen de cada canción: 0–300 %, «Auto» y protección contra saturación.
+  - «Sin narrador»: Ana, las charlas al volante y el narrador del menú se callan; las cinemáticas quedan intactas.
   - Perfiles: distintos conjuntos de pistas, se cambian con un clic.
   - Crea UN solo mod para Frosty Mod Manager. Los archivos del juego no se modifican.
   - La ventana habla 14 idiomas.
@@ -40,6 +45,7 @@ CÓMO SE USA
      A mano: una carpeta numerada nueva con el archivo de la canción + una imagen (jpg, png) para la portada.
      Borras una carpeta — la canción desaparece del programa.
      Imagen: cualquier nombre si es la única en la carpeta; varias — gana cover.jpg. Cualquier tamaño.
+     La portada es solo para el programa: no va al mod ni al juego (Heat no tiene portadas de canciones).
   5. CREAR MOD. El mod aparece en la lista de Frosty Mod Manager.
   6. En Frosty Mod Manager: marca "Heat Soundtrack", desactiva otros mods de música y pulsa Launch.
 

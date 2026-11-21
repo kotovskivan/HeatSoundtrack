@@ -15,7 +15,12 @@ WHAT IT DOES
     The game's tracks stay as they are.
   - Songs from YouTube / YT Music: a link to a song, a playlist or an album, many links at once or a .txt list.
     If the link is a music video, the program takes the same song from YT Music — without the video's intros and skits.
-  - Race start: the game's intro track plays under the countdown, your songs come after it. Race start with your own song — in the next version.
+  - Spotify: a link to a song, an album or a playlist (up to 100 songs per link; a bigger playlist — as a .csv file from exportify.app).
+    Only the list comes from Spotify — the songs themselves are downloaded from YT Music.
+  - Race start with your song: mark the drop — the intro shots and the 3-2-1 countdown play over your song, the drop hits right after GO!. The program can find the drop itself.
+  - Garage exit: a flag on the wave — where the song plays from when you drive out of the garage. Not set — the program takes the loudest part.
+  - Volume of each song: 0–300 %, Auto and overload protection.
+  - "Mute narrator": Ana, in-drive chatter and the menu narrator go quiet; cutscenes stay.
   - Profiles: different sets of tracks, switch in one click.
   - Builds ONE mod for Frosty Mod Manager. Game files are not changed.
   - The window speaks 14 languages.
@@ -43,6 +48,7 @@ HOW TO USE
      By hand: a new numbered folder with the song file + a picture (jpg, png) for the cover.
      Delete a folder — the song disappears from the program.
      Picture: any name if it's the only one in the folder; several — cover.jpg wins. Any size.
+     The cover is only for this program — it doesn't go into the mod or the game (Heat has no track covers).
   5. BUILD MOD. The mod appears in Frosty Mod Manager's list.
   6. In Frosty Mod Manager: tick "Heat Soundtrack", turn off other music mods, press Launch.
 

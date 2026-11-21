@@ -121,9 +121,30 @@ class Song
     public bool[] Flags() { return new[] { garage, cityDay, cityNight, raceDay, raceNight }; }
     public void SetFlags(bool[] f) { Func<int, bool> g = i => f != null && f.Length > i && f[i]; garage = g(0); cityDay = g(1); cityNight = g(2); raceDay = g(3); raceNight = g(4); }
     public bool Any() { return garage || cityDay || cityNight || raceDay || raceNight; }
+    public double vol = 1;       // 18.11 (из Unbound 17.11, Ваня): громкость всей песни 0…3 (0–300 %); 1 — как есть, звук не трогаем; выше 1 — мягкий лимитер (Limiter.cs)
+    public bool lim = true;      // защита от перегруза (лимитер) выше 100 %; false — громче как есть, пики срезаются (трещит — окно предупреждает)
+    public double bFade;         // 16.11 (Ваня): нарастание в начале «Старта гонки» — секунды от начала музыки до ручки в окне; 0 = сразу на полную; не дальше GO
+    public double cFade = 3, cLevel = 1;   // 16.11 (Ваня): затухание финиша, с (было всегда 3) и громкость в точке желтой ручки — зеркально нарастанию старта
+    public double bLevel = 1;    // громкость в точке ручки (0…1): 1 — от ручки уже полная; ниже — от ручки до GO дорастает до полной («нарастание более флекс»)
     public string src, asig, isig;   // песня из папки Music: путь звука относительно Music, подписи звука и картинки (размер:время)
     public long added;
     public string trackName;     // внутреннее имя в игре (ставит сборка: имя ассета звука и сегментов)
+    public double[] iCuts;       // старт гонки (v2, 17.11): свои длины 4 кадров заставки + отсчета, с; null — Audio.I_CUTS
+    // свое вступление старта гонки: песня в гонке и стоит метка GO (после нее — больше секунды песни)
+    public bool Intro() { return (raceDay || raceNight) && drop > 0 && (dur <= 0 || drop < dur - 1); }
+    // 19.11 (Ваня: на выезде из гаража песня начиналась заново): кусок выезда — свой файл-петля, как vs_<песня>_loop у игры (16-63 с).
+    // Окно (19.11, «как в Unbound»): флажок старта на волне; кусок = от старта запас Audio.VS_LEN с (игра гасит его сама, когда загрузится город),
+    // vsFi — нарастание в начале, vsFo — затухание в конце запаса, с. vsStart < 0 — авто: начало самых громких Audio.VS_AUTO с (Audio.VsAuto; Ваня:
+    // «не выбрал — программа сама берет 30 с от самого громкого места»), считает сборка. Кусок есть у каждой песни гаража.
+    public double vsStart = -1, vsFi = 0, vsFo = Audio.VS_FO;
+    // 19.11 (Ваня: «чтоб люди не забывали проставлять»): выезд уже смотрели — песню сохранили в окне, когда она была в гараже. Нет — окно напоминает
+    // (точка на карандаше, «Налаштувати виїзд · N» у раздела «Гараж», вопрос перед сборкой). На сборку не влияет: не смотрели — авто-старт.
+    public bool vsOk;
+    public bool VsPiece() { return garage; }
+    // 19.11 окно «Старт гонки» (Ваня: «проделай все»): старт уже смотрели — песню сохранили в окне, когда она была в гонке (drop > 0 — со вступлением под GO,
+    // drop 0 — человек выбрал «без вступления»). Нет — окно напоминает, как у выезда. На сборку не влияет: вступление только при drop > 0.
+    public bool goOk;
+    public bool Race() { return raceDay || raceNight; }
 }
 
 // профиль = набор: какие треки игры где играют + какие свои песни включены и где. Сами песни — общая библиотека (songs).
@@ -149,6 +170,7 @@ class Settings
     public string lastBuild;
     public string browser;                         // в чем открывать окно: путь exe браузера, "default" — браузер по умолчанию, null — Edge (Ui.OpenWindow)
     public Dictionary<string, string> view;        // вид главного окна: sort / art / where / view (P2-07: localStorage окна каждый запуск новый — порт другой)
+    public bool muteVo;                            // пункт меню «Без диктора» (Ваня 15.11): true — сборка глушит Ану и диктора меню (Worker.MuteVo); общий для всех профилей
 
     static readonly object l = new object();
     static Settings cur;

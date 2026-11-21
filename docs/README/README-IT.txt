@@ -12,7 +12,12 @@ COSA FA
     I brani del gioco restano come sono.
   - Canzoni da YouTube / YT Music: il link di una canzone, playlist o album, più link insieme o un elenco .txt.
     Se il link è un videoclip, il programma prende la stessa canzone da YT Music — senza intro e scenette del video.
-  - Partenza della gara: durante il conto alla rovescia suona il brano d'apertura del gioco, le tue canzoni arrivano dopo. Partenza con una tua canzone — nella prossima versione.
+  - Spotify: il link di una canzone, album o playlist (fino a 100 canzoni per link; una playlist più grande come file .csv da exportify.app).
+    Da Spotify arriva solo l'elenco — le canzoni vengono scaricate da YT Music.
+  - Partenza della gara con una tua canzone: segna il drop — le inquadrature della scena e il conto alla rovescia 3-2-1 vanno sulla tua canzone, il drop arriva subito dopo il GO!. Il drop il programma può trovarlo da solo.
+  - Uscita dal garage: una bandierina sull'onda — da dove suona la canzone quando esci dal garage. Se non la tocchi, il programma prende il punto più forte.
+  - Volume di ogni canzone: 0–300 %, «Auto» e protezione da sovraccarico.
+  - «Senza narratore»: Ana, le chiacchiere alla guida e il narratore del menu tacciono; i filmati restano.
   - Profili: diversi set di brani, si cambiano con un clic.
   - Crea UN solo mod per Frosty Mod Manager. I file del gioco non vengono modificati.
   - La finestra parla 14 lingue.
@@ -40,6 +45,7 @@ COME SI USA
      A mano: una nuova cartella numerata con il file della canzone + un'immagine (jpg, png) per la copertina.
      Cancelli una cartella — la canzone sparisce dal programma.
      Immagine: nome qualsiasi se è l'unica nella cartella; più di una — vince cover.jpg. Qualsiasi misura.
+     La copertina serve solo al programma: non finisce né nel mod né nel gioco (Heat non ha copertine dei brani).
   5. CREA MOD. Il mod compare nella lista di Frosty Mod Manager.
   6. In Frosty Mod Manager: spunta "Heat Soundtrack", disattiva gli altri mod musicali, premi Launch.
 

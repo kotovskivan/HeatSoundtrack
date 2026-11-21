@@ -20,7 +20,8 @@ set "HERE=%~dp0"
 set "OUT=%HERE%out\Heat Soundtrack"
 mkdir "%OUT%\app\frosty\Profiles" "%OUT%\app\frosty\ThirdParty" "%OUT%\app\web" "%OUT%\app\encoder" 2>nul
 
-"%NET%\csc.exe" -nologo -optimize+ -platform:x64 -target:winexe -win32icon:"%HERE%res\app.ico" ^
+rem -optimize- : with -optimize+ some antivirus engines (BitDefender family) flag the exe as a false positive; behavior is the same
+"%NET%\csc.exe" -nologo -optimize- -platform:x64 -target:winexe -win32icon:"%HERE%res\app.ico" ^
   -out:"%OUT%\Heat Soundtrack.exe" ^
   -r:"%FMM%\FrostySdk.dll" -r:"%FMM%\FrostyCore.dll" ^
   -r:Microsoft.CSharp.dll -r:System.Web.Extensions.dll -r:System.Drawing.dll -r:System.Windows.Forms.dll -r:System.Management.dll ^
@@ -32,7 +33,7 @@ rem Frosty Toolsuite libraries (GPL v3) - to read the game and write the mod
 for %%f in (FrostySdk.dll FrostyCore.dll FrostyHash.dll FrostyModSupport.dll FrostyControls.dll) do copy /y "%FMM%\%%f" "%OUT%\app\frosty\" >nul
 copy /y "%FMM%\Profiles\NFSHEATSDK.dll" "%OUT%\app\frosty\Profiles\" >nul
 xcopy /y /e /q "%FMM%\ThirdParty" "%OUT%\app\frosty\ThirdParty\" >nul
-rem the window (HTML/JS/CSS) and docs (README.txt + README\ in 12 more languages + THIRD-PARTY.txt)
+rem the window (HTML/JS/CSS) and docs (README.txt + README\ in 13 more languages + THIRD-PARTY.txt)
 xcopy /y /e /q "%HERE%web" "%OUT%\app\web\" >nul
 del /q "%OUT%\app\web\dialog-demo.html" 2>nul
 xcopy /y /e /q "%HERE%docs" "%OUT%\" >nul
@@ -42,7 +43,7 @@ rem Microsoft Visual C++ runtime: a clean Windows has no VCRUNTIME140.dll - Fros
 rem the game's Oodle (oo2core_9_win64.dll) needs VCRUNTIME140_1.dll. The program loads app\frosty first (SetDllDirectory in App.cs).
 for %%f in (vcruntime140.dll vcruntime140_1.dll) do if exist "%WINDIR%\System32\%%f" copy /y "%WINDIR%\System32\%%f" "%OUT%\app\frosty\" >nul
 if exist "%WINDIR%\System32\vcruntime140.dll" copy /y "%WINDIR%\System32\vcruntime140.dll" "%OUT%\app\encoder\" >nul
-rem Not built here (copy from the release zip if you need them): app\yt-dlp.exe (songs from YouTube / YT Music)
-rem and app\vcredist\VC_redist.x64.exe (Microsoft's installer, offered by the program if the runtime still fails to load).
+rem Not built here (copy from the release zip if you need it): app\yt-dlp.exe (songs from YouTube / YT Music).
+rem There is no VC_redist installer in the zip: if the runtime still fails to load, the program opens Microsoft's download.
 
 echo Built: %OUT%

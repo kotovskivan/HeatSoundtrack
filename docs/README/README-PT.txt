@@ -12,7 +12,12 @@ O QUE FAZ
     As faixas do jogo continuam como estão.
   - Músicas do YouTube / YT Music: link de uma música, playlist ou álbum, vários links de uma vez ou uma lista .txt.
     Se o link for de um clipe, o programa pega a mesma música no YT Music — sem as introduções e esquetes do clipe.
-  - Largada: na contagem toca a faixa de abertura do jogo, suas músicas vêm depois. Largada com música sua — na próxima versão.
+  - Spotify: link de uma música, álbum ou playlist (até 100 músicas por link; playlist maior — como arquivo .csv do exportify.app).
+    Do Spotify vem só a lista — as músicas são baixadas do YT Music.
+  - Largada com música sua: marque o drop — os quadros da cena e a contagem 3-2-1 tocam sobre a sua música, e o drop bate logo depois do GO!. O programa pode achar o drop sozinho.
+  - Saída da garagem: uma bandeira na onda — de onde a música toca quando você sai da garagem. Se não mexer, o programa pega a parte mais alta.
+  - Volume de cada música: 0–300 %, “Auto” e proteção contra saturação.
+  - “Sem narrador”: Ana, a conversa ao dirigir e o narrador do menu ficam mudos; as cenas continuam.
   - Perfis: conjuntos diferentes de faixas, troque com um clique.
   - Gera UM mod para o Frosty Mod Manager. Os arquivos do jogo não mudam.
   - A janela fala 14 idiomas.
@@ -40,6 +45,7 @@ COMO USAR
      À mão: uma nova pasta numerada com o arquivo da música + uma imagem (jpg, png) para a capa.
      Apagou a pasta — a música some do programa.
      Imagem: qualquer nome se for a única na pasta; várias — vale a cover.jpg. Qualquer tamanho.
+     A capa é só para o programa — não vai para o mod nem para o jogo (o Heat não tem capas de faixas).
   5. GERAR MOD. O mod aparece na lista do Frosty Mod Manager.
   6. No Frosty Mod Manager: marque "Heat Soundtrack", desative outros mods de música, clique em Launch.
 

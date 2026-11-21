@@ -12,7 +12,12 @@ NE YAPAR
     Oyunun parçaları olduğu gibi kalır.
   - YouTube / YT Music'ten şarkılar: bir şarkının, çalma listesinin ya da albümün linki, aynı anda birçok link ya da bir .txt listesi.
     Link bir müzik videosuysa program aynı şarkıyı YT Music'ten alır — videodaki girişler ve skeçler olmadan.
-  - Yarış başlangıcı: geri sayım sırasında oyunun giriş parçası çalar, senin şarkıların ondan sonra gelir. Yarışa kendi şarkınla başlamak — sonraki sürümde.
+  - Spotify: bir şarkının, albümün ya da çalma listesinin linki (link başına 100 şarkıya kadar; daha büyük liste — exportify.app'ten .csv dosyası olarak).
+    Spotify'dan sadece liste alınır — şarkıların kendisi YT Music'ten indirilir.
+  - Kendi şarkınla yarış başlangıcı: drop'u işaretle — ara sahnenin kareleri ve 3-2-1 geri sayımı şarkının üstünde akar, drop GO!'dan hemen sonra patlar. Drop'u program kendisi de bulabilir.
+  - Garajdan çıkış: dalgada bir bayrak — garajdan çıkarken şarkının nereden çalacağı. Dokunmazsan program en yüksek yeri alır.
+  - Her şarkının sesi: %0–300, “Otomatik” ve aşırı yük koruması.
+  - “Anlatıcısız”: Ana, sürüş sohbetleri ve menü anlatıcısı susar; ara sahneler kalır.
   - Profiller: farklı parça setleri, tek tıkla geçiş.
   - Frosty Mod Manager için TEK bir mod oluşturur. Oyun dosyaları değişmez.
   - Pencere 14 dil biliyor.
@@ -40,6 +45,7 @@ NASIL KULLANILIR
      Elle eklemek için: şarkı dosyası + kapak için bir resim (jpg, png) olan yeni bir numaralı klasör.
      Klasörü silersen şarkı programdan kaybolur.
      Resim: klasörde tek resim varsa adı önemli değil; birkaç tane varsa cover.jpg kazanır. Boyutu fark etmez.
+     Kapak sadece program içindir — moda ve oyuna girmez (Heat'te şarkı kapakları yok).
   5. MOD OLUŞTUR. Mod, Frosty Mod Manager'ın listesinde görünür.
   6. Frosty Mod Manager'da: "Heat Soundtrack" modunu işaretle, diğer müzik modlarını kapat, Launch'a bas.
 

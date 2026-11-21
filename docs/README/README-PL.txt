@@ -12,7 +12,12 @@ CO ROBI
     Utwory gry zostają bez zmian.
   - Piosenki z YouTube / YT Music: link do piosenki, playlisty lub albumu, wiele linków naraz albo lista w .txt.
     Jeśli link prowadzi do teledysku, program bierze tę samą piosenkę z YT Music — bez wstawek i scenek z klipu.
-  - Start wyścigu: pod odliczanie gra utwór wstępny gry, twoje piosenki lecą po nim. Start wyścigu z własną piosenką — w następnej wersji.
+  - Spotify: link do piosenki, albumu lub playlisty (do 100 piosenek na link; większa playlista — jako plik .csv z exportify.app).
+    Ze Spotify brana jest tylko lista — same piosenki pobierają się z YT Music.
+  - Start wyścigu z własną piosenką: zaznacz drop — ujęcia przerywnika i odliczanie 3-2-1 polecą pod twoją piosenkę, drop uderzy tuż po GO!. Drop program może znaleźć sam.
+  - Wyjazd z garażu: flaga na fali — skąd gra piosenka, gdy wyjeżdżasz z garażu. Nie ruszasz — program bierze najgłośniejsze miejsce.
+  - Głośność każdej piosenki: 0–300 %, „Auto” i ochrona przed przesterowaniem.
+  - „Bez narratora”: milczą Ana, rozmowy w trakcie jazdy i narrator menu; przerywniki zostają.
   - Profile: różne zestawy utworów, przełączanie jednym kliknięciem.
   - Buduje JEDEN mod do Frosty Mod Manager. Pliki gry się nie zmieniają.
   - Okno mówi w 14 językach.
@@ -40,6 +45,7 @@ JAK UŻYWAĆ
      Ręcznie: nowy folder z numerem, w nim plik piosenki + obrazek (jpg, png) na okładkę.
      Usuniesz folder — piosenka zniknie z programu.
      Obrazek: dowolna nazwa, gdy jest w folderze jeden; kilka — brany jest cover.jpg. Rozmiar dowolny.
+     Okładka jest tylko dla programu — nie trafia do moda ani do gry (Heat nie ma okładek utworów).
   5. ZBUDUJ MODA. Mod pojawi się na liście we Frosty Mod Manager.
   6. We Frosty Mod Manager: zaznacz "Heat Soundtrack", wyłącz inne mody muzyczne, naciśnij Launch.
 

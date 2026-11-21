@@ -10,7 +10,8 @@
 //   контексты = списки Playables во фразах (MusicPhraseData) музыкальных ассетов: гараж Play_Garage (фразы P_<песня> -> сегмент),
 //   город Day / Night и гонка PlayGenericRace (сегменты MusicSegmentData прямо в списке). Своя песня = НОВЫЙ ассет звука + новые
 //   сегмент (+ фраза в гараже) и MusicMetadata — дописываются в список: треки игры остаются (не замена). Выключить трек игры — убрать из списка.
-//   Старт гонки (PlayRaceIntro: вступление из 6 кусков) — не трогаем (v2).
+//   Старт гонки (v2, 17.11, тест в игре — outputs/nfs-heat/test-start): PlayRaceIntro → свое вступление из 6 кусков у песни с меткой GO
+//   (Intros / NewIntro ниже, звук — Audio.IntroPieces); вступления игры — только у включенных треков игры. Окна для GO в Heat пока нет.
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -53,9 +54,15 @@ static class Worker
     const string RACENIGHT = "audio/music/roboto/roboto_licensedmusic_racenight";
     // образец ассета звука — песня города: ее бандлы (gamelogic/music + robotoprogression) покрывают все контексты (у гаража / гонки — только gamelogic/music)
     const string WAVE_TPL = "audio/music/roboto/playlist/dc_inna_tumanera";
+    const string GA_OUTRO = "VirtualSpace_Outro";   // список переходных фраз гаража (FollowOnPlayable) — туда и наши P_VS_
     const string GA_PHR = "P_Tycho_Easy";   // образец фразы гаража (сегмент + 2 MusicMetadata + FollowOnPlayable -> петля гаража) — проверено в игре 13.11
+    // старт гонки (v2, 17.11): список вступлений и образцы фраз (6 сегментов: Pane_01-04, Countdown, Race) — у конкурента эти два проверены в игре
+    const string INTRO_LIST = "PlayRaceIntro", INTRO_GEN = "PlayGenericRace";
+    static readonly Dictionary<string, string> INTRO_TPL = new Dictionary<string, string> {
+        { "raceDay", "DI_Intro_TOG_TurningUpForTheSunshine" }, { "raceNight", "NI_Intro_MNKYBSNSS_OtroLugar" } };
     const uint SEG_LEN = 0x6CFCCE5B, CHK_SIZE = 0xDC19107B, CHK_GUID = 0xF4369173;   // поля SBle (как в Unbound, Sble.cs)
-
+    const uint WAVE_ID = 0xF5F914D9;   // Id звука (в DS_SEL и DS_VAR) — у каждой песни свой (баг 14.11: у всех 20 был Id образца)
+    static readonly HashSet<ulong> waveIds = new HashSet<ulong>();
     // контексты своей песни: ключ = Song.Ctx, ассет музыки, фраза-список; Phrase — в списке фразы (гараж), иначе сегменты
     class CtxDef { public string Key, Asset, List; public bool Phrase; }
     static readonly CtxDef[] CTX = {
@@ -326,19 +333,27 @@ static class Worker
             string title = Game(Music.Cut(Clean(s.title), Music.MaxTitle)), artist = Game(Music.Cut(Clean(s.artist), Music.MaxArtist));
             if (title == "") title = "Track " + (i + 1);
             bool[] fl = s.Flags();
+            // 19.11: свой кусок выезда из гаража (V.sps) — отдельный ассет звука, как vs_<песня>_loop у игры; нет — петля выезда = вся песня (как раньше)
+            string vsFile = Path.Combine(encDirs[i], "V.sps");
+            Tuple<Guid, Guid> vsWave = s.VsPiece() && File.Exists(vsFile) ? AddWave(s.trackName + "_VS_Loop", File.ReadAllBytes(vsFile)) : null;
             for (int k = 0; k < CTX.Length; k++)
             {
                 if (!fl[k]) continue;
                 var c = CTX[k];
                 EbxAsset a = assets[c.Asset];
-                object item = c.Phrase ? (object)NewPhrase(a, gaPhr, s.trackName, wave, title, artist) : NewSegment(a, segTpl[c.Key], "S_" + s.trackName, wave, title, artist);
+                object item = c.Phrase ? (object)NewPhrase(a, gaPhr, s.trackName, wave, title, artist, vsWave) : NewSegment(a, segTpl[c.Key], "S_" + s.trackName, wave, title, artist);
                 ((IList)Get(Phrase(a, c.List), "Playables")).Add(new PointerRef(item));
                 a.AddDependency(wave.Item1);
+                if (c.Phrase && vsWave != null) a.AddDependency(vsWave.Item1);
                 on[c.Key]++;
             }
             own++;
             App.Log("song " + s.trackName + " (" + artist + " - " + title + "): " + sps.Length + " B, contexts " + string.Join(",", CTX.Where((c, k) => fl[k]).Select(c => c.Key)));
         }
+
+        // 4b) старт гонки (v2): вступления игры — только у включенных треков игры; свои — у песен с меткой GO
+        Intros(assets, songs, encDirs, choice, origItems);
+        object spk; if (job.TryGetValue("speakersDb", out spk) && spk != null) SpeakersDb(Convert.ToDouble(spk));
 
         // пустой список ломает выбор музыки — в таком контексте возвращаем треки игры как были (только этот список: день и ночь города — один ассет)
         foreach (var c in CTX.Where(c => on[c.Key] == 0))
@@ -349,14 +364,16 @@ static class Worker
             App.Log("ctx " + c.Key + ": empty - game tracks restored (" + list.Count + ")");
         }
         foreach (var kv in assets) am.ModifyEbx(kv.Key, kv.Value);
+        // Ана и диктор меню — пункт меню окна «Без диктора» (Settings.muteVo → job.muteVo). 15.11 вместе с правкой меню повесило загрузку; одна глушилка в игре не проверена
+        object mv; int voLangs = job.TryGetValue("muteVo", out mv) && mv != null && Convert.ToBoolean(mv) ? MuteVo() : 0;
 
         // 5) мод
         Say("STEP writeMod");
         var ms = new Frosty.Core.Mod.ModSettings();
-        ms.Title = "Heat Soundtrack"; ms.Author = "Kitivski + Claude"; ms.Category = "Audio"; ms.Version = App.Version;
+        ms.Title = job.ContainsKey("title") ? (string)job["title"] : "Heat Soundtrack"; ms.Author = "Kitivski + Claude"; ms.Category = "Audio"; ms.Version = App.Version;
         ms.Description = (job.ContainsKey("preset") ? "Profile: " + Clean((string)job["preset"]) + ". " : "") + (songs.Count > 0 ? "Own songs: " + string.Join(", ", songs.Select(s => Clean(s.artist) + " - " + Clean(s.title))) + ". " : "")
             + "Tracks: garage " + on["garage"] + ", city day " + on["cityDay"] + ", city night " + on["cityNight"] + ", race day " + on["raceDay"] + ", race night " + on["raceNight"]
-            + ". Made with Heat Soundtrack (fan-made, not affiliated with EA).";
+            + (voLangs > 0 ? ". In-drive chatter (Ana, crew, hints) and menu narrator muted, cutscenes untouched" : "") + ". Made with Heat Soundtrack (fan-made, not affiliated with EA).";
         ms.Icon = ModIcon();
         Frosty.Core.Config.Load(Path.Combine(App.FrostyDir, "config.json"));
         Frosty.Core.App.SelectedProfile = App.Profile;
@@ -394,19 +411,31 @@ static class Worker
         ChunkAssetEntry ce = am.GetChunkEntry(cg);
         ce.AddedSuperBundles.AddRange(tc.SuperBundles); ce.H32 = tc.H32; ce.FirstMip = tc.FirstMip;
         Array.Copy(cg.ToByteArray(), 0, bank.Data, (int)gv[0] - 1, 16);
-        bank.F(SbleBank.DS_CHK, CHK_SIZE).Vals[0] = (ulong)sps.Length;
-        bank.F(SbleBank.DS_SEG, SEG_LEN).Vals[0] = BitConverter.ToUInt32(BitConverter.GetBytes(samples / (float)rate), 0);
+        // поля образца — одно значение на поле (st 0): Write пишет Sp2, а не Vals → после правки Vals обязательно Restore (баг 14.11: длина и размер оставались от образца)
+        ulong lenBits = BitConverter.ToUInt32(BitConverter.GetBytes(samples / (float)rate), 0);
+        ulong oldId = bank.F(SbleBank.DS_VAR, WAVE_ID).Vals[0], id;
+        do { id = BitConverter.ToUInt32(Guid.NewGuid().ToByteArray(), 0); } while (id == 0 || id == oldId || !waveIds.Add(id));
+        var set = new[] { Tuple.Create(SbleBank.DS_CHK, CHK_SIZE, (ulong)sps.Length), Tuple.Create(SbleBank.DS_SEG, SEG_LEN, lenBits),
+                          Tuple.Create(SbleBank.DS_SEL, WAVE_ID, id), Tuple.Create(SbleBank.DS_VAR, WAVE_ID, id) };
+        foreach (var t in set) { var f = bank.F(t.Item1, t.Item2); for (int k = 0; k < f.Vals.Count; k++) f.Vals[k] = t.Item3; SbleBank.Restore(f); }
 
         EbxAsset be = am.GetEbx(srcE, true);   // true = свежая копия ОРИГИНАЛА (грабли Unbound 12.11: иначе все копии — один объект)
         be.SetFileGuid(Guid.NewGuid());
         dynamic root = be.RootObject;
+        // правило выбора: у песен игры [29] Once, история 6, общая на гараж / город / гонки (audiosystem_nfs20_selectionbehaviors) —
+        // сыгранная песня не выбирается, пока ее не вытеснят 6 других → 3 песни = 3 и тишина. У петель игры (меню, VS, погоня) правила нет (null).
+        // Наши — без правила: проверено в игре 15.11 (Ваня: «лупы остались, история все портила»)
+        root.DefaultSelectionBehavior = new PointerRef();
         string assetName = "Audio/Music/Roboto/Playlist/" + trackName, entryName = assetName.ToLowerInvariant();
         root.Name = assetName;
         Guid rg = Utils.GenerateDeterministicGuid(be.Objects, (Type)root.GetType(), be.FileGuid);
         root.SetInstanceGuid(new AssetClassGuid(rg, -1));
         bank.SetKey(SbleBank.KeyOf(rg));
         byte[] nb = bank.Write();
-        if (!SbleBank.Read(nb).Write().SequenceEqual(nb)) throw new Exception(trackName + ": wave does not read back byte for byte");
+        var back = SbleBank.Read(nb);
+        if (!back.Write().SequenceEqual(nb)) throw new Exception(trackName + ": wave does not read back byte for byte");
+        foreach (var t in set) if (back.F(t.Item1, t.Item2).Vals.Any(v => v != t.Item3)) throw new Exception(trackName + ": wave field " + t.Item2.ToString("X8") + " not written");
+        App.Log("wave " + trackName + ": " + (samples / (float)rate).ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + " s, " + sps.Length + " B, id " + id);
         var chunks = (IList)((object)root).GetType().GetProperty("Chunks").GetValue(root);
         Type ct = chunks[0].GetType(); chunks.Clear();
         object c0 = Activator.CreateInstance(ct);
@@ -432,7 +461,7 @@ static class Worker
     }
 
     // фраза гаража: копия P_Tycho_Easy (Sequential, 1 сегмент, FollowOnPlayable -> петля гаража) со своим сегментом
-    static object NewPhrase(EbxAsset a, object tplPhr, string trackName, Tuple<Guid, Guid> wave, string title, string artist)
+    static object NewPhrase(EbxAsset a, object tplPhr, string trackName, Tuple<Guid, Guid> wave, string title, string artist, Tuple<Guid, Guid> vsWave = null)
     {
         object tplSeg = FirstSegment(tplPhr);
         object seg = NewSegment(a, tplSeg, "S_GA_" + trackName, wave, title, artist);
@@ -440,7 +469,169 @@ static class Worker
         SetStr(phr, "Name", "P_" + trackName); SetStr(phr, "__Id", "P_" + trackName);
         var pp = (IList)Get(phr, "Playables"); pp.Clear(); pp.Add(new PointerRef(seg));
         Set(phr, "Metadata", new PointerRef(NewMeta(a, ((PointerRef)Get(tplPhr, "Metadata")).Internal, title, artist)));
+        // своя переходная фраза, как у каждой песни игры: P_VS_<песня> → та же песня по кругу (PlayCount 0). Ее играет VirtualSpace_Outro
+        // (SelectionType FollowOnPlayable) — в конце списка гаража (NextPlayable у Play_Garage) и по событию (выезд?). 15.11: вела на петлю Tycho — тишина.
+        object tplVs = ((PointerRef)Get(tplPhr, "FollowOnPlayable")).Internal;
+        if (tplVs == null) throw new UserError("gameChanged", "no FollowOnPlayable " + GA_PHR);
+        // 19.11: вся песня здесь = на выезде она начинается заново (Ваня). Тот же сегмент + RestartIfAlreadyPlaying False (тест v3) — тоже с начала.
+        // Поэтому — свой кусок-петля vsWave (Song.vsStart / vsFi / vsFo, Audio.VS_LEN), как у игры; без него — как раньше.
+        var vw = vsWave ?? wave;
+        object vsSeg = Clone(a, FirstSegment(tplVs));   // Metadata у петли игры нет — так и оставляем
+        SetStr(vsSeg, "Name", "S_VS_" + trackName); SetStr(vsSeg, "__Id", "S_VS_" + trackName);
+        Set(vsSeg, "Wave", new PointerRef(new EbxImportReference { FileGuid = vw.Item1, ClassGuid = vw.Item2 }));
+        object vs = Clone(a, tplVs);
+        SetStr(vs, "Name", "P_VS_" + trackName); SetStr(vs, "__Id", "P_VS_" + trackName);
+        var vp = (IList)Get(vs, "Playables"); vp.Clear(); vp.Add(new PointerRef(vsSeg));
+        Set(phr, "FollowOnPlayable", new PointerRef(vs));
+        ((IList)Get(ByName(a, "MusicPhraseData", GA_OUTRO), "Playables")).Add(new PointerRef(vs));
         return phr;
+    }
+
+    // ---------- старт гонки (v2, 17.11) ----------
+    // PlayRaceIntro (PlayOneAndExit) → фразы вступлений DI_/NI_Intro_<песня> (Sequential: 6 сегментов, у каждого свой ассет звука) → NextPlayable PlayGenericRace.
+    // Вступление игры = кусок песни игры: в S_Race та же MusicMetadata (ключи ID_MUSIC_…), что у ее трека в PlayGenericRace — по ней и связь:
+    // трек игры выключен → его вступление вон (15.11 Ваня: «на старте гонки вступление игровое… вылазят»). Нет пары — вон, если выключены все треки игры.
+    // Свое: 6 ассетов звука (I1..I6 из Audio.Prepare, общие на день и ночь) + фраза-копия образца. Пустой список — вступления игры как были.
+    static void Intros(Dictionary<string, EbxAsset> assets, List<Song> songs, List<string> encDirs, Dictionary<string, bool[]> choice, Dictionary<string, List<object>> origItems)
+    {
+        var waves = new Dictionary<int, Tuple<Guid, Guid>[]>();
+        foreach (var ctx in new[] { "raceDay", "raceNight" })
+        {
+            var c = CTX.First(x => x.Key == ctx);
+            EbxAsset a = assets[c.Asset];
+            object list = Phrase(a, INTRO_LIST), tpl = Phrase(a, INTRO_TPL[ctx]);
+            IList pl = (IList)Get(list, "Playables");
+            var orig = pl.Cast<object>().ToList();
+            Func<object, string> meta = seg => { object m = seg == null ? null : ((PointerRef)Get(seg, "Metadata")).Internal; return m == null ? null : Str(m, "Artist") + "|" + Str(m, "Title"); };
+            var gameOn = (IList)Get(Phrase(a, c.List), "Playables");
+            var onNames = new HashSet<string>(gameOn.Cast<PointerRef>().Select(p => Str(p.Internal, "Name")));
+            bool anyGameOn = origItems[ctx].Any(p => onNames.Contains(Str(((PointerRef)p).Internal, "Name")));
+            for (int i = pl.Count - 1; i >= 0; i--)
+            {
+                object phr = ((PointerRef)pl[i]).Internal; if (phr == null) continue;
+                string key = meta(Items(phr).LastOrDefault());
+                object track = key == null ? null : origItems[ctx].Select(p => ((PointerRef)p).Internal).FirstOrDefault(t => t != null && meta(t) == key);
+                bool keep = track != null ? onNames.Contains(Str(track, "Name")) : anyGameOn;
+                if (!keep) { App.Log("intro " + ctx + ": game " + Str(phr, "Name") + " off" + (track == null ? " (no track pair)" : "")); pl.RemoveAt(i); }
+            }
+            int own = 0;
+            for (int i = 0; i < songs.Count; i++)
+            {
+                var s = songs[i]; bool[] fl = s.Flags();
+                if (!s.Intro() || !fl[Array.IndexOf(Song.Ctx, ctx)]) continue;
+                Tuple<Guid, Guid>[] w;
+                if (!waves.TryGetValue(i, out w))
+                {
+                    w = new Tuple<Guid, Guid>[6];
+                    for (int k = 0; k < 6; k++) w[k] = AddWave(s.trackName + "_Intro_" + Audio.I_PARTS[k], File.ReadAllBytes(Path.Combine(encDirs[i], "I" + (k + 1) + ".sps")));
+                    waves[i] = w;
+                }
+                string title = Game(Music.Cut(Clean(s.title), Music.MaxTitle)), artist = Game(Music.Cut(Clean(s.artist), Music.MaxArtist));
+                if (title == "") title = "Track " + (i + 1);
+                pl.Add(new PointerRef(NewIntro(a, tpl, (ctx == "raceDay" ? "DI" : "NI") + "_Intro_" + s.trackName, w, title, artist, "S_" + s.trackName)));
+                foreach (var x in w) a.AddDependency(x.Item1);
+                own++;
+            }
+            if (pl.Count == 0) { foreach (object x in orig) pl.Add(x); App.Log("intro " + ctx + ": empty - game intros restored (" + pl.Count + ")"); }
+            App.Log("intro " + ctx + ": " + orig.Count + " game -> " + pl.Count + " (own " + own + ")");
+        }
+    }
+
+    // Громкость музыки на заставке старта (17.11, тест 3): заставка звучит «из колонок события» — группа микшера Event_Speakers
+    // (Music < Music_Speakers), в базовом миксе cortexshared/audio/mixers/mixer_music −22 дБ; в гонке музыка идет напрямую (Event_Music −7).
+    // Замер по видео теста 1: на заставке музыка на 13-15 дБ тише, чем в гонке (так же и у вступлений игры). db — новое значение группы.
+    const string MIX_MUSIC = "cortexshared/audio/mixers/mixer_music";
+    static readonly Guid EVENT_SPEAKERS = new Guid("d6e7936c-9a23-4494-bf29-0200854fb5bc");   // MixGroup Event_Speakers в mixersystem_nfs20
+    static void SpeakersDb(double db)
+    {
+        EbxAssetEntry e = am.GetEbxEntry(MIX_MUSIC);
+        if (e == null) throw new UserError("gameChanged", "no " + MIX_MUSIC);
+        EbxAsset a = am.GetEbx(e);
+        int n = 0;
+        foreach (object pr in a.Objects.Where(x => x.GetType().Name == "MixerPreset"))
+            foreach (object g in (IList)Get(pr, "Groups"))
+            {
+                var r = (PointerRef)Get(g, "Group");
+                if (r.Type != PointerRefType.External || r.External.ClassGuid != EVENT_SPEAKERS) continue;
+                var props = (IList)Get(g, "Properties");   // список — ссылка, общая с оригиналом (элементы — struct: копию правим и кладем назад)
+                for (int k = 0; k < props.Count; k++)
+                {
+                    object p = props[k];
+                    if (Convert.ToInt32(Get(p, "Property")) != 0) continue;
+                    var vp = p.GetType().GetProperty("Value");
+                    App.Log("mixer Event_Speakers: " + vp.GetValue(p) + " -> " + db);
+                    vp.SetValue(p, Convert.ChangeType(db, vp.PropertyType)); props[k] = p; n++;
+                }
+            }
+        if (n == 0) throw new UserError("gameChanged", "no Event_Speakers in " + MIX_MUSIC);
+        am.ModifyEbx(MIX_MUSIC, a);
+    }
+
+    // фраза вступления: копия образца (Sequential, NextPlayable → PlayGenericRace этого же ассета) + 6 своих сегментов-копий образца
+    static object NewIntro(EbxAsset a, object tplPhr, string name, Tuple<Guid, Guid>[] w, string title, string artist, string equiv)
+    {
+        var tplSegs = Items(tplPhr).ToList();
+        if (tplSegs.Count != 6 || tplSegs.Any(x => x.GetType().Name != "MusicSegmentData")) throw new UserError("gameChanged", "intro layout " + Str(tplPhr, "Name"));
+        object phr = Clone(a, tplPhr);
+        SetStr(phr, "Name", name); SetStr(phr, "__Id", name);
+        var pp = (IList)Get(phr, "Playables"); pp.Clear();
+        for (int k = 0; k < 6; k++)
+        {
+            object seg = Clone(a, tplSegs[k]);
+            string sn = name + "_" + Audio.I_PARTS[k];
+            SetStr(seg, "Name", sn); SetStr(seg, "__Id", sn);
+            Set(seg, "Wave", new PointerRef(new EbxImportReference { FileGuid = w[k].Item1, ClassGuid = w[k].Item2 }));
+            // название — только у Race (как у игры: у кадров и отсчета MusicMetadata пустая, общая)
+            if (k == 5) Set(seg, "Metadata", new PointerRef(NewMeta(a, ((PointerRef)Get(tplSegs[k], "Metadata")).Internal, title, artist)));
+            pp.Add(new PointerRef(seg));
+        }
+        Set(phr, "Metadata", new PointerRef(NewMeta(a, ((PointerRef)Get(tplPhr, "Metadata")).Internal, title, artist)));
+        // у игры (19 из 21) — сегмент этой же песни в PlayGenericRace (вступление = «сыграли трек» для выбора), у 2 — сама фраза
+        object eq = a.Objects.FirstOrDefault(x => x.GetType().Name == "MusicSegmentData" && Str(x, "Name") == equiv);
+        Set(phr, "EquivalentPlayableForSelection", new PointerRef(eq ?? phr));
+        return phr;
+    }
+
+    // Ана и диктор меню (15.11, своя правка из файлов игры — мод 810 не берем): в таблице фраз <набор>_<язык> каждая фраза (NewWave) →
+    // silence_100ms этого языка и набора. Все 8 языков игры. Нет таблицы / тишины у языка — пропуск; нет ни одной — gameChanged.
+    // Наборы (18.11 Ваня: «Ану не замутить в катсценах, а только после выезда с гаража… всю [болтовню], что после гаража»):
+    //   onboarding — обучение: выезд 1-й ночи, итоги ночи, звонок CEP, свап мотора, диктор меню / доступности (26 фраз в en);
+    //   narrative  — вся болтовня в езде: звонки / callbanter, по пути на миссию, гонки / дрифт / погони, подсказки (1423 фразы в en).
+    // НЕ трогаем: катсцены (audio/cinematics/audioassets/<сцена>/…_dx_m|_dx_f — свой звук) и полицейское радио (audio/vo/cops).
+    // Таблица и тишина лежат в одном бандле loadvoiceover_<язык> (heat-reader bundles, 18.11). Сообщения фраз (EventStartVO, PursuitRadioOn/Off)
+    // стоят в процентах длины — с тишиной срабатывают сразу.
+    static readonly string[] VO_LANGS = { "en", "ru", "de", "fr", "es", "it", "pl", "jp" };
+    static readonly string[] VO_SETS = { "onboarding", "narrative" };
+    static int MuteVo()
+    {
+        int langs = 0;
+        foreach (string l in VO_LANGS)
+        {
+            int done = 0;
+            foreach (string set in VO_SETS)
+            {
+                string tn = "audio/vo/" + set + "/ctxtfiles/" + l + "/" + set + "_" + l, sn = "audio/vo/" + set + "/content/" + l + "/silence_100ms";
+                EbxAssetEntry te = am.GetEbxEntry(tn), se = am.GetEbxEntry(sn);
+                if (te == null || se == null) { App.Log("muteVo " + set + " " + l + ": no " + (te == null ? tn : sn)); continue; }
+                EbxAsset sil = am.GetEbx(se), t = am.GetEbx(te);
+                int n = 0;
+                foreach (object o in t.Objects)
+                {
+                    var p = o.GetType().GetProperty("NewWave");
+                    if (p == null || p.PropertyType != typeof(PointerRef)) continue;
+                    p.SetValue(o, new PointerRef(new EbxImportReference { FileGuid = sil.FileGuid, ClassGuid = sil.RootInstanceGuid }));
+                    n++;
+                }
+                if (n == 0) { App.Log("muteVo " + set + " " + l + ": no phrases"); continue; }
+                t.AddDependency(sil.FileGuid);
+                am.ModifyEbx(tn, t);
+                done++;
+                App.Log("muteVo " + set + " " + l + ": " + n + " phrases -> silence_100ms");
+            }
+            if (done > 0) langs++;
+        }
+        if (langs == 0) throw new UserError("gameChanged", "no onboarding VO");
+        return langs;
     }
 
     static object NewMeta(EbxAsset a, object tpl, string title, string artist)

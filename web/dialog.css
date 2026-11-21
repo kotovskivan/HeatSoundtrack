@@ -1,5 +1,9 @@
-/* Окно да/нет в духе игры: темная полоса на всю ширину, лента сверху, крупный заголовок, кнопки YES/NO.
-   Все нарисовано тут (CSS + canvas), без вырезок из игры. Шрифты — системные Windows 10/11. */
+/* Окно да/нет в стиле трейлеров Heat (17.11.2026, Ваня: «да и да» на правки 1 и 2 — outputs/nfs-heat/dizajn/pravky-okna-trejlery/):
+   полоса на всю ширину, сверху тонкая линия градиентом трейлера (циан → синий → фиолет → розовый), фон — градиент + скан-линии,
+   за заголовком контурное слово-обои, снизу мягкая глитч-кромка; кнопки — плашки как в меню игры, кружок ↵ как в Unbound.
+   Открытие / закрытие — с 18.11 анимации по самой игре (dialog.js, низ этого файла); плиты 17.11 — bekap/nfs-heat/2026-11-18/do-animacij/.
+   Текст четкий: тонкий розово-голубой край без размытия (Ваня: «глаза болят» от двоения и размытия). Стиль — knowledge/stil-heat.md.
+   Было (Unbound: лента, Arial Black, крестики, мазок) — bekap/nfs-heat/2026-11-17/dialog-do-pravok-trejlery/. */
 :root { --dfont: "Bahnschrift", "Segoe UI", sans-serif; }
 /* иероглифы: у Bahnschrift и Segoe UI их нет — шрифт Windows для языка (атрибут lang у страницы или у кнопки) */
 :lang(zh) { --dfont: "Bahnschrift", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif; }
@@ -8,38 +12,38 @@
 .dlg-back {
   position: fixed; inset: 0; z-index: 1000;
   display: flex; align-items: center;
-  background: rgba(16, 12, 28, .74);
+  background: rgba(12, 8, 26, .74);
   opacity: 0; transition: opacity .18s ease;
 }
 .dlg-back.show { opacity: 1; }
 
 .dlg {
   position: relative; width: 100%; overflow: hidden;
-  background: #15121e; color: #f2f0f5;
+  background: linear-gradient(72deg, #0d0a1c 0%, #140b30 46%, #22095c 78%, #2b3fa0 100%); color: #f2f0f5;
   box-shadow: 0 0 0 1px #000, 0 30px 80px rgba(0, 0, 0, .6);
-  transform: translateY(14px); transition: transform .22s cubic-bezier(.2, .8, .2, 1);
 }
-.dlg-back.show .dlg { transform: none; }
+.dlg::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;   /* скан-линии */
+  background: repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 4px); }
 
-/* лента */
-.dlg-ribbon {
-  background: #f4f4f6; color: #0d0d0f; height: 26px; overflow: hidden; white-space: nowrap;
-  font: 900 15px/26px "Arial Black", "Segoe UI Black", sans-serif; letter-spacing: .01em;
-}
-.dlg-ribbon span { display: inline-block; padding-left: 0; animation: dlg-run 40s linear infinite; }
-@keyframes dlg-run { to { transform: translateX(-50%); } }
+/* линия сверху вместо ленты */
+.dlg-top { position: relative; z-index: 2; height: 4px; background: linear-gradient(90deg, #03eff7, #2b53a7 45%, #3f017f 75%, #ff0080); }
 
-/* фон: шум, брызги, крестики — canvas */
-.dlg-fx { position: absolute; left: 0; right: 0; top: 26px; bottom: 0; width: 100%; height: calc(100% - 26px); pointer-events: none; }
+/* слово-обои за заголовком: заливка + SVG-фильтр «обвод» (text-stroke у переменного Bahnschrift рисует швы внутри букв) */
+.dlg-ghost { position: absolute; z-index: 1; right: -2vw; top: -2.4vw; white-space: nowrap; pointer-events: none;
+  font-family: var(--dfont); font-variation-settings: "wdth" 75, "wght" 700; font-style: italic; text-transform: uppercase;
+  font-size: clamp(110px, 15vw, 290px); line-height: 1; color: #00ffff; filter: url(#dlg-obvod); opacity: .16; }
 
-.dlg-body { position: relative; padding: 30px 4.5vw 44px 4.5vw; max-width: 1500px; }
+/* снизу: мягкая глитч-кромка — canvas */
+.dlg-fx { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 18px; z-index: 1; pointer-events: none; }
+
+.dlg-body { position: relative; z-index: 2; padding: 28px 4.5vw 46px 4.5vw; max-width: 1500px; }
 
 .dlg-title {
-  margin: 0 0 14px; font: 900 clamp(34px, 4.2vw, 76px)/1 "Arial Black", "Segoe UI Black", sans-serif;
-  text-transform: uppercase; letter-spacing: .005em; transform: scaleX(1.12); transform-origin: left;
-  max-width: 89%;   /* scaleX 1.12 растягивает уже после переноса строк: 89% × 1.12 ≈ 100% — длинный заголовок переносится, а не вылезает за край */
-  color: #f4f2f8; text-shadow: 0 0 14px rgba(255, 0, 128, .45);
+  margin: 0 0 18px; font-family: var(--dfont); font-weight: normal; font-variation-settings: "wdth" 75, "wght" 700; font-style: italic;
+  font-size: clamp(38px, 4.6vw, 84px); line-height: .95; text-transform: uppercase; letter-spacing: .005em;
+  color: #f6f8fc; text-shadow: 2px 0 0 rgba(255, 0, 128, .4), -2px 0 0 rgba(0, 255, 255, .35);
 }
+.dlg-title::after { content: ""; display: block; width: clamp(90px, 9vw, 170px); height: 8px; margin: 14px 0 0 4px; background: #ff0080; }   /* розовая полоса */
 
 .dlg-text {
   font-family: var(--dfont); font-stretch: condensed;
@@ -49,38 +53,69 @@
 .dlg-text p { margin: 0 0 10px; }
 .dlg-text ul { margin: 6px 0 10px; padding: 0; list-style: none; }
 .dlg-text li { position: relative; padding-left: 26px; margin: 0 0 8px; }
-.dlg-text li::before { content: "+"; position: absolute; left: 4px; top: -1px; color: #ff2d7b; font-weight: 700; }
+.dlg-text li::before { content: ""; position: absolute; left: 3px; top: .6em; width: 13px; height: 4px; background: #00ffff; }   /* голубая черточка вместо «+» */
 .dlg-text b { color: #fff; }
 .dlg-text .warn { color: #ffd84a; }
 .dlg-text small { color: #9d9aa6; font-size: .8em; }
 .dlg-text::-webkit-scrollbar { width: 6px; }
 .dlg-text::-webkit-scrollbar-thumb { background: #3a3a42; }
 
-.dlg-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+/* кнопки — плашки как в меню / гараже игры: выбранная светлая с розовой полосой слева и кружком ↵ (как в Unbound) */
+.dlg-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .dlg-btn {
   position: relative; display: flex; align-items: center; gap: 12px;
-  min-height: 62px; padding: 0 26px; border: 0; cursor: pointer;
-  background: #24252b; color: #f2f0f5;
-  font-family: var(--dfont); font-stretch: condensed;
-  font-size: clamp(20px, 1.6vw, 28px); text-transform: uppercase; letter-spacing: .02em;
-  transition: background .12s, color .12s;
+  min-height: 60px; padding: 0 28px 0 22px; border: 0; cursor: pointer;
+  background: rgba(6, 5, 12, .8); color: #f1f8fc;
+  font-family: var(--dfont); font-variation-settings: "wdth" 75, "wght" 700; font-style: italic;
+  font-size: clamp(20px, 1.6vw, 30px); text-transform: uppercase; letter-spacing: .01em;
+  transition: background .12s, color .12s, box-shadow .12s;
 }
-.dlg-btn:hover { background: #31323a; }
-.dlg-btn.focus { background: #f4f4f6; color: #0d0d0f; }
+.dlg-btn:hover { background: rgba(255, 255, 255, .1); }
+.dlg-btn.focus { background: #f1f8fc; color: #191919; box-shadow: -7px 0 0 #ff0080; }
 .dlg-btn .key {
   display: none; width: 30px; height: 30px; border-radius: 50%; background: #1a1a1d; color: #f4f4f6;
-  font: 700 16px/30px "Segoe UI Symbol", "Segoe UI", sans-serif; text-align: center;
+  font: 700 16px/30px "Segoe UI Symbol", "Segoe UI", sans-serif; font-style: normal; text-align: center;
 }
 .dlg-btn.focus .key { display: inline-block; }
-.dlg-btn .swoosh { display: none; position: absolute; left: 8px; right: 8px; bottom: 7px; height: 9px; }
-.dlg-btn.focus .swoosh { display: block; }
+.dlg-btn .key.txt { font: 700 10px/30px var(--dfont); letter-spacing: .02em; }   /* «Esc» в кружке — мельче, чтобы влезло */
 .dlg-btn:focus, .dlg-btn:focus-visible { outline: none; }
 .dlg-tall .dlg-text { max-height: 64vh; }
 
 .dlg-hint { margin-top: 14px; font: 13px var(--dfont); color: #77747f; }
 
+/* ===== 18.11 анимации Heat (dialog.js; демо outputs/nfs-heat/animacii/, Ваня: «все нравится») =====
+   окно игры: фон темнеет почти сразу, полоса раскрывается из линии в центре (тип 1) / куски-мозаика (тип 2);
+   закрытие: выбранная кнопка сереет → полоса сжимается в линию → фон светлеет за .18 с */
+.dlg-back { transition-duration: calc(.18s * var(--slow, 1)); }
+.dlg-back.hx.show:not(.closing) { transition-duration: calc(.06s * var(--slow, 1)); }
+.dlg-back.hx .dlg { clip-path: inset(0 0 0 0); transition: clip-path calc(.24s * var(--slow, 1)) cubic-bezier(.12, .75, .25, 1); }
+.dlg-back.hx.u .dlg, .dlg-back.hx.closing .dlg { clip-path: inset(calc(50% - 1px) 0 calc(50% - 1px) 0); }
+.dlg-back.hx.closing .dlg { transition: clip-path calc(.14s * var(--slow, 1)) cubic-bezier(.55, 0, .85, .45); }
+.dlg-back.hx.gray .dlg-btn.focus { background: #8d8b95; color: #2a2930; box-shadow: -7px 0 0 #8d8b95; }
+.dlg-back.hx.gray .dlg-btn.focus .key { display: none; }
+.hx-line { position: fixed; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; z-index: 1002; pointer-events: none; display: none;
+  background: rgba(244, 246, 251, .55); box-shadow: 0 2px 0 rgba(255, 0, 128, .45), 0 -2px 0 rgba(0, 255, 255, .4); }
+/* куски окна — копии (.dlg-gh) с фоном окна; canvas с розово-голубым краем поверх */
+.dlg-gh { position: absolute; inset: 0; z-index: 3; overflow: hidden; pointer-events: none; visibility: hidden;
+  background: linear-gradient(72deg, #0d0a1c 0%, #140b30 46%, #22095c 78%, #2b3fa0 100%); }
+.dlg-gh::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 4px); }
+.dlg-glc { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; }
+.dlg.gl-only { background: transparent; box-shadow: none; }
+.dlg.gl-only::after { display: none; }
+.dlg.gl-only > :not(.dlg-gh):not(.dlg-glc) { visibility: hidden; }
+/* область страницы (сетка после смены раздела): слой поверх по месту на экране, копии видимых плиток */
+.hx-ov { position: fixed; z-index: 5; overflow: hidden; pointer-events: none; }
+.hx-ov > .hx-agh { position: absolute !important; inset: 0 !important; width: auto !important; height: auto !important; margin: 0 !important; padding: 0 !important;
+  border: 0 !important; box-shadow: none !important; display: block !important; overflow: hidden !important; transition: none !important; animation: none !important;
+  background: transparent; pointer-events: none; visibility: hidden; }
+.hx-ov > .hx-glc { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; }
+/* 18.11 редактор песни (dialog.js hxPanel): пустая панель .hx-pb и копии панели .hx-pc на ее месте, слой на весь экран */
+.hx-ov > .hx-pb, .hx-ov > .hx-pc { position: absolute; pointer-events: none; visibility: hidden; }
+.hx-ov > .hx-pc > * { position: absolute !important; inset: 0 !important; width: auto !important; height: auto !important; margin: 0 !important;
+  transition: none !important; animation: none !important; pointer-events: none !important; }
+
 .busy-bar { position: relative; height: 6px; margin-top: 18px; max-width: 760px; background: rgba(255,255,255,.1); overflow: hidden; }
-.busy-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #ff2d7b; transition: width .3s; }
+.busy-bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #00ffff, #ff0080); transition: width .3s; }
 .busy-bar.run i { width: 30%; animation: busy-run 1.2s ease-in-out infinite; }
 .busy-log { margin-top: 14px; max-width: 760px; max-height: 7.5em; overflow-y: auto; font-size: 13px; line-height: 1.5; color: #c9c7d1; }
 .busy-log:empty { display: none; }
@@ -96,8 +131,7 @@
   .dlg-btn { min-height: 52px; padding: 0 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .dlg-ribbon span { animation: none; }
-  .dlg-back, .dlg { transition: none; }
+  .dlg-back, .dlg, .dlg-back.hx .dlg { transition: none; }
 }
 
 /* выбор папки внутри окна */
@@ -108,10 +142,14 @@
 .fp-path button:hover, .fp-list button:hover { background: #f4f4f6; color: #0d0d0f; }
 .fp-list { max-height: 34vh; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; padding-right: 6px; }
 .fp-list button { text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fp-list button.hit { background: #ff2d7b; color: #0d0d0f; font-weight: 700; }
+.fp-list button.hit { background: #1fd65f; color: #0d0d0f; font-weight: 700; }   /* 17.11: зеленая, как в тексте «✓ зелена — потрібна» (была розовая) */
 .fp-list::-webkit-scrollbar { width: 6px; } .fp-list::-webkit-scrollbar-thumb { background: #3a3a42; }
 .fp-st { margin-top: 8px; font-size: .8em; min-height: 1.3em; }
-.fp-st.ok { color: #ff2d7b; } .fp-st.no { color: #ffd84a; }
+.fp-st.ok { color: #1fd65f; } .fp-st.no { color: #ffd84a; }
+/* 18.11 (песочница Unbound): длинный список (C:\Windows) — статус под списком уезжал во внутреннюю прокрутку окна; список сжимается, статус виден */
+.dlg-text:has(> .fp-list) { display: flex; flex-direction: column; overflow-y: hidden; }
+.dlg-text:has(> .fp-list) > * { flex-shrink: 0; }
+.dlg-text:has(> .fp-list) > .fp-list { flex-shrink: 1; min-height: 3.5em; }
 
 /* окно «Пісні з YouTube»: список ссылок — каждая строка отдельной плашкой: картинка, имя, под ним исполнитель / длина / ссылка, «✕ Прибрати» */
 .yt-list { max-height: 40vh; overflow-y: auto; margin: 4px 0 6px; padding-right: 6px; display: flex; flex-direction: column; gap: 6px; }
@@ -127,6 +165,16 @@
 .yt-row .s .u { color: #6f6c78; }
 .yt-row .yt-tag { flex: none; font-size: .55em; padding: 4px 9px; border: 1px solid #9d9aa6; color: #e9e7ee; text-transform: uppercase; letter-spacing: .05em; }
 .yt-row .yt-tag.pl { border-color: #ff2d7b; color: #ff2d7b; }
+.yt-row .yt-tag.sp { border-color: #1ed760; color: #1ed760; }   /* песня из Spotify (звук — с YT Music) */
+.yt-row .s .wait { font-style: italic; }
+.yt-list:has(~ [data-sp] .sp-cut) { max-height: 26vh; }   /* подсказка про 100 — список ниже, чтобы влезли подсказка и строка «У списку» */
+/* чужая ссылка в окне (Spotify в YouTube / YouTube в Spotify): «Перейти туди?» Так / Ні */
+.go-ask { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 0 0 6px; padding: 8px 10px; border-left: 3px solid #1ed760; background: rgba(30,215,96,.08); font-size: .78em; color: #f2f0f5; }
+.go-ask span { flex: 1; min-width: 200px; }
+.go-ask button { flex: none; background: #2c2d34; color: #f2f0f5; border: 0; font: inherit; padding: 7px 16px; cursor: pointer; }
+.go-ask button.y { background: #f2f0f5; color: #141519; }
+.go-ask button:hover { background: #1ed760; color: #141519; }
+.sp-cut { margin: 6px 0 0; padding: 8px 10px; border-left: 3px solid #ffd84a; background: rgba(255,216,74,.08); font-size: .74em; line-height: 1.4; color: #f2f0f5; }   /* плейлист Spotify уперся в 100 */
 .yt-row.off .tx, .yt-row.off img { opacity: .5; }   /* «вже є»: бледнеет имя и картинка, метка и «✕ Прибрати» — четкие */
 .yt-row.warn .m, .yt-row.warn .s { color: #ffd84a; }
 .yt-row.bad .s { color: #ff6b5b; }

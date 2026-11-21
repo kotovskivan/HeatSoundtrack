@@ -12,7 +12,12 @@ MITÄ SE TEKEE
     Pelin kappaleet pysyvät ennallaan.
   - Biisit YouTubesta / YT Musicista: linkki biisiin, soittolistaan tai albumiin, monta linkkiä kerralla tai .txt-lista.
     Jos linkki on musiikkivideo, ohjelma ottaa saman biisin YT Musicista — ilman videon introja ja sketsejä.
-  - Kisan lähtö: lähtölaskennan alla soi pelin intro-kappale, biisisi tulevat sen jälkeen. Kisan aloitus omalla biisillä — seuraavassa versiossa.
+  - Spotify: linkki biisiin, albumiin tai soittolistaan (enintään 100 biisiä linkkiä kohden; isompi soittolista .csv-tiedostona exportify.appista).
+    Spotifysta tulee vain lista — itse biisit ladataan YT Musicista.
+  - Kisan lähtö omalla biisillä: merkitse drop — välivideon kuvat ja lähtölaskenta 3-2-1 soivat biisisi päällä, ja drop iskee heti GO!:n jälkeen. Ohjelma osaa etsiä dropin itsekin.
+  - Tallista lähtö: lippu aallossa — mistä kohdasta biisi soi, kun ajat ulos tallista. Jos et koske, ohjelma ottaa kovimman kohdan.
+  - Jokaisen biisin äänenvoimakkuus: 0–300 %, ”Auto” ja ylikuormitussuoja.
+  - ”Ei kertojaa”: Ana, ajon aikainen puhe ja valikon kertoja ovat hiljaa; välivideot pysyvät.
   - Profiilit: eri kappalevalikoimat, vaihto yhdellä klikkauksella.
   - Rakentaa YHDEN modin Frosty Mod Manageriin. Pelin tiedostoja ei muuteta.
   - Ikkuna puhuu 14 kieltä.
@@ -41,6 +46,7 @@ NÄIN KÄYTÄT
      Käsin: uusi numeroitu kansio, jossa on biisin tiedosto + kuva (jpg, png) kansikuvaksi.
      Poista kansio — biisi katoaa ohjelmasta.
      Kuva: nimi vapaa, jos se on kansion ainoa kuva; useita — cover.jpg voittaa. Koko vapaa.
+     Kansikuva on vain ohjelmaa varten — se ei mene modiin eikä peliin (Heatissa kappaleilla ei ole kansikuvia).
   5. RAKENNA MODI. Modi ilmestyy Frosty Mod Managerin listaan.
   6. Frosty Mod Managerissa: rastita "Heat Soundtrack", kytke muut musiikkimodit pois, paina Launch.
 
