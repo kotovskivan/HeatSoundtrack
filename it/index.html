@@ -291,6 +291,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 .btn.hubx-go:hover{border-color:var(--paper);color:#1a0800;box-shadow:4px 4px 0 var(--paper)}
 .hubx-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .hubx-card{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#000;border:1px solid var(--line);color:var(--paper);text-decoration:none}
+.hubx-card.wide{grid-column:span 2;aspect-ratio:32/10} /* 21.11: третья карточка (HP) — на всю ширину */
 .hubx-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .hubx-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;z-index:2}
 .hubx-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(13,13,13,.9) 100%)}
@@ -330,7 +331,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   .hero .bg::after{background:linear-gradient(0deg,var(--bg) 0%,transparent 18%),rgba(13,13,13,.55)} /* 18.11 телефон: текст по центру — пленка ровная */
   .hubx-in{grid-template-columns:1fr;gap:30px}.hubx-tag{justify-content:center}
   .foot-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.feats{grid-template-columns:1fr}dl.log div{grid-template-columns:1fr}
+@media (max-width:560px){.feats{grid-template-columns:1fr}dl.log div{grid-template-columns:1fr}.hubx-card.wide{aspect-ratio:2/1}
   h1 b{font-size:clamp(64px,26vw,120px);transform:translateX(-.14em)} /* лого крупнее; курсив кренит вправо — сдвиг к центру (замер по пикселям) */
   h1 .sig{font-size:clamp(54px,18vw,90px);transform:translateX(.09em) rotate(-6deg)}
   .cta>.btn{flex:1 1 auto}
@@ -384,6 +385,10 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
     <a class="hubx-card ready" href="../it/">
       <img src="../img/hub-heat.jpg" alt="Need for Speed Heat" width="1200" height="600" loading="lazy">
       <span class="st">Disponibile</span><span class="hubx-meta"><b translate="no">Heat</b><small>2019</small></span>
+    </a>
+    <a class="hubx-card soon wide" href="https://kotovskivan.github.io/HotPursuitSoundtrack/it/" target="_blank" rel="noopener"><!-- 21.11: Hot Pursuit (2010 + Remastered) — «Скоро»; ПРИ ВЫПУСКЕ HP: class soon -> ready, hubSoon -> hubReady -->
+      <img src="../img/hub-hp.jpg" alt="Need for Speed Hot Pursuit" width="1200" height="600" loading="lazy">
+      <span class="st">Presto</span><span class="hubx-meta"><b translate="no">Hot Pursuit</b><small>2010 · Remastered 2020</small></span>
     </a>
   </div>
 </div></section>
