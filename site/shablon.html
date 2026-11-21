@@ -112,6 +112,19 @@ h2{display:inline-block;margin:0 0 26px;padding:6px 60px 6px 16px;border-left:4p
   background:linear-gradient(90deg,var(--indigo) 0%,rgba(49,0,255,.55) 55%,transparent 100%);
   font:italic 800 28px/1.15 Bahnschrift,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em}
 h2 .n{margin-right:14px;color:var(--day);font-style:italic}
+/* 21.11: «Завантажити» -> окно выбора GitHub / Google Диск (как у Unbound) */
+dialog#dl{width:min(560px,calc(100vw - 32px));max-width:none;padding:0;border:1px solid var(--day);background:#0f0f16;color:var(--paper);box-shadow:8px 8px 0 var(--indigo)}
+dialog#dl::backdrop{background:rgba(0,0,0,.78)}
+.dl-box{position:relative;padding:22px 22px 24px}
+.dl-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0 0 18px;padding-right:48px}
+.dl-head h2{margin:0;font-size:22px;padding:5px 40px 5px 12px}
+.dl-head small{color:var(--muted);font-size:13px;letter-spacing:.04em}
+.dl-x{position:absolute;top:14px;right:14px;width:40px;height:40px;cursor:pointer;background:var(--bg);color:var(--paper);border:1px solid var(--line);font-size:20px;line-height:1}
+.dl-x:hover{border-color:var(--night);color:var(--night)}
+.dl-pick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:479px){.dl-pick{grid-template-columns:1fr}}
+.dl-pick .btn{min-height:78px;padding:14px 18px;font-size:18px;letter-spacing:.12em}
+.cjk .dl-head h2{font-style:normal;letter-spacing:.03em}
 .two{display:grid;gap:0 40px}
 @media (min-width:980px){.two{grid-template-columns:5fr 7fr}}
 .alerts{display:grid;gap:12px}
@@ -383,6 +396,14 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 </div>
 <div class="wrap"><p class="legal">{{foot}}</p></div></footer>
 
+<dialog id="dl" aria-labelledby="dlT"><div class="dl-box">
+  <div class="dl-head"><h2 id="dlT">{{download}}</h2><small>v{{@version}} · zip {{@size}} MB</small></div>
+  <button type="button" class="dl-x" aria-label="{{close|attr}}">✕</button>
+  <div class="dl-pick">
+    <a class="btn" href="{{@download}}" target="_blank" rel="noopener"><span translate="no">GitHub</span><small>{{dlGh}}</small></a>
+    <a class="btn" href="{{@download_drive}}" target="_blank" rel="noopener"><span>{{dlDrive}}</span><small>{{dlDriveSub}}</small></a>
+  </div>
+</div></dialog>
 <dialog id="lb"><button type="button" aria-label="{{close|attr}}">✕</button><img alt=""></dialog>
 
 <script>
@@ -391,6 +412,20 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
   var dd = document.getElementById("langs");
   document.addEventListener("click", function (e) { if (dd.open && !dd.contains(e.target)) dd.open = false; });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && dd.open) { dd.open = false; dd.querySelector("summary").focus(); } });
+
+  /* 21.11: «Завантажити» -> окно GitHub / Google Диск (как у Unbound); без JS, колесиком или Ctrl+клик — ссылка прямо на GitHub */
+  var dl = document.getElementById("dl");
+  if (dl) {
+    document.querySelectorAll("[data-dl]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (!dl.showModal || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        e.preventDefault(); dl.showModal();
+      });
+    });
+    dl.querySelector(".dl-x").addEventListener("click", function () { dl.close(); });
+    dl.addEventListener("click", function (e) { if (e.target === dl) dl.close(); });
+    dl.querySelectorAll(".dl-pick a").forEach(function (a) { a.addEventListener("click", function () { dl.close(); }); });
+  }
 
   /* 18.11: скрин окна на весь экран */
   var lb = document.getElementById("lb"), lbImg = lb.querySelector("img");

@@ -215,7 +215,7 @@ def main():
         pages = {X: {"t": plain(get_text(X, "suggest")), "href": href_to(X)} for X in langs}
 
         if released:
-            cta = (f'<a class="btn main" href="{esc(cfg["download"])}" target="_blank" rel="noopener">{T["download"]}'
+            cta = (f'<a class="btn main" href="{esc(cfg["download"])}" target="_blank" rel="noopener" data-dl>{T["download"]}'
                    f'<small>v{esc(cfg["version"])} · {esc(size)} MB</small></a>')
             changelog = ('<section class="sec" id="log"><div class="wrap"><h2><span class="n">06</span>' + T["hLog"] + '</h2><dl class="log">'
                          + "".join(f'<div><dt>{esc(v)}<small>{esc(d)}</small></dt><dd>{T["log " + v]}</dd></div>'
@@ -225,7 +225,7 @@ def main():
             cta = f'<span class="btn soon">{T["soon"]}</span>'
             changelog = ""
         # 18.11: кнопка в шапке, как у Unbound: до выпуска — «Скоро», после — «Скачать»
-        cta_mini = (f'<a class="dl-mini" href="{esc(cfg["download"])}" target="_blank" rel="noopener">{plain(T["download"])}</a>' if released
+        cta_mini = (f'<a class="dl-mini" href="{esc(cfg["download"])}" target="_blank" rel="noopener" data-dl>{plain(T["download"])}</a>' if released
                     else f'<span class="dl-mini soon">{plain(T["soon"])}</span>')
 
         # 18.11: плитки под кнопками (только те, у кого есть ссылка в sajt.txt), ролик или скрин справа, раздел скринов

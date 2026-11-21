@@ -12,6 +12,7 @@ versions = 1.0 2026-11-21
 
 # --- ссылки ---
 download = https://github.com/kotovskivan/HeatSoundtrack/releases/latest/download/HeatSoundtrack.zip
+download_drive = https://drive.google.com/drive/folders/1sasgAa-bdl1MwqELdWtK0XwmWAlZoQRO?usp=sharing
 github = https://github.com/kotovskivan/HeatSoundtrack
 fmm = https://github.com/HarGabt/FrostyToolsuite/releases
 key = https://www.nexusmods.com/needforspeedheat/mods/74
