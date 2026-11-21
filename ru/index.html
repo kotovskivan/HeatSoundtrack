@@ -152,10 +152,13 @@ h1 .sig{display:block;font-size:clamp(54px,7.4vw,96px);margin:-.32em 0 0 .5em;tr
 .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:stretch}
 .btn{display:inline-flex;flex-direction:column;justify-content:center;padding:12px 22px;text-decoration:none;color:var(--paper);
   background:var(--plate);border:1px solid var(--line);font:italic 700 17px/1.1 Bahnschrift,"Arial Narrow",sans-serif;letter-spacing:.06em;text-transform:uppercase}
-.btn:hover{border-color:var(--paper)}
+.btn{transition:background .15s,color .15s,border-color .15s,box-shadow .15s,transform .15s}
+.btn:hover{border-color:var(--day);color:var(--day);transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--indigo)}
 .btn small{font:500 12px/1.4 "Segoe UI",sans-serif;letter-spacing:0;text-transform:none;opacity:.7;margin-top:3px}
-.btn.main{background:var(--paper);color:#111;border-color:var(--paper)}
+.btn.main{background:var(--paper);color:#111;border-color:var(--paper);box-shadow:5px 5px 0 var(--night)}
+.btn.main:hover{background:var(--day);border-color:var(--day);color:#111;box-shadow:7px 7px 0 var(--indigo)}
 .btn.soon{background:var(--sun);color:#111;border-color:var(--sun);cursor:default}
+.btn.soon:hover{background:var(--sun);color:#111;border-color:var(--sun);transform:none;box-shadow:none}
 .facts{margin:20px 0 0;color:var(--muted);font-size:14px}
 .shot{margin:0;border:1px solid var(--line);box-shadow:0 0 0 1px rgba(0,255,255,.12),0 24px 60px rgba(0,0,0,.6),0 0 60px rgba(49,0,255,.25)}
 .shot img{display:block;width:100%;height:auto}
@@ -272,7 +275,7 @@ footer .hub{display:inline-block;margin-bottom:10px;font:italic 700 16px Bahnsch
 .hubx-lead{margin:0 0 8px;color:#d5dae4;font-size:clamp(18px,2vw,21px);line-height:1.45;max-width:40ch}
 .hubx-sub{margin:0 0 24px;color:var(--muted);font-size:15px;max-width:46ch}
 .btn.hubx-go{display:inline-flex;background:var(--hub);border-color:var(--hub);color:#1a0800}
-.btn.hubx-go:hover{border-color:var(--paper)}
+.btn.hubx-go:hover{border-color:var(--paper);color:#1a0800;box-shadow:4px 4px 0 var(--paper)}
 .hubx-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .hubx-card{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#000;border:1px solid var(--line);color:var(--paper);text-decoration:none}
 .hubx-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
