@@ -20,15 +20,15 @@ shot_alt = Heat Soundtrack -ikkuna: pelin kappaleet ja omat biisisi
 # --- mitä se tekee ---
 what_h = Mitä se tekee
 f1t = Omat biisit
-f1 = mp3, flac, wav, ogg, m4a — **uusina** kappaleina omalla nimellä, pelin kappaleita korvaamatta. Satoja biisejä yhdessä modissa.
+f1 = mp3, flac, wav, ogg, m4a — **uusina** kappaleina omalla nimellä, pelin kappaleita korvaamatta. Jokaisen biisin äänenvoimakkuus 0–300 %, Auto ja ylikuormitussuoja mukana.
 f2t = Drop osuu GO:hon
-f2 = Kisan lähtö: 17 s välivideo + 3,45 s lähtölaskenta — drop iskee kohdassa GO. GO-merkkiä vedät hiirellä. Lisäksi lyhyt pätkä maaliin.
+f2 = Kisan lähtö omalla biisillä: välivideon neljä kuvaa ja lähtölaskenta 3-2-1 soivat sen päällä, ja drop iskee heti GO!:n jälkeen. Ohjelma löytää dropin itse — voit siirtää sitä aallossa.
 f3t = Talli · Kaupunki · Kisat
-f3 = Rastita, missä kukin biisi soi: talli, kaupunki päivällä, kaupunki yöllä, kisat päivällä, kisat yöllä. Pelin kappaleet samoin, erikseen joka paikkaan. Profiilit eri musiikkivalikoimille.
+f3 = Rastita, missä kukin biisi soi: talli, kaupunki päivällä, kaupunki yöllä, kisat päivällä, kisat yöllä. Pelin kappaleet samoin, erikseen joka paikkaan. **Tallista lähtö** — oma pätkäsi biisistä, kun ajat ulos. Profiilit eri musiikkivalikoimille.
 f4t = Yksi modi
-f4 = Rakentaa yhden modin Frosty Mod Manageriin. Pelin tiedostoja ei muuteta — kytke modi pois, ja peli on kuten ennenkin.
+f4 = Rakentaa yhden modin Frosty Mod Manageriin. Pelin tiedostoja ei muuteta — kytke modi pois, ja peli on kuten ennenkin. **Ei kertojaa** — Ana ja ajon aikainen puhe vaikenevat.
 f5t = Puhdas zip
-f5 = Zipissä ei ole musiikkia eikä pelin tiedostoja: biisit ovat sinun, pelin kappaleet luetaan omasta pelistäsi. ▶ — 30 sekunnin näyte mistä tahansa pelin kappaleesta (tarvitaan internet).
+f5 = Zipissä ei ole musiikkia eikä pelin tiedostoja: biisit ovat sinun, pelin kappaleet ja taustat luetaan omasta pelistäsi.
 f6t = YouTube · YT Music · Spotify
 f6 = Liitä linkki biisiin, soittolistaan tai albumiin — tai monta linkkiä, tai .txt-lista. Ohjelma lataa ne itse; musiikkivideon linkistä se ottaa saman biisin YT Musicista, ilman introa ja sketsejä. Myös Spotify-linkki käy: lista tulee Spotifysta, biisit YT Musicista.
 
@@ -43,7 +43,7 @@ n4 = Pelin salausavain — **NFS Heat Frosty Key** [Nexus Modsissa](key): laita 
 how_h = Näin se toimii
 s1 = Pura **koko** zip tavalliseen kansioon — Työpöytä, Tiedostot, D:\Mods… Ei Program Filesiin.
 s2 = Käynnistä **Heat Soundtrack.exe**, valitse kieli ja hyväksy ehdot. Ensimmäinen käynnistys lukee pelin — muutama minuutti, vain kerran.
-s3 = **+ LISÄÄ BIISI** → valitse tiedosto → rastita, missä se soi, aseta GO ja maali → **Tallenna**.
+s3 = **+ LISÄÄ BIISI** → valitse tiedosto → rastita, missä se soi; kisoissa tarkista drop, tallissa lähtö → **Tallenna**.
 s3yt = Tai **▶ YT MUSICISTA** → liitä linkki (biisi, soittolista, albumi), monta linkkiä tai .txt-lista → **Lataa**.
 s3ytsub = Musiikkivideon linkki — ohjelma ottaa saman biisin YT Musicista, ilman introa ja sketsejä. Ennen soittolistaa se näyttää, montako biisiä siinä on, montako sinulla jo on, ajan ja koon; jo olemassa olevat biisit ohitetaan. .txt-lista: Nimi,Esittäjä,Linkki; (latinalaisin kirjaimin) — ohjelma näyttää esimerkkitiedoston.
 s3sub = Biisit ovat ohjelman vieressä olevassa **Music**-kansiossa, jokaisella biisillä oma numeroitu kansio: Music\1\, Music\2\… Käsinkin onnistuu: uusi numeroitu kansio, jossa on biisin tiedosto ja kuva. Kansikuva on vain ohjelmaa varten — se ei mene peliin.
@@ -55,14 +55,14 @@ ss = Ohjelmaa ei ole allekirjoitettu maksullisella varmenteella, siksi SmartScre
 
 # --- muutokset: yksi rivi jokaiselle versiolle sajt.txt:n «versions»-rivistä ---
 log_h = Muutokset
-log 1.0 = Ensimmäinen julkaisu.
+log 1.0 = Ensimmäinen julkaisu: omat biisit uusina kappaleina viidessä paikassa, kisan lähtö dropilla GO:ssa, tallista lähtö, jokaisen biisin äänenvoimakkuus, Ei kertojaa, YouTube / YT Music ja Spotify, profiilit, 14 kieltä.
 
 # --- alaosa ---
 license = Koodi on kirjoitettu tekoälyn avulla (Claude, Anthropic). Lisenssi — GNU GPL v3: käytä, jaa, muokkaa — säilytä maininta ”Kitivski + Claude” ja pidä lähdekoodi avoimena.
 hub = Kaikki Need for Speed -pelit — NFS Own Music
 hubTag = Koko sarjan sivustomme
 hubLead = Omat biisisi **Need for Speedissä** — uusina kappaleina, suoraan pelin oman musiikin rinnalla.
-hubSub = Ilmaiset, avoimen lähdekoodin työkalut. Aloitimme Unboundista; seuraavaksi Heat, sitten muu sarja.
+hubSub = Ilmaiset, avoimen lähdekoodin työkalut. Aloitimme Unboundista, nyt Heat — seuraavaksi muu sarja.
 hubReady = Saatavilla
 hubSoon = Tulossa pian
 hubGo = Siirry sivustolle
@@ -76,7 +76,7 @@ foot = Fanien tekemä, ei yhteydessä Electronic Artsiin eikä Ghost Gamesiin. N
 hShots = Kuvakaappaukset
 cLang = 14 kieltä — valitset omasi ensimmäisellä käynnistyskerralla.
 c1 = Omat biisisi pelin kappaleiden rinnalla.
-c2 = Kisan lähtö: drop iskee kohdassa GO. Maali: lyhyt pätkä maaliviivan jälkeen.
+c2 = Kisan lähtö: drop iskee heti GO!:n jälkeen. Tallista lähtö: oma pätkäsi biisistä, kun ajat ulos.
 c4 = Yksi painike — ja modi on Frosty Mod Managerin listassa.
 cYt = Biisit YouTubesta ja YT Musicista — linkki, soittolista tai .txt-lista.
 cSp = Myös Spotify — biisi, albumi tai soittolista. Ääni tulee YouTube Musicista.

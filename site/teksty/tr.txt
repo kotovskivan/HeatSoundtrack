@@ -21,15 +21,15 @@ shot_alt = Heat Soundtrack penceresi: oyunun parçaları ve kendi şarkıların
 # --- what it does ---
 what_h = Ne yapar
 f1t = Senin şarkıların
-f1 = mp3, flac, wav, ogg, m4a — kendi adınla **yeni** parçalar olarak, oyunun parçalarının yerine değil. Tek modda yüzlerce şarkı.
+f1 = mp3, flac, wav, ogg, m4a — kendi adınla **yeni** parçalar olarak, oyunun parçalarının yerine değil. Her şarkının sesi %0–300 arası, Otomatik ve aşırı yük korumasıyla.
 f2t = GO'da drop
-f2 = Yarış başlangıcı: 17 sn ara sahne + 3,45 sn geri sayım — drop tam GO'da gelir. GO işaretini fareyle sürüklersin. Bir de bitiş için kısa bir parça.
+f2 = Kendi şarkınla yarış başlangıcı: ara sahnenin dört karesi ve 3-2-1 geri sayımı onun üstünde akar, drop GO!'dan hemen sonra patlar. Drop'u program kendisi bulur — dalga üzerinde kaydırabilirsin.
 f3t = Garaj · Şehir · Yarış
-f3 = Her şarkının nerede çalacağını işaretle: garaj, gündüz şehir, gece şehir, gündüz yarışları, gece yarışları. Oyunun parçaları da aynı şekilde, her yer için ayrı. Farklı müzik setleri için profiller.
+f3 = Her şarkının nerede çalacağını işaretle: garaj, gündüz şehir, gece şehir, gündüz yarışları, gece yarışları. Oyunun parçaları da aynı şekilde, her yer için ayrı. **Garajdan çıkış** — garajdan çıkarken şarkının senin seçtiğin kısmı. Farklı müzik setleri için profiller.
 f4t = Tek mod
-f4 = Frosty Mod Manager için tek bir mod oluşturur. Oyun dosyaları değişmez — modu kapat, oyun eskisi gibi olur.
+f4 = Frosty Mod Manager için tek bir mod oluşturur. Oyun dosyaları değişmez — modu kapat, oyun eskisi gibi olur. **Anlatıcısız** — Ana ve sürüş sohbetleri susar.
 f5t = Temiz zip
-f5 = Zip'te müzik ve oyun dosyası yok: şarkılar senin, oyunun parçaları kendi oyunundan okunur. ▶ — oyundaki herhangi bir parçanın 30 saniyelik önizlemesi (internet gerekir).
+f5 = Zip'te müzik ve oyun dosyası yok: şarkılar senin, parçalar ve arka planlar kendi oyunundan okunur.
 f6t = YouTube · YT Music · Spotify
 f6 = Şarkı, çalma listesi ya da albüm bağlantısını yapıştır — ya da çok sayıda bağlantı veya .txt listesi. Program kendisi indirir; klip bağlantısı YT Music'teki aynı şarkıyı girişler ve sahneler olmadan alır. Spotify linki de olur: liste Spotify'dan, şarkılar YT Music'ten gelir.
 
@@ -44,7 +44,7 @@ n4 = Oyunun şifreleme anahtarı — [Nexus Mods](key) sitesindeki **NFS Heat Fr
 how_h = Nasıl kullanılır
 s1 = Zip'in **tamamını** normal bir klasöre çıkar — Masaüstü, Belgeler, D:\Mods… Program Files'a değil.
 s2 = **Heat Soundtrack.exe** dosyasını başlat, dili seç ve koşulları kabul et. İlk açılışta program oyunu okur — birkaç dakika, sadece bir kez.
-s3 = **+ ŞARKI EKLE** → bir dosya seç → nerede çalacağını işaretle, GO ve bitişi ayarla → **Kaydet**.
+s3 = **+ ŞARKI EKLE** → bir dosya seç → nerede çalacağını işaretle; yarışlar için drop'u, garaj için çıkışı kontrol et → **Kaydet**.
 s3yt = Ya da **▶ YT MUSIC'TEN** → bir link yapıştır (şarkı, çalma listesi, albüm), çok sayıda link ya da .txt listesi → **İndir**.
 s3ytsub = Klip bağlantısı — program YT Music'teki aynı şarkıyı girişler ve sahneler olmadan alır. Çalma listesinden önce kaç şarkı olduğunu, kaçının zaten olduğunu, süreyi ve yeri gösterir; zaten olanları atlar. .txt listesi: Ad,Sanatçı,Bağlantı; (Latin harfleriyle) — örnek dosya programda var.
 s3sub = Şarkılar programın yanındaki **Music** klasöründe, her biri numaralı bir klasörde: Music\1\, Music\2\… Elle de olur: numaralı yeni bir klasör, içinde şarkı dosyası ve bir resim. Kapak sadece program içindir — oyuna girmez.
@@ -56,14 +56,14 @@ ss = Program ücretli bir sertifikayla imzalı değil, bu yüzden SmartScreen uy
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = Yenilikler
-log 1.0 = İlk sürüm.
+log 1.0 = İlk sürüm: beş yerde yeni parça olarak kendi şarkıların, GO'da drop ile yarış başlangıcı, garajdan çıkış, her şarkının sesi, Anlatıcısız, YouTube / YT Music ve Spotify, profiller, 14 dil.
 
 # --- bottom ---
 license = Kod yapay zekâ ile yazıldı (Anthropic'in Claude'u). Lisans — GNU GPL v3: kullan, paylaş, değiştir — “Kitivski + Claude” imzasını ve açık kodu koru.
 hub = Tüm Need for Speed oyunları — NFS Own Music
 hubTag = Tüm seri için sitemiz
 hubLead = **Need for Speed**'de kendi şarkıların — oyunun müziklerinin yanında, yeni parçalar olarak.
-hubSub = Ücretsiz, açık kaynak araçlar. Unbound ile başladık; sırada Heat ve serinin tamamı var.
+hubSub = Ücretsiz, açık kaynak araçlar. Unbound ile başladık, şimdi Heat — sırada serinin tamamı var.
 hubReady = Çıktı
 hubSoon = Yakında
 hubGo = Siteye git
@@ -77,7 +77,7 @@ foot = Hayran yapımı, Electronic Arts veya Ghost Games ile bağlantılı deği
 hShots = Ekran görüntüleri
 cLang = 14 dil — kendi dilini ilk açılışta seçersin.
 c1 = Şarkıların oyunun parçalarının yanında.
-c2 = Başlangıç: drop tam GO'da gelir. Bitiş: çizgiden sonra kısa bir parça.
+c2 = Başlangıç: drop GO!'dan hemen sonra patlar. Garajdan çıkış: garajdan çıkarken şarkının senin seçtiğin kısmı.
 c4 = Tek düğme — ve mod Frosty Mod Manager listesinde.
 cYt = YouTube ve YT Music'ten şarkılar — bağlantı, oynatma listesi ya da .txt listesi.
 cSp = Spotify da var — şarkı, albüm ya da oynatma listesi. Ses YouTube Music'ten gelir.

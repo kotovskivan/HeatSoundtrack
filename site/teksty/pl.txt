@@ -21,15 +21,15 @@ shot_alt = Okno Heat Soundtrack: utwory gry i twoje piosenki
 # --- what it does ---
 what_h = Co robi
 f1t = Twoje piosenki
-f1 = mp3, flac, wav, ogg, m4a — jako **nowe** utwory z własną nazwą, a nie zamiast utworów gry. Setki piosenek w jednym modzie.
+f1 = mp3, flac, wav, ogg, m4a — jako **nowe** utwory z własną nazwą, a nie zamiast utworów gry. Głośność każdej piosenki od 0 do 300 %, z „Auto” i ochroną przed przesterowaniem.
 f2t = Drop na GO
-f2 = Start wyścigu: 17 s przerywnika + 3,45 s odliczania — drop wchodzi na GO. Znacznik GO przeciągasz myszką. Plus krótki fragment na metę.
+f2 = Start wyścigu z twoją piosenką: cztery ujęcia przerywnika i odliczanie 3-2-1 lecą pod nią, a drop uderza tuż po GO!. Drop program znajduje sam — przesuniesz go na fali.
 f3t = Garaż · Miasto · Wyścigi
-f3 = Zaznaczasz, gdzie gra każda piosenka: garaż, miasto w dzień, miasto w nocy, wyścigi w dzień, wyścigi w nocy. Utwory gry tak samo — osobno dla każdego miejsca. Profile dla różnych zestawów muzyki.
+f3 = Zaznaczasz, gdzie gra każda piosenka: garaż, miasto w dzień, miasto w nocy, wyścigi w dzień, wyścigi w nocy. Utwory gry tak samo — osobno dla każdego miejsca. **Wyjazd z garażu** — twój fragment piosenki, gdy wyjeżdżasz. Profile dla różnych zestawów muzyki.
 f4t = Jeden mod
-f4 = Buduje jeden mod do Frosty Mod Manager. Pliki gry się nie zmieniają — wyłączysz mod i gra jest jak dawniej.
+f4 = Buduje jeden mod do Frosty Mod Manager. Pliki gry się nie zmieniają — wyłączysz mod i gra jest jak dawniej. **Bez narratora** — milkną Ana i rozmowy w trakcie jazdy.
 f5t = Czysty zip
-f5 = W zipie nie ma muzyki ani plików gry: piosenki są twoje, utwory gry program czyta z twojej gry. ▶ — 30-sekundowy podgląd każdego utworu gry (potrzebny internet).
+f5 = W zipie nie ma muzyki ani plików gry: piosenki są twoje, utwory i tła program czyta z twojej gry.
 f6t = YouTube · YT Music · Spotify
 f6 = Wklej link do piosenki, playlisty albo albumu — albo wiele linków, albo listę .txt. Program sam pobierze; link do teledysku pobiera tę samą piosenkę z YT Music, bez intra i scenek. Link ze Spotify też działa: lista pochodzi ze Spotify, piosenki z YT Music.
 
@@ -44,7 +44,7 @@ n4 = Klucz szyfrowania gry — **NFS Heat Frosty Key** na [Nexus Mods](key): wrz
 how_h = Jak używać
 s1 = Rozpakuj **cały** zip do zwykłego folderu — Pulpit, Dokumenty, D:\Mods… Nie do Program Files.
 s2 = Uruchom **Heat Soundtrack.exe**, wybierz język i zaakceptuj warunki. Pierwsze uruchomienie czyta grę — kilka minut, tylko raz.
-s3 = **+ DODAJ PIOSENKĘ** → wybierz plik → zaznacz, gdzie gra, ustaw GO i metę → **Zapisz**.
+s3 = **+ DODAJ PIOSENKĘ** → wybierz plik → zaznacz, gdzie gra; przy wyścigach sprawdź drop, przy garażu — wyjazd → **Zapisz**.
 s3yt = Albo **▶ Z YT MUSIC** → wklej link (piosenka, playlista, album), wiele linków albo listę .txt → **Pobierz**.
 s3ytsub = Link do teledysku — program weźmie tę samą piosenkę z YT Music, bez intra i scenek. Przed playlistą pokaże, ile piosenek, ile już masz, ile czasu i miejsca; te, które już są, pominie. Lista .txt: Tytuł,Wykonawca,Link; (alfabetem łacińskim) — przykładowy plik jest w programie.
 s3sub = Piosenki leżą w folderze **Music** obok programu, każda w folderze z numerem: Music\1\, Music\2\… Można też ręcznie: nowy folder z numerem, w nim plik piosenki i obrazek. Okładka jest tylko dla programu — do gry nie trafia.
@@ -56,14 +56,14 @@ ss = Program nie jest podpisany płatnym certyfikatem, więc SmartScreen ostrzeg
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = Co nowego
-log 1.0 = Pierwsze wydanie.
+log 1.0 = Pierwsze wydanie: twoje piosenki jako nowe utwory w pięciu miejscach, start wyścigu z dropem na GO, wyjazd z garażu, głośność każdej piosenki, Bez narratora, YouTube / YT Music i Spotify, profile, 14 języków.
 
 # --- bottom ---
 license = Kod napisany z AI (Claude od Anthropic). Licencja — GNU GPL v3: używaj, udostępniaj, zmieniaj — zostaw podpis „Kitivski + Claude” i otwarty kod.
 hub = Wszystkie gry Need for Speed — NFS Own Music
 hubTag = Nasza strona całej serii
 hubLead = Własne piosenki w **Need for Speed** — jako nowe utwory, obok muzyki z gry.
-hubSub = Darmowe narzędzia open source. Zaczęliśmy od Unbound; dalej Heat i cała seria.
+hubSub = Darmowe narzędzia open source. Zaczęliśmy od Unbound, teraz Heat — dalej cała seria.
 hubReady = Dostępne
 hubSoon = Wkrótce
 hubGo = Przejdź na stronę
@@ -77,7 +77,7 @@ foot = Projekt fanowski, niepowiązany z Electronic Arts ani Ghost Games. Need f
 hShots = Zrzuty ekranu
 cLang = 14 języków — swój wybierasz przy pierwszym uruchomieniu.
 c1 = Twoje piosenki obok utworów gry.
-c2 = Start wyścigu: drop na GO. Meta: krótki fragment po linii mety.
+c2 = Start wyścigu: drop uderza tuż po GO!. Wyjazd z garażu: twój fragment piosenki, gdy wyjeżdżasz.
 c4 = Jeden przycisk — i mod jest już na liście Frosty Mod Manager.
 cYt = Piosenki z YouTube i YT Music — link, playlista albo lista .txt.
 cSp = Także Spotify — piosenka, album albo playlista. Dźwięk pochodzi z YouTube Music.

@@ -21,15 +21,15 @@ shot_alt = Finestra di Heat Soundtrack: i brani del gioco e le tue canzoni
 # --- what it does ---
 what_h = Cosa fa
 f1t = Le tue canzoni
-f1 = mp3, flac, wav, ogg, m4a — come **nuovi** brani con il tuo titolo, senza sostituire i brani del gioco. Centinaia di canzoni in un mod.
+f1 = mp3, flac, wav, ogg, m4a — come **nuovi** brani con il tuo titolo, senza sostituire i brani del gioco. Volume di ogni canzone da 0 a 300 %, con Auto e protezione da sovraccarico.
 f2t = Drop sul GO
-f2 = Partenza: 17 s di filmato + 3,45 s di conto alla rovescia — il drop arriva sul GO. Il segno GO lo trascini col mouse. E un pezzo breve per l'arrivo.
+f2 = Partenza con la tua canzone: le quattro inquadrature del filmato e il conto alla rovescia 3-2-1 ci vanno sopra, e il drop arriva subito dopo il GO!. Il drop lo trova il programma da solo — puoi spostarlo sull'onda.
 f3t = Garage · Città · Gare
-f3 = Spunta dove suona ogni canzone: garage, città di giorno, città di notte, gare di giorno, gare di notte. I brani del gioco allo stesso modo, separatamente per ogni luogo. Profili per diverse selezioni musicali.
+f3 = Spunta dove suona ogni canzone: garage, città di giorno, città di notte, gare di giorno, gare di notte. I brani del gioco allo stesso modo, separatamente per ogni luogo. **Uscita dal garage** — il tuo pezzo di canzone quando esci. Profili per diverse selezioni musicali.
 f4t = Un solo mod
-f4 = Crea un solo mod per Frosty Mod Manager. I file del gioco non cambiano — disattivi il mod e il gioco torna com'era.
+f4 = Crea un solo mod per Frosty Mod Manager. I file del gioco non cambiano — disattivi il mod e il gioco torna com'era. **Senza narratore** — Ana e le chiacchiere alla guida tacciono.
 f5t = Zip pulito
-f5 = Niente musica e niente file del gioco nello zip: le canzoni sono tue, i brani del gioco vengono letti dal tuo gioco. ▶ — anteprima di 30 secondi di qualsiasi brano del gioco (serve internet).
+f5 = Niente musica e niente file del gioco nello zip: le canzoni sono tue, i brani e gli sfondi vengono letti dal tuo gioco.
 f6t = YouTube · YT Music · Spotify
 f6 = Incolla il link di una canzone, playlist o album — o tanti link, o una lista .txt. Il programma scarica da solo; il link di un videoclip prende la stessa canzone da YT Music, senza intro e scenette. Va bene anche un link di Spotify: l'elenco arriva da Spotify, le canzoni da YT Music.
 
@@ -44,7 +44,7 @@ n4 = La chiave di crittografia del gioco — **NFS Heat Frosty Key** su [Nexus M
 how_h = Come si usa
 s1 = Estrai **tutto** lo zip in una cartella normale — Desktop, Documenti, D:\Mods… Non in Program Files.
 s2 = Avvia **Heat Soundtrack.exe**, scegli la lingua e accetta le condizioni. Il primo avvio legge il gioco — qualche minuto, solo una volta.
-s3 = **+ AGGIUNGI CANZONE** → scegli un file → spunta dove suona, imposta GO e arrivo → **Salva**.
+s3 = **+ AGGIUNGI CANZONE** → scegli un file → spunta dove suona; per le gare controlla il drop, per il garage l'uscita → **Salva**.
 s3yt = Oppure **▶ DA YT MUSIC** → incolla un link (canzone, playlist, album), tanti link o una lista .txt → **Scarica**.
 s3ytsub = Link di un videoclip — il programma prende la stessa canzone da YT Music, senza intro e scenette. Prima di una playlist mostra quante canzoni, quante ne hai già, il tempo e lo spazio; quelle che hai già vengono saltate. Lista .txt: Titolo,Artista,Link; (lettere latine) — il programma mostra un file di esempio.
 s3sub = Le canzoni stanno nella cartella **Music** accanto al programma, ognuna in una cartella numerata: Music\1\, Music\2\… Si può anche a mano: una nuova cartella numerata con il file della canzone e un'immagine. La copertina serve solo al programma: nel gioco non finisce.
@@ -56,14 +56,14 @@ ss = Il programma non è firmato con un certificato a pagamento, quindi SmartScr
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = Novità
-log 1.0 = Prima versione.
+log 1.0 = Prima versione: le tue canzoni come nuovi brani in cinque luoghi, partenza con il drop sul GO, uscita dal garage, volume di ogni canzone, Senza narratore, YouTube / YT Music e Spotify, profili, 14 lingue.
 
 # --- bottom ---
 license = Il codice è stato scritto con l'IA (Claude di Anthropic). Licenza — GNU GPL v3: usalo, condividilo, modificalo — mantieni il credito «Kitivski + Claude» e il codice aperto.
 hub = Tutti i giochi Need for Speed — NFS Own Music
 hubTag = Il nostro sito per tutta la serie
 hubLead = Le tue canzoni in **Need for Speed**, come nuove tracce accanto alla musica del gioco.
-hubSub = Strumenti gratuiti e open source. Abbiamo iniziato con Unbound; poi Heat e tutta la serie.
+hubSub = Strumenti gratuiti e open source. Abbiamo iniziato con Unbound, ora Heat — poi tutta la serie.
 hubReady = Disponibile
 hubSoon = Presto
 hubGo = Vai al sito
@@ -77,7 +77,7 @@ foot = Fatto dai fan, non affiliato con Electronic Arts o Ghost Games. Need for 
 hShots = Screenshot
 cLang = 14 lingue — scegli la tua al primo avvio.
 c1 = Le tue canzoni accanto ai brani del gioco.
-c2 = Partenza: il drop arriva sul GO. Arrivo: un pezzo breve dopo il traguardo.
+c2 = Partenza: il drop arriva subito dopo il GO!. Uscita dal garage: il tuo pezzo di canzone quando esci.
 c4 = Un pulsante — e il mod è già nella lista di Frosty Mod Manager.
 cYt = Canzoni da YouTube e YT Music — un link, una playlist o una lista .txt.
 cSp = Anche Spotify — un brano, un album o una playlist. L'audio arriva da YouTube Music.

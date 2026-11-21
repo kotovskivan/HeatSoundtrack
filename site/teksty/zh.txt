@@ -21,15 +21,15 @@ shot_alt = Heat Soundtrack 窗口：游戏曲目和你自己的歌曲
 # --- what it does ---
 what_h = 功能
 f1t = 你的歌曲
-f1 = mp3、flac、wav、ogg、m4a —— 以你自己的名称作为**新**曲目加入，不会替换游戏原有曲目。一个模组可放数百首歌。
+f1 = mp3、flac、wav、ogg、m4a —— 以你自己的名称作为**新**曲目加入，不会替换游戏原有曲目。每首歌的音量 0–300%，带“自动”和过载保护。
 f2t = GO 时起 Drop
-f2 = 比赛起步：17 秒过场动画 + 3.45 秒倒计时，Drop 正好落在 GO。用鼠标拖动 GO 标记即可。另有冲线后的一小段。
+f2 = 用你的歌开始比赛：过场的四个画面和 3-2-1 倒计时伴着它播放，GO! 之后马上进入 Drop。Drop 由程序自动找到，也可以在波形上拖动。
 f3t = 车库 · 城市 · 比赛
-f3 = 勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。游戏原有曲目也一样，每个场景分别设置。可为不同的音乐组合建立配置。
+f3 = 勾选每首歌在哪里播放：车库、白天城市、夜晚城市、白天比赛、夜晚比赛。游戏原有曲目也一样，每个场景分别设置。**驶出车库** —— 驶出车库时播放你选的那一段。可为不同的音乐组合建立配置。
 f4t = 一个模组
-f4 = 为 Frosty Mod Manager 生成一个模组。游戏文件不会被修改 —— 关闭模组，游戏就恢复原样。
+f4 = 为 Frosty Mod Manager 生成一个模组。游戏文件不会被修改 —— 关闭模组，游戏就恢复原样。**关闭旁白** —— Ana 和驾驶中的对话都会安静下来。
 f5t = 干净的 zip
-f5 = zip 里没有音乐，也没有游戏文件：歌曲是你自己的，游戏原有曲目从你自己的游戏中读取。▶ —— 任意游戏曲目的 30 秒试听（需要联网）。
+f5 = zip 里没有音乐，也没有游戏文件：歌曲是你自己的，游戏曲目和背景从你自己的游戏中读取。
 f6t = YouTube · YT Music · Spotify
 f6 = 粘贴单曲、播放列表或专辑链接，也可以一次多个链接或 .txt 列表。程序会自动下载；MV 链接会从 YT Music 取同一首歌，没有片头和小剧情。 也可以用 Spotify 链接：列表来自 Spotify，歌曲来自 YT Music。
 
@@ -44,7 +44,7 @@ n4 = 游戏的加密密钥 —— [Nexus Mods](key) 上的 **NFS Heat Frosty Key
 how_h = 使用方法
 s1 = 把**整个** zip 解压到普通文件夹 —— 桌面、文档、D:\Mods… 不要放在 Program Files。
 s2 = 运行 **Heat Soundtrack.exe**，选择语言并接受条款。首次启动会读取游戏 —— 需要几分钟，只有这一次。
-s3 = **+ 添加歌曲** → 选择文件 → 勾选播放场景，设置 GO 和终点 → **保存**。
+s3 = **+ 添加歌曲** → 选择文件 → 勾选播放场景；比赛检查 Drop，车库检查驶出段 → **保存**。
 s3yt = 或者 **▶ 从 YT Music 导入** → 粘贴链接（单曲、播放列表、专辑），也可以多个链接或 .txt 列表 → **下载**。
 s3ytsub = MV 链接会从 YT Music 取同一首歌，没有片头和小剧情。导入播放列表前会显示歌曲数、已有数量、所需时间和空间；已有的歌曲会跳过。.txt 列表：标题,艺术家,链接;（用拉丁字母）—— 程序里有示例文件。
 s3sub = 歌曲放在程序旁边的 **Music** 文件夹里，每首一个编号文件夹：Music\1\、Music\2\… 也可以手动：新建一个编号文件夹，放入歌曲文件和一张图片。封面只在本程序中显示，不会进入游戏。
@@ -56,14 +56,14 @@ ss = 程序没有付费证书签名，所以 SmartScreen 会发出警告。点�
 
 # --- what's new: one line per version from sajt.txt «versions» ---
 log_h = 更新内容
-log 1.0 = 首次发布。
+log 1.0 = 首次发布：自己的歌作为新曲目用于五个场景、GO 时起 Drop 的比赛起步、驶出车库、每首歌的音量、关闭旁白、YouTube / YT Music 和 Spotify、配置、14 种语言。
 
 # --- bottom ---
 license = 代码由 AI（Anthropic 的 Claude）协助编写。许可证 —— GNU GPL v3：可以使用、分享、修改 —— 请保留 “Kitivski + Claude” 署名并保持代码开源。
 hub = 所有 Need for Speed 游戏 —— NFS Own Music
 hubTag = 我们的系列网站
 hubLead = 在 **Need for Speed** 里放你自己的歌——作为新曲目，与游戏音乐并存。
-hubSub = 免费开源工具。从 Unbound 开始，接下来是 Heat，然后是整个系列。
+hubSub = 免费开源工具。从 Unbound 开始，现在是 Heat —— 接下来是整个系列。
 hubReady = 已发布
 hubSoon = 即将推出
 hubGo = 访问网站
@@ -77,7 +77,7 @@ foot = 粉丝制作，与 Electronic Arts 或 Ghost Games 无关。Need for Spee
 hShots = 截图
 cLang = 14 种语言 —— 首次启动时选择你的语言。
 c1 = 你的歌曲和游戏曲目放在一起。
-c2 = 起步：Drop 正好落在 GO。终点：冲线后的一小段。
+c2 = 起步：GO! 之后马上进入 Drop。驶出车库：驶出时播放你选的那一段。
 c4 = 一个按钮 —— 模组就出现在 Frosty Mod Manager 列表中。
 cYt = 来自 YouTube 和 YT Music 的歌曲 —— 链接、播放列表或 .txt 列表。
 cSp = 也支持 Spotify —— 单曲、专辑或播放列表。音频来自 YouTube Music。

@@ -3,15 +3,15 @@
 
 # --- выпуск. released = no -> на первом экране «Скоро» вместо «Скачать», раздела «Что нового» нет.
 #     Выпускаем: released = yes, дата в versions, проверить version / size. ---
-released = no
+released = yes
 version = 1.0
-size = 62.4
+size = 39.0
 
 # --- «Что нового»: версии сверху вниз, через ; (версия дата). Текст каждой — в teksty\*.txt, ключ «log 1.0» ---
-versions = 1.0 2026-11-13
+versions = 1.0 2026-11-21
 
 # --- ссылки ---
-download = https://github.com/kotovskivan/HeatSoundtrack/releases/latest
+download = https://github.com/kotovskivan/HeatSoundtrack/releases/latest/download/HeatSoundtrack.zip
 github = https://github.com/kotovskivan/HeatSoundtrack
 fmm = https://github.com/HarGabt/FrostyToolsuite/releases
 key = https://www.nexusmods.com/needforspeedheat/mods/74
