@@ -28,7 +28,7 @@ unbound = https://kotovskivan.github.io/UnboundSoundtrack/
 guide =
 nfsmods =
 nfsaddons =
-nexus =
+nexus = https://www.nexusmods.com/needforspeedheat/mods/821
 # ролик YouTube на первом экране вместо скрина окна: ID ролика (после watch?v=) + обложка static\img\video.jpg (1280) и video-s.jpg (720)
 #   (i.ytimg.com/vi/<ID>/maxresdefault.jpg -> ffmpeg -q:v 4; пусто — справа скрин окна okno.jpg)
 youtube_video =
