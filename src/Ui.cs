@@ -367,7 +367,10 @@ static class Ui
             if (st.skipped.Contains(e.src, StringComparer.OrdinalIgnoreCase)) continue;
             var s = st.songs.FirstOrDefault(y => !y.draft && y.src != null && string.Equals(y.src, e.src, StringComparison.OrdinalIgnoreCase));
             if (s != null && s.noAudio) continue;   // freed on purpose: the window must not import it again by itself
-            string kind = s == null || s.asig != e.asig ? "new" : s.isig != e.isig ? "cover" : null;   // звук поменяли — заново, картинку — только обложку
+            // the audio may be gone without the flag: an older build rewrites settings.json and drops noAudio.
+            // A missing song.wav is the fact that matters, so it is checked here and the song is imported again.
+            bool lost = s != null && !File.Exists(Path.Combine(App.SongsDir, s.id, "song.wav"));
+            string kind = s == null || lost || s.asig != e.asig ? "new" : s.isig != e.isig ? "cover" : null;   // звук поменяли — заново, картинку — только обложку
             if (kind == null) continue;
             todo.Add(new Dictionary<string, object> { { "kind", kind }, { "id", s == null ? null : s.id }, { "src", e.src }, { "name", e.name }, { "image", e.image },
                 { "asig", e.asig }, { "isig", e.isig }, { "title", s == null ? null : s.title }, { "artist", s == null ? null : s.artist }, { "info", e.info } });
@@ -853,7 +856,7 @@ static class Ui
                 if (!Find.IsGame(st.gamePath)) throw new UserError("noGame");
                 if (!Find.IsFmm(st.fmmPath)) throw new UserError("noFmm");
                 var songs = Music.Ordered(st.songs.Where(s => !s.draft && s.Any()));   // в мод — только включенные; выключенные в игре и так не играют
-                int noAudio = songs.Count(x => x.noAudio);
+                int noAudio = songs.Count(x => x.noAudio || !File.Exists(Path.Combine(App.SongsDir, x.id, "song.wav")));
                 if (noAudio > 0) throw new UserError("noAudio", noAudio.ToString());   // the freed audio has to come back first (Space.Clean "restore")
                 w.Json(StartJob("build", new Dictionary<string, object> {
                     { "game", st.gamePath }, { "fmm", st.fmmPath }, { "fingerprint", Find.Fingerprint(st.gamePath) },
