@@ -335,7 +335,7 @@ static class Ui
     {
         return new Dictionary<string, object> {
             { "id", s.id }, { "title", s.title }, { "artist", s.artist }, { "file", s.file }, { "dur", s.dur }, { "drop", s.drop }, { "outro", s.outro }, { "cDur", s.cDur }, { "bFade", s.bFade }, { "bLevel", s.bLevel }, { "cFade", s.cFade }, { "cLevel", s.cLevel },
-            { "garage", s.garage }, { "cityDay", s.cityDay }, { "cityNight", s.cityNight }, { "raceDay", s.raceDay }, { "raceNight", s.raceNight }, { "added", s.added }, { "vol", s.vol }, { "lim", s.lim }, { "vsStart", s.vsStart }, { "vsFi", s.vsFi }, { "vsFo", s.vsFo }, { "vsOk", s.vsOk }, { "goOk", s.goOk }, { "audio", "/songs/" + s.id + "/song.wav" }, { "src", s.src },
+            { "garage", s.garage }, { "cityDay", s.cityDay }, { "cityNight", s.cityNight }, { "raceDay", s.raceDay }, { "raceNight", s.raceNight }, { "added", s.added }, { "vol", s.vol }, { "lim", s.lim }, { "vsStart", s.vsStart }, { "vsFi", s.vsFi }, { "vsFo", s.vsFo }, { "vsOk", s.vsOk }, { "goOk", s.goOk }, { "noAudio", s.noAudio }, { "audio", s.noAudio ? null : "/songs/" + s.id + "/song.wav" }, { "src", s.src },
             { "cover", s.cover ? "/songs/" + s.id + "/cover.png?v=" + s.added : null } };
     }
 
@@ -366,6 +366,7 @@ static class Ui
         {
             if (st.skipped.Contains(e.src, StringComparer.OrdinalIgnoreCase)) continue;
             var s = st.songs.FirstOrDefault(y => !y.draft && y.src != null && string.Equals(y.src, e.src, StringComparison.OrdinalIgnoreCase));
+            if (s != null && s.noAudio) continue;   // freed on purpose: the window must not import it again by itself
             string kind = s == null || s.asig != e.asig ? "new" : s.isig != e.isig ? "cover" : null;   // звук поменяли — заново, картинку — только обложку
             if (kind == null) continue;
             todo.Add(new Dictionary<string, object> { { "kind", kind }, { "id", s == null ? null : s.id }, { "src", e.src }, { "name", e.name }, { "image", e.image },
@@ -850,6 +851,8 @@ static class Ui
                 if (!Find.IsGame(st.gamePath)) throw new UserError("noGame");
                 if (!Find.IsFmm(st.fmmPath)) throw new UserError("noFmm");
                 var songs = Music.Ordered(st.songs.Where(s => !s.draft && s.Any()));   // в мод — только включенные; выключенные в игре и так не играют
+                int noAudio = songs.Count(x => x.noAudio);
+                if (noAudio > 0) throw new UserError("noAudio", noAudio.ToString());   // the freed audio has to come back first (Space.Clean "restore")
                 w.Json(StartJob("build", new Dictionary<string, object> {
                     { "game", st.gamePath }, { "fmm", st.fmmPath }, { "fingerprint", Find.Fingerprint(st.gamePath) },
                     { "songs", songs }, { "choice", st.choice }, { "preset", st.Active.name }, { "muteVo", st.muteVo }, { "out", Path.Combine(Find.ModsDir(st.fmmPath), "HeatSoundtrack.fbmod") } }).View());
