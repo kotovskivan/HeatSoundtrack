@@ -238,7 +238,12 @@ static class Ui
                     var wa = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea;
                     int w = Math.Max(800, Math.Min(1440, wa.Width - 40)), h = Math.Max(560, Math.Min(900, wa.Height - 30));
                     int x = wa.Left + Math.Max(0, (wa.Width - w) / 2), y = wa.Top + Math.Max(0, (wa.Height - h) / 2);
+                    // a separate --user-data-dir is not enough: Edge signs this profile in with the Windows account and syncs
+                    // the account's extensions into it -- 48 of them turned up in one install, and their popups and background
+                    // work get in the way of the window. This window is the program's own page, it needs no extensions and no
+                    // sync, so both are switched off.
                     Process.Start(new ProcessStartInfo(exe, "--app=" + url + " --user-data-dir=\"" + prof + "\" --no-first-run --no-default-browser-check --disable-features=Translate" +
+                        " --disable-sync --disable-extensions --disable-component-extensions-with-background-pages" +
                         " --window-size=" + w + "," + h + " --window-position=" + x + "," + y) { UseShellExecute = false });
                     winProfile = prof;
                     // WinIcon.Keep(Path.GetFileNameWithoutExtension(exe));   // 18.11 ОТКЛЮЧЕНО: WinIcon.cs поднимает VirusTotal 3/70 → 13/71 (Microsoft Wacatac!ml) — ждем вариант B от Unbound; файл — outputs/nfs-heat/pravki-pesochnicy/otlozheno/
