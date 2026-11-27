@@ -837,9 +837,11 @@ static class Ui
             case "/api/clean":
             {
                 // how much the encoded cache takes and a way to free it (Space.cs)
-                // { dry: true } -> { enc, audio, cover, total }; { what: "enc" | "all", ids: [..] } -> delete
+                // { dry: true } -> { enc, audio, cover, total }; { what: "enc" | "all" | "restore", ids: [..] }
                 var b = r.JsonBody(); object v; object idv;
                 if (b.TryGetValue("dry", out v) && v is bool && (bool)v) { w.Json(Space.Size()); return; }
+                // the worker is a separate process and holds no lock on enc\ — deleting it mid-build would break the job
+                if (job != null && !job.done) throw new UserError("busy");
                 string what = b.TryGetValue("what", out v) ? v as string : null;
                 var ids = b.TryGetValue("ids", out idv) && idv is System.Collections.IEnumerable && !(idv is string)
                     ? ((System.Collections.IEnumerable)idv).Cast<object>().Select(x => x as string).ToList() : null;
