@@ -605,6 +605,7 @@ body.wv-drag, body.wv-drag * { cursor: grabbing !important; }
         <a class="frosty" href="https://github.com/HarGabt/FrostyToolsuite"><span data-i18n="poweredBy"></span> <b>Frosty Mod Manager</b> ↗</a>
         <span class="brk"></span>
         <button class="frosty" id="logBtn"><b data-i18n="log"></b></button>
+        <button class="frosty" id="cleanBtn"><b data-i18n="cleanBtn"></b></button>
         <!-- Heat (13.11): своих страниц (сайт, Nexus, Steam-гайд, форма баг-репорта) пока нет — ссылки Unbound убраны; YouTube — канал Kitivski -->
         <a class="frosty" href="https://www.youtube.com/@kitivski"><b>YouTube</b> ↗</a>
       </div>
@@ -1304,6 +1305,28 @@ async function pickBrowser() {
   note(t("browserDone", { b: esc(b ? b.name : t("browserDef")) }));
   setTimeout(() => window.close(), 1500);   // окно --app закрывается; вкладку браузер может не дать закрыть — тогда видна подсказка
 }
+// free space: encoder output can be rebuilt on the next build, decoded audio on the next import
+$("cleanBtn").onclick = async () => {
+  if (playing) stopPreview();
+  const mb = b => b >= 1e9 ? (b / 1e9).toFixed(2) + " " + t("uGB") : Math.max(1, Math.round(b / 1e6)) + " " + t("uMB");
+  let sz;
+  try { sz = await api("/api/clean", { dry: true }); } catch (e) { return showError(e); }
+  const enc = sz.enc || 0, aud = sz.audio || 0, cov = sz.cover || 0;
+  const pick = await askYesNo({ title: t("cleanT"), tall: true, no: null,
+    buttons: [{ label: t("cleanEnc", { s: mb(enc) }), val: "enc" }, { label: t("cleanAll", { s: mb(aud) }), val: "all" }, { label: t("cancel"), val: false }],
+    html: `<p>${t("cleanHtml", { total: mb(enc + aud + cov), enc: mb(enc), audio: mb(aud) })}</p><p><small>${esc(t("cleanNote"))}</small></p>` });
+  if (!pick) return;
+  if (pick === "all" && !await askYesNo({ title: t("cleanT"), html: `<p>${esc(t("cleanAllOk", { s: mb(aud) }))}</p>`, yes: t("yes"), no: t("no") })) return;
+  showBusy(t("cleanT"), t("cleanWait"));
+  let r;
+  try { r = await api("/api/clean", { what: pick }); } catch (e) { hideBusy(); return showError(e); }
+  hideBusy();
+  const msg = [t("cleanDone", { s: mb(r.freed), n: r.songs })];
+  if (r.failed) msg.push(t("cleanFailed", { n: r.failed }));
+  if (r.skipped) msg.push(t("cleanSkipped", { n: r.skipped }));
+  note(msg.join(" · "));
+  if (pick === "all") await syncMusic();   // import them again right away
+};
 $("logBtn").onclick = () => api("/api/open", { what: "log" }).catch(() => {});
 
 // ---------- сборка ----------

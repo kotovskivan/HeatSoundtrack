@@ -833,6 +833,17 @@ static class Ui
                 w.Json(Spot.Find(b.TryGetValue("artist", out ar) ? ar as string : null, b.TryGetValue("title", out ti) ? ti as string : null,
                                  b.TryGetValue("dur", out du) && du != null ? Convert.ToDouble(du) : 0)); return;
             }
+            case "/api/clean":
+            {
+                // how much the encoded cache takes and a way to free it (Space.cs)
+                // { dry: true } -> { enc, audio, cover, total }; { what: "enc" | "all", ids: [..] } -> delete
+                var b = r.JsonBody(); object v; object idv;
+                if (b.TryGetValue("dry", out v) && v is bool && (bool)v) { w.Json(Space.Size()); return; }
+                string what = b.TryGetValue("what", out v) ? v as string : null;
+                var ids = b.TryGetValue("ids", out idv) && idv is System.Collections.IEnumerable && !(idv is string)
+                    ? ((System.Collections.IEnumerable)idv).Cast<object>().Select(x => x as string).ToList() : null;
+                w.Json(Space.Clean(what, ids)); return;
+            }
             case "/api/build":
             {
                 var st = Settings.Get();
