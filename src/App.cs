@@ -127,6 +127,7 @@ class Song
     public double cFade = 3, cLevel = 1;   // 16.11 (Ваня): затухание финиша, с (было всегда 3) и громкость в точке желтой ручки — зеркально нарастанию старта
     public double bLevel = 1;    // громкость в точке ручки (0…1): 1 — от ручки уже полная; ниже — от ручки до GO дорастает до полной («нарастание более флекс»)
     public string src, asig, isig;   // песня из папки Music: путь звука относительно Music, подписи звука и картинки (размер:время)
+    public bool noAudio;         // audio was deleted by "free space"; a build needs it back, the window restores it by importing again
     public long added;
     public string trackName;     // внутреннее имя в игре (ставит сборка: имя ассета звука и сегментов)
     public double[] iCuts;       // старт гонки (v2, 17.11): свои длины 4 кадров заставки + отсчета, с; null — Audio.I_CUTS

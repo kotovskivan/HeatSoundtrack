@@ -605,6 +605,7 @@ body.wv-drag, body.wv-drag * { cursor: grabbing !important; }
         <a class="frosty" href="https://github.com/HarGabt/FrostyToolsuite"><span data-i18n="poweredBy"></span> <b>Frosty Mod Manager</b> ↗</a>
         <span class="brk"></span>
         <button class="frosty" id="logBtn"><b data-i18n="log"></b></button>
+        <button class="frosty" id="cleanBtn"><b data-i18n="cleanBtn"></b></button>
         <!-- Heat (13.11): своих страниц (сайт, Nexus, Steam-гайд, форма баг-репорта) пока нет — ссылки Unbound убраны; YouTube — канал Kitivski -->
         <a class="frosty" href="https://www.youtube.com/@kitivski"><b>YouTube</b> ↗</a>
       </div>
@@ -1304,6 +1305,44 @@ async function pickBrowser() {
   note(t("browserDone", { b: esc(b ? b.name : t("browserDef")) }));
   setTimeout(() => window.close(), 1500);   // окно --app закрывается; вкладку браузер может не дать закрыть — тогда видна подсказка
 }
+// free space: the encoder output comes back on the next build, the decoded audio only when the user asks for it
+$("cleanBtn").onclick = async () => {
+  if (playing) stopPreview();
+  const mb = b => b >= 1e9 ? (b / 1e9).toFixed(2) + " " + t("uGB") : Math.max(1, Math.round(b / 1e6)) + " " + t("uMB");
+  let sz;
+  try { sz = await api("/api/clean", { dry: true }); } catch (e) { return showError(e); }
+  const enc = sz.enc || 0, aud = sz.audio || 0, cov = sz.cover || 0, marked = sz.marked || 0;
+  const btns = [];
+  if (marked) btns.push({ label: t("cleanRestoreN", { n: marked }), val: "restore" });
+  btns.push({ label: t("cleanEnc", { s: mb(enc) }), val: "enc" });
+  btns.push({ label: t("cleanAll", { s: mb(aud) }), val: "all" });
+  btns.push({ label: t("cancel"), val: false });
+  const pick = await askYesNo({ title: t("cleanT"), tall: true, no: null, buttons: btns,
+    html: `<p>${t("cleanHtml", { total: mb(enc + aud + cov), enc: mb(enc), audio: mb(aud) })}</p>`
+      + (marked ? `<p class="fp-st no">${esc(t("cleanMarked", { n: marked }))}</p>` : "")
+      + `<p><small>${esc(t("cleanNote"))}</small></p>` });
+  if (!pick) return;
+  if (pick === "all" && !await askYesNo({ title: t("cleanT"), html: `<p>${esc(t("cleanAllOk", { s: mb(aud) }))}</p>`, yes: t("yes"), no: t("no") })) return;
+  if (pick === "restore") {                    // the only path that imports the songs again
+    showBusy(t("cleanT"), t("cleanWait"));
+    let r;
+    try { r = await api("/api/clean", { what: "restore" }); } catch (e) { hideBusy(); return showError(e); }
+    hideBusy();
+    note(t("cleanRestored", { n: r.restored }));
+    await syncMusic();
+    return;
+  }
+  showBusy(t("cleanT"), t("cleanWait"));
+  let r;
+  try { r = await api("/api/clean", { what: pick }); } catch (e) { hideBusy(); return showError(e); }
+  hideBusy();
+  const msg = [t("cleanDone", { s: mb(r.freed), n: r.songs })];
+  if (r.failed) msg.push(t("cleanFailed", { n: r.failed }));
+  if (r.skipped) msg.push(t("cleanSkipped", { n: r.skipped }));
+  if (r.marked) msg.push(t("cleanMarkedAfter", { n: r.marked }));
+  note(msg.join(" · "));
+  // no syncMusic() here on purpose: after "all" the space has to stay free until «Restore audio» is pressed
+};
 $("logBtn").onclick = () => api("/api/open", { what: "log" }).catch(() => {});
 
 // ---------- сборка ----------
@@ -1408,6 +1447,7 @@ function openSong(song, file) {
   if (song && song.cover) { const im = new Image(); im.onload = () => { if (rp.song === song) { rp.img = im; drawCover(); showBody(); } }; im.src = song.cover; }
   drawCover();
   if (file) takeFile(file);
+  else if (song && song.noAudio) { layout(); wvMsg(t("noAudioMsg")); }
   else if (song) {
     layout(); wvMsg(t("decoding"));
     let pcm = null;   // PCM song.wav — для авто-куска выезда (как считает сборка)
